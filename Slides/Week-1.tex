@@ -1,0 +1,276 @@
+\documentclass[pdf, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 01}
+\author{Aryaman Maithani}
+\date[31-07-2019]{31st July 2019}
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Introduction}
+    \uncover<1->{Hello.}\\
+    \uncover<2->{I am Aryaman Maithani.}\\
+    \uncover<3->{I am from the Mathematics Department.}\\
+    \uncover<4->{Nice to meet you all.}\\
+    \uncover<5->{I will be your TA for the course MA 105.}\\
+    \uncover<6->{This is an extremely interesting course. You will be introduced to mathematical rigour. Do not fear this, try to appreciate the elegance behind it.}\\
+    \uncover<7->{The learning curve will be quite steep compared to any other course but do not fret; with sincere and regular efforts from your side, you should be able to understand the course quite well.}
+\end{frame}
+\begin{frame}{About the course policy}
+    Here is the course policy relevant to the tutorials -\\
+    There will be a quiz is almost all tutorials.\\
+    There will be total 12 quizzes in all.\\
+    The best 10 out of this 12 will be counted.\\
+    Due to this reason, there will be no re-quiz under any circumstances.\\
+    The quiz will begin sharp at 2:00 PM and end at 2:05 PM. For those who come later than 2:00 PM but before 2:05 PM, they can still take the quiz but will have limited time.\\
+    This quiz will also serve as your attendance. If you have taken the quiz, you are not allowed to leave the tutorial until it has ended.
+\end{frame}
+\begin{frame}{Expectations}
+    What we expect from you, before you come to the tutorial is the following:
+    \begin{enumerate}
+        \item You have read the lecture slides that have been uploaded up to that tutorial.
+        \item You have \emph{attempted} the questions that are to be discussed in the tutorials.
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Some elementary concepts}
+    \begin{defn}[Interval]
+        An interval $I$ is any subset of $\mathbb{R}$ with the following property:\\
+        \[x,\;y \in I,\; x < y \implies [x, y] \subset I.\]  
+    \end{defn}
+    \begin{defn}[Arbitrary intersection]
+        Given a collection of sets $\{A_i\}_{i \in I}$ where $I$ is any arbitrary nonempty set, we define the following intersection:
+        \[\bigcap_{i \in I}A_i = \{x | x \in A_i \quad \forall i \in I\}.\]
+        What this means is that $x$ will belong to the intersection if and only if it belongs to each set $A_i.$
+    \end{defn}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate} 
+        \item $+\infty$ and $-\infty$ are real numbers.\\
+        \uncover<2->{{\color[rgb]{1, 0, 0} False.} $\pm\infty$ are just symbols which have meaning depending on the context in which they are used. Nothing more.}
+        \item The set of all even natural numbers is bounded.\\
+        \uncover<3->{{\color[rgb]{1, 0, 0} False.} Given any $M \in \mathbb{R},$ by Archimedean property of real numbers, there exists $n \in \mathbb{N}$ such that $n > M.$ Thus, $2n > n > M$ and $2n \in$ set of all even numbers.}\\
+        \item The set $\{x\}$ is an open interval for every $x \in \mathbb{R}.$\\
+        \uncover<4->{{\color[rgb]{1, 0, 0} False.} Suppose not. Then $\{x\} = (a, b)$ for some $a, b\in \mathbb{R}.$} \uncover<5->{As $x$ belongs to $\{x\} = (a, b),$ we have it that $a < x.$} \uncover<6->{Choose any point $y \in \mathbb{R}$ such that $a < y < x.$ This belongs to $(a, b)$ but not $\{x\}.$}
+        \item The set $\{2/m\;:\;m\in\mathbb{N}\}$ is bounded above.\\
+        \uncover<7->{{\color[rgb]{0, 0, 1} True.} $m \ge 1 \implies 1/m \le 1 \implies 2/m \le 2.$ Thus, $2$ is an upper bound.}\\
+        \uncover<8->{Note: any number greater than $2$ is also an upper bound.}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate}
+        \setcounter{enumi}{4} 
+        \item The set $\{2/m : m\in\mathbb{N}\}$ is bounded below.\\
+        \uncover<2->{{\color[rgb]{0, 0, 1} True.} All elements of the set are positive. Thus, $0$ is a lower bound.}\\
+        \uncover<3->{Note: No lower bound of this set is actually in the set.}
+        \item Union of intervals is also an interval.\\
+        \uncover<4->{{\color[rgb]{1, 0, 0} False.} Let $A := (0, 1)$ and $B := (2, 3).$ $A$ and $B$ are intervals but $A \cup B$ is not.} \uncover<5->{(Why?)}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate}    
+        \setcounter{enumi}{6}  
+        \item Nonempty intersection of intervals is also an interval.\\
+        \uncover<2->{{\color[rgb]{0, 0, 1} True.} Let $\{A_i\}_{i \in I}$ be a collection of intervals where $I$ is some nonempty set. Let $N = \displaystyle\bigcap_{i\in I}A_i.$ We want to show that $N$ is an interval.}\\
+        \uncover<3->{If $N$ has just one element, then $N$ is trivially an (closed) interval. Assume that $N$ has more than one element.}\\
+        \uncover<4->{Let $x,\;z \in N$ such that $x < z.$ Let $y \in \mathbb{R}$ such that $x < y < z.$}
+        \uncover<5->{We need to show that $y \in N.$}\\
+        \uncover<6->{As $x,\;z\in N,$ this means that $x,\;z \in A_i$ for each $i \in I$.\\
+        As $A_i$ was in interval for each $i,$ we must have that $y \in A_i$ for each $i.$}\\
+        \uncover<7->{Thus, $y \in N.$ \hfill $\blacksquare$}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate}
+        \setcounter{enumi}{7} 
+        \item Nonempty intersection of open intervals is also an open interval.\\
+        \uncover<2->{{\color[rgb]{1, 0, 0} False.} Let $A_n = \left(-\frac{1}{n}, \frac{1}{n}\right)$ for every $n \in \mathbb{N}.$}\\
+        \uncover<3->{It is clear that $A_n$ is an open interval for every $n \in \mathbb{N}.$}\\
+        \uncover<4->{However, the intersection is $\displaystyle\bigcap_{n\in\mathbb{N}}A_n = \{0\}.$} \uncover<5->{(Why?)}\\
+        \uncover<6->{As shown before, $\{0\}$ is not an open interval.}\\
+        \uncover<7->{Note: In the case of finite intersection, the statement \textbf{\emph{is}} true.}\\
+        \uncover<8->{Note: In the previous proof, we had talked about arbitrary intersections. That is, the argument works for infinite intersections as well.}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate}
+        \setcounter{enumi}{9}
+        \item Nonempty finite intersection of closed intervals is also a closed interval.\\
+        \uncover<2->{{\color[rgb]{0, 0, 1} True.}}\\
+        \uncover<3->{Let $\{A_i\}_{i\in I}$ be a collection of closed intervals, where $I = \{1, 2, \ldots, n\}$ for some $n \in \mathbb{N}.$ }\\
+        \uncover<4->{As $A_i$ is a closed interval for every $i,$ $A_i = [a_i, b_i]$ for some collections $\{a_1, a_2, \ldots, a_n\}$ and $\{b_1, b_2, \ldots, b_n\}.$}\\
+        \uncover<5->{As the above collections are finite, $a = \max\{a_1, a_2, \ldots, a_n\}$ and $b = \max\{b_1, b_2, \ldots, b_n\}$ exist.}\\
+        \uncover<6->{As the intersection is supposed to be nonempty, we must have it that $a \le b.$} \uncover<7->{(Why?)}\\
+        \uncover<8->{The intersection of the sets is $\displaystyle\bigcap_{i = 1}^n A_i = [a, b],$ which is a closed interval.}\\
+        \uncover<9->{To show the above equality, one must show that each side is a subset of the other.}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    This is done in the following manner:\\
+    \uncover<2->{For the sake of convenience, let us define $S_1 := \displaystyle\bigcap_{i=1}^nA_1$ and $S_2 := [a, b].$}\\
+    \uncover<3->{Let $x \in S_1$ be given. We will try to show that $x$ must belong to $S_2.$}\\
+    \uncover<4->{$x \in S_1 \implies x \in A_i \quad \forall i \in I$} \uncover<5->{$\implies x \ge a_i \quad \forall i \in I$} \uncover<6->{$\implies x \ge a.$}\\
+    \uncover<7->{Similarly, one can show that $x \le b.$ Thus, we have it that $x \in [a, b] = S_2.$}\\
+    \uncover<8->{Therefore, we have shown that $S_1 \subset S_2.$}\\
+    \uncover<9->{The reverse containment is left as an exercise.}
+\end{frame}
+\begin{frame}{Sheet 0}
+    \begin{enumerate}
+        \setcounter{enumi}{8} 
+        \item Nonempty intersection of closed intervals is also a closed interval.\\
+        \uncover<2->{{\color[rgb]{0, 0, 1} True.}}\\
+        \uncover<3->{Note that the previous argument does not hold, though. This is because the collection of intervals need not be finite which means that the existence of minimum and maximum is not guaranteed, a priori.}\\
+        \uncover<4->{Note that we \textbf{\emph{cannot}} proceed by induction either.} \uncover<5->{(Why?)}
+        \uncover<6->{However, we can use similar ideas as before and proceed in that manner.}\\
+        \uncover<7->{Let $\{A_i\}_{i\in I}$ be a collection of closed intervals, where $I$ is any arbitrary nonempty set.}\\
+        \uncover<8->{As $A_i$ is a closed interval for every $i,$ $A_i = [a_i, b_i]$ for some collections $\{a_i\}_{i\in I}$ and $\{b_i\}_{i\in I}.$}\\
+        \uncover<9->{Note that $\{a_i\}_{i\in I}$ is a nonempty subset of $\mathbb{R}$ that is bounded above.} \uncover<10->{(By what?)}\\
+        \uncover<11->{Similarly, $\{b_i\}_{i\in I}$ is a nonempty subset of $\mathbb{R}$ that is bounded below.}\\
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Sheet 0}
+    Thus, we can define $a = \sup\{a_i | i \in I\}$ and $b = \sup\{b_i | i \in I\}.$
+    Like before, we must have $a \le b.$\\
+    Once again, we claim that $\displaystyle\bigcap_{i\in I}A_i = [a, b],$ which is a closed interval.
+
+    \begin{enumerate}
+        \setcounter{enumi}{10}
+        \uncover<2->{\item For every $x \in \mathbb{R},$ there exists a rational $r \in \mathbb{Q},$ such that $r > x.$}\\
+        \uncover<3->{{\color[rgb]{0, 0, 1} True.} Follows from the Archimedean property of real numbers and that $\mathbb{N} \subset \mathbb{Q}.$}
+        \uncover<2->{\item Between any two rational numbers there lies an irrational number.}\\
+        \uncover<4->{Let $p,\;q\in \mathbb{Q}$ such that $p < q.$}\\
+        \uncover<5->{Define $r := a + \dfrac{b-a}{\sqrt{2}}.$}
+        \uncover<6->{Show that $r \in \mathbb{R}\setminus\mathbb{Q}$ and that $p < r < q.$}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Recap - Convergence of a sequence}
+    \begin{defn}[Convergence of a sequence]
+        Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is convergent if there is a $a \in \mathbb{R}$ such that the following condition holds.\\
+        For every $\epsilon > 0,$ there is $n_0 \in \mathbb{N}$ such that $|a_n - a| < \epsilon$ for all $n \ge n_0.$
+    \end{defn}
+    In this case, we say that $(a_n)$ \textbf{converges} to $a,$ or that $a$ is \emph{a} limit of $(a_n),$ and we write 
+    \[\lim_{n\to \infty} a_n = a \text{ or } a_n \longrightarrow a \;(\text{as }n \longrightarrow \infty).\]
+    If a sequence doesn't converge, we say that the sequence \textbf{diverges} or that is is \textbf{divergent}.
+\end{frame}
+\begin{frame}{Sheet 1}
+    1. (i) $\displaystyle\lim_{n\to \infty}\dfrac{10}{n} = 0.$\\~\\
+    \uncover<2->{Let $\epsilon > 0$ be given.}
+    \uncover<3->{We must show that there exists $n_0 \in \mathbb{N}$ such that for all $n \ge n_0,$ the following is true: $\left|\dfrac{10}{n} - 0\right| < \epsilon.$}\\
+    \uncover<4->{$\left|\dfrac{10}{n} - 0\right| < \epsilon \iff \dfrac{10}{n} < \epsilon$} \uncover<5->{$\iff \dfrac{10}{\epsilon} < n.$}\\~\\
+    \uncover<6->{Let $n_0 = \fl{\dfrac{10}{\epsilon}} + 1.$}
+    \uncover<7->{It is clear that $n_0 > \dfrac{10}{\epsilon}.$\\ Moreover, for any $n \ge n_0,$ we will have $n > \dfrac{10}{\epsilon}.$}\\~\\
+    \uncover<8->{Thus, we have shown that for every $\epsilon > 0,$ there exists $n_0 \in \mathbb{N}$ such that $\left|\dfrac{10}{n}\right| < \epsilon$ for all $n \ge n_0.$ $\therefore \displaystyle\lim_{n\to \infty}\dfrac{10}{n} = 0.$}
+    
+\end{frame}
+\begin{frame}{Sheet 1}
+    1. (ii) $\displaystyle\lim_{n\to \infty}\dfrac{5}{3n+1} = 0$\\~\\
+    \uncover<2->{Let $\epsilon > 0$ be given.}
+    \uncover<3->{We must show that there exists $n_0 \in \mathbb{N}$ such that $\left|\dfrac{5}{3n+1} - 0\right| < \epsilon$ for all $n \ge n_0.$}\\
+    \uncover<4->{$$\left|\dfrac{5}{3n+1} - 0\right| < \epsilon \iff \dfrac{5}{3n+1}< \epsilon \iff \dfrac{1}{3}\left(\dfrac{5}{\epsilon} - 1\right) < n.$$}
+    \uncover<5->{Thus, we can choose any $n_0 > \frac{1}{3}\left(\frac{5}{\epsilon}-1\right).$}\\~\\
+    \uncover<6->{One such choice is $n_0 = \max\left\{1, \fl{\frac{1}{3}\left(\frac{5}{\epsilon}-1\right)}\right\}+1.$}\\
+    \uncover<7->{Note: The choice of $n_0$ is not unique. Our choice of $n_0$ might not be the smallest but that is okay.}
+\end{frame}
+\begin{frame}{Sheet 1}
+    1. (iii) $\displaystyle\lim_{n\to \infty}\dfrac{n^{2/3}\sin(n!)}{n+1}=0.$\\~\\
+    \uncover<2->{Let $\epsilon > 0$ be given.}
+    \uncover<3->{We must show that there exists $n_0 \in \mathbb{N}$ such that $\left|\dfrac{n^{2/3}\sin(n!)}{n+1} - 0\right| < \epsilon$ for all $n \ge n_0.$}\\
+    \uncover<4->{$\left|\dfrac{n^{2/3}\sin(n!)}{n+1} - 0\right| < \epsilon \iff \left|\dfrac{n^{2/3}\sin(n!)}{n+1}\right| < \epsilon$} \uncover<5->{{\color[rgb]{1, 0, 0} $\impliedby$} $\left|\dfrac{n^{2/3}}{n+1}\right| < \epsilon$}\\~\\
+    \uncover<5->{Note the direction of implication of the red arrow. We have used the fact that $|\sin x| < 1$ for all real $x.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+    \uncover<1->{$\left|\dfrac{n^{2/3}}{n+1}\right| < \epsilon \impliedby \left|\dfrac{n^{2/3}}{n}\right| < \epsilon$} \uncover<2->{$\iff \dfrac{1}{n^{1/3}} < \epsilon \iff \dfrac{1}{\epsilon^3} < n.$}\\~\\
+    \uncover<3->{Thus, we can choose $n_0 = \fl{\dfrac{1}{\epsilon^3}} + 1.$}\\~\\
+    \uncover<4->{By our arrows of implication, it can be seen that for $n \ge n_0,$ the desired inequality holds.}
+\end{frame}
+\begin{frame}{Sheet 1}
+    1. (iv) $\displaystyle\lim_{n\to \infty}\left(\dfrac{n}{n+1} - \dfrac{n+1}{n}\right) = 0$\\
+    \uncover<1->{Let $\epsilon > 0$ be given.}
+    \uncover<1->{We must show that there exists $n_0 \in \mathbb{N}$ such that $\left|\dfrac{n^{2/3}\sin(n!)}{n+1} - 0\right| < \epsilon$ for all $n \ge n_0.$}\\
+    \uncover<2->{Observe the following:}\\
+    \uncover<3->{$\left|\dfrac{n}{n+1} - \dfrac{n+1}{n}\right| = \left|1 - \dfrac{1}{n+1} - 1 - \dfrac{1}{n}\right| = \left| - \dfrac{1}{n+1} - \dfrac{1}{n}\right|$}\\
+    \uncover<4->{$=\dfrac{1}{n+1} + \dfrac{1}{n} < \dfrac{2}{n}$}\\
+    Thus, if we choose $n_0 = \fl{\dfrac{2}{\epsilon}} + 1,$ we have it that the desired inequality holds.
+\end{frame}
+%\begin{frame}{Sandwich Theorem}
+%    Let $(a_n),\;(b_n),\;(c_n)$ be sequences of natural numbers. Suppose that $a_n \le b_n \le c_n$ for all $n$ after some $n_0 \in \mathbb{N}.$ \uncover<2->{Moreover, assume that $(a_n)$ and $(c_n)$ are convergent, such that $\displaystyle\lim_{n\to \%infty}a_n = \lim_{n\to \infty}c_n = L \in \mathbb{R}.$}\\
+%    \uncover<3->{Then, the sequence $(b_n)$ is also convergent and $\displaystyle\lim_{n\to \infty}b_n = L.$}
+%\end{frame}
+%\begin{frame}{Sheet 1}
+%    2. (i) Let $S_n := \dfrac{n}{n^2+1} + \dfrac{n}{n^2 + 2} + \cdots + \dfrac{n}{n^2 + n}.$\\~\\
+%    \uncover<2->{Define $T_n := \dfrac{n}{n^2+1} + \dfrac{n}{n^2 + 1} + \cdots + \dfrac{n}{n^2 + 1}$}\\~\\
+%    \uncover<3->{and $R_n:= \dfrac{n}{n^2+n} + \dfrac{n}{n^2 + n} + \cdots + \dfrac{n}{n^2 + n}.$}\\~\\
+%    \uncover<4->{Note that $T_n \le S_n \le R_n \quad \forall n \in \mathbb{N}.$} \uncover<5->{(Why)?}\\
+    
+%\end{frame}
+\begin{frame}{Sheet 1}
+    3. (i) To show: $\left\{\dfrac{n^2}{n+1}\right\}_{n \ge 1}$ is \emph{not} convergent.\\~\\
+    \uncover<2->{We will use the fact that convergent sequences are bounded. We will try to show that the sequence given is not bounded. That would imply that the sequence does not converge.} \uncover<3->{(Why?)}\\
+    \uncover<4->{\[\dfrac{n^2}{n+1} > \dfrac{n^2-1}{n+1} = \dfrac{(n-1)(n+1)}{n+1} = n - 1\]}
+    \uncover<5->{Thus, the sequence given is bounded below by $n-1,$ but by Archimedean property, we know that $n-1$ is not bounded above. Thus, our sequence is not bounded (above). As a result, it is not convergent. \hfill $\blacksquare$}
+\end{frame}
+\begin{frame}{Sheet 1}
+    3. (ii) To show: $\left\{(-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right)\right\}_{n \ge 1}$ is \emph{not} convergent.\\~\\
+    \uncover<2->{We will use the following two results: }\uncover<3->{(a) Sum of convergent sequences is convergent. }\uncover<4->{(b) The sequence $\{(-1)^n\}_{n\ge1}$ is not convergent.}\\
+    \uncover<5->{We now proceed as follows:}\\
+    \uncover<6->{$a_n := (-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right) = \dfrac{(-1)^n}{2} - \dfrac{(-1)^n}{n}.$}\\~\\
+    \uncover<7->{It is easy to show that $b_n := \dfrac{(-1)^n}{n}$ is convergent. (Its absolute value will behave the same way as $1/n.$)}\\
+    \uncover<8->{Now, for the sake of contradiction, let us assume that $(a_n)$ converges. Then, by (a), we have it that $c_n := a_n + b_n = \dfrac{(-1)^n}{2}$ must be convergent.}\\
+    \uncover<9->{However, $(c_n)$ converging is equivalent to $\{(-1)^n\}_{n\ge1}$ converging.} \uncover<10->{(Why?)}\\
+    \uncover<10->{However, by (b), we know that the above is false. Thus, we have arrived at a contradiction.}
+\end{frame}
+\begin{frame}{Sheet 1}
+    6. Given $\displaystyle\lim_{n\to \infty}a_n = L,$ we need to find $\displaystyle\lim_{n\to \infty}a_{n+1}.$\\
+    \uncover<2->{In other words, if we define $b_n := a_{n+1},$ we find the limit of $(b_n),$ if it exists.}\\
+    \uncover<3->{Let $\epsilon > 0$ be given. As $(a_n)$ is convergent, there exists $n_1 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ for all $n \ge n_1.$ \hfill (1)}\\
+    \uncover<4->{Choose $n_0 = n_1,$ then, for any $n \ge n_0,$ we have that $|b_n - L| = |a_{n+1} - L| < \epsilon.$ \hfill (2)}\\
+    \uncover<5->{The last inequality is due to the following:}\\
+    \uncover<6->{$n+1 > n \ge n_0 = n_1$ and using (1).}\\
+    \uncover<7->{Thus, by (2), we have shown that $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}a_{n+1} = L.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+    6. Given $\displaystyle\lim_{n\to \infty}a_n = L,$ we need to find $\displaystyle\lim_{n\to \infty}|a_n|.$\\
+    \uncover<2->{Like before, let us define $b_n := |a_n|.$} \uncover<3->{It seems reasonable to guess that the limit must $|L|,$ let us try to prove that.}\\
+    \uncover<4->{Let $\epsilon > 0$ be given. As $(a_n)$ is convergent, there exists $n_1 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ for all $n \ge n_1.$ \hfill (1)}\\
+    \uncover<5->{Choose $n_0 = n_1,$ then, for any $n \ge n_0,$ we have that $|b_n - |L|| = |\;|a_n| - |L|\;| \le |a_n - L| < \epsilon.$ \hfill (2)}\\
+    \uncover<6->{The last inequality is due to the following:}\\
+    \uncover<6->{$|\;|x| - |y|\;| \le |x - y|$ for all $x,\;y \in \mathbb{R}$ and using (1).}\\
+    \uncover<7->{Thus, by (2), we have shown that $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}|a_n| = L.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+    7. If $\displaystyle\lim_{n\to \infty}a_n = L \neq 0,$ show that there exists $n_0 \in \mathbb{N}$ such that
+    \[|a_n| \ge \dfrac{|L|}{2} \quad \text{ for all } n \ge n_0.\]
+    \uncover<2->{Let us choose $\epsilon = \dfrac{|L|}{2}.$} \uncover<3->{(Why is this a valid choice of $\epsilon?$)}\\
+    \uncover<4->{By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$}\\
+    \begin{align*}
+        \uncover<5->{&|a_n - L| < \epsilon & \forall n \ge n_0}\\
+        \uncover<6->{\implies& ||a_n| - |L|| < \epsilon & \forall n \ge n_0}\\
+        \uncover<7->{\implies& -\epsilon < |a_n| - |L| < \epsilon & \forall n \ge n_0}\\
+        \uncover<8->{\implies& |L| - \epsilon < |a_n|  & \forall n \ge n_0}\\
+        \uncover<9->{\implies& \dfrac{|L|}{2} < |a_n|  & \forall n \ge n_0}
+    \end{align*}
+\end{frame}
+\begin{frame}{Sheet 1}
+    8. If $a_n \ge 0$ and $\displaystyle\lim_{n\to \infty}a_n = 0,$ show that $\lim_{n\to \infty}a_n^{1/2} = 0.$\\
+    \uncover<2->{Let $\epsilon>0$ be given. This means that $\epsilon^2 > 0.$ }\\
+    \uncover<3->{By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - 0| = a_n < \epsilon^2$ for all $n \ge n_0.$ }\\
+    \uncover<4->{Thus, $|a_n^{1/2} - 0| = a_n^{1/2} < \epsilon$ for all $n \ge n_0.$ }\\
+    \uncover<5->{By definition of limit, we have shown that $\displaystyle\lim_{n\to \infty}a_n^{1/2} = 0.$ \hfill $\blacksquare$}\\~\\
+    \uncover<6->{At what place(s) did we use that $a_n \ge 0?$}\\~\\
+    \uncover<7->{Hint for \textbf{optional:} Use the inequality $\left|\sqrt[n]{a} - \sqrt[n]{b}\right| \le \sqrt[n]{|a - b|}$ for $n \in \mathbb{N}.$ }
+\end{frame}
+\begin{frame}{Sheet 1}
+    9. (i) $\{a_nb_n\}_{n\ge1}$ is convergent, if $\{a_n\}_{n\ge1}$ is convergent.\\
+    \phantom{9. } (ii) $\{a_nb_n\}_{n\ge1}$ is convergent, if $\{a_n\}_{n\ge1}$ is convergent and $\{b_n\}_{n\ge1}$ is bounded.\\~\\
+    \uncover<2->{Both are {\color[rgb]{1, 0, 0} false.}}\\
+    \uncover<3->{The sequences, $a_n := 1\quad \forall n \in \mathbb{N}$ and $b_n := (-1)^n \quad \forall n \in \mathbb{N}$ act as a counterexample for both the statements.}
+\end{frame}
+\end{document}

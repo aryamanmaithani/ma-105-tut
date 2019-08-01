@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{50, 50, 50} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{titlesec}
+\titleformat{\section}[block]
+  {\normalfont\scshape}{}{0.25cm}{\large}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Extra Questions for MA 105}
+\author{Aryaman Maithani}
+\date{Semester: Autumn 2019}
+
+\begin{document}
+\maketitle
+\hrulefill
+
+Notation:\\
+$\mathbb{N} = \{1,\; 2,\; \ldots\}$ denotes the set of natural numbers.\\
+$\mathbb{Q}$ denotes the set of rational numbers.\\
+$\mathbb{R}$ denotes the set of real numbers.
+\section{Week 1}
+\begin{enumerate}
+	\item Let $f$ be any bijection from $\mathbb{N}$ to $\mathbb{Q} \cap [0,\; 1].$\\
+	Define the sequence $(a_n)$ of real numbers as: $a_n := f(n) \quad \forall n \in \mathbb{N}.$\\
+	Prove that $(a_n)$ diverges or find an example of $f$ such that $(a_n)$ converges.
+	%
+	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{slack-convergent} if there is an $a \in \mathbb{R}$ such that the following condition holds.\\
+	For every $\epsilon > 0,$ there is $n_0 \in \mathbb{N}$ such that $|a_n - a| \le \epsilon$ for all $n \ge n_0.$\\
+	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is slack-convergent.\\~\\
+	\textbf{(Additional)} What happens if we change $n \ge n_0$ to $n > n_0?$
+	%
+	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{reciprocal-convergent} if there is an $a \in \mathbb{R}$ such that the following condition holds.\\
+	For every $\epsilon > 0,$ there is $n_0 \in \mathbb{N}$ such that $|a_n - a| < 1/\epsilon$ for all $n \ge n_0.$\\
+	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is reciprocal-convergent.
+	%
+	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{natural-convergent} if the following condition holds.\\
+	For every $k \in \mathbb{N},$ $\displaystyle\lim_{n\to \infty}|a_{n+k} - a_n| = 0.$\\
+	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is natural-convergent.
+	%
+	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{weirdly-convergent} if there is an $a \in \mathbb{R}$ such that the following condition holds.\\
+	For every $\epsilon > 0,$ there is $n_0 \in \mathbb{N}$ such that $|a_n - a| < \epsilon$ for infinitely many $n \ge n_0.$\\
+	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is weirdly-convergent.
+	%
+	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{reverse-convergent} if there is an $a \in \mathbb{R}$ such that the following condition holds.\\
+	For every $n_0 \in \mathbb{N},$ there is $\epsilon > 0$ such that $|a_n - a| < \epsilon$ for all $n \ge n_0.$\\
+	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is reverse-convergent.
+\end{enumerate}
+For the question(s) in which the implication does not hold in both directions, does it hold in any? If yes, which?
+\end{document}

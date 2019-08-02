@@ -1,4 +1,4 @@
-\documentclass[pdf, aspectratio=169]{beamer}
+\documentclass[handout, aspectratio=169]{beamer}
 \mode<presentation>{}
 \usepackage[utf8]{inputenc}
 \newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
@@ -107,7 +107,7 @@
         \uncover<2->{{\color[rgb]{0, 0, 1} True.}}\\
         \uncover<3->{Let $\{A_i\}_{i\in I}$ be a collection of closed intervals, where $I = \{1, 2, \ldots, n\}$ for some $n \in \mathbb{N}.$ }\\
         \uncover<4->{As $A_i$ is a closed interval for every $i,$ $A_i = [a_i, b_i]$ for some collections $\{a_1, a_2, \ldots, a_n\}$ and $\{b_1, b_2, \ldots, b_n\}.$}\\
-        \uncover<5->{As the above collections are finite, $a = \max\{a_1, a_2, \ldots, a_n\}$ and $b = \max\{b_1, b_2, \ldots, b_n\}$ exist.}\\
+        \uncover<5->{As the above collections are finite, $a = \max\{a_1, a_2, \ldots, a_n\}$ and $b = \min\{b_1, b_2, \ldots, b_n\}$ exist.}\\
         \uncover<6->{As the intersection is supposed to be nonempty, we must have it that $a \le b.$} \uncover<7->{(Why?)}\\
         \uncover<8->{The intersection of the sets is $\displaystyle\bigcap_{i = 1}^n A_i = [a, b],$ which is a closed interval.}\\
         \uncover<9->{To show the above equality, one must show that each side is a subset of the other.}
@@ -137,7 +137,7 @@
     \end{enumerate}
 \end{frame}
 \begin{frame}{Sheet 0}
-    Thus, we can define $a = \sup\{a_i | i \in I\}$ and $b = \sup\{b_i | i \in I\}.$
+    Thus, we can define $a = \sup\{a_i | i \in I\}$ and $b = \inf\{b_i | i \in I\}.$
     Like before, we must have $a \le b.$\\
     Once again, we claim that $\displaystyle\bigcap_{i\in I}A_i = [a, b],$ which is a closed interval.
 

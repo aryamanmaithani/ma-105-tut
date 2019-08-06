@@ -1,0 +1,276 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 02}  % change
+\author{Aryaman Maithani}
+\date[07-08-2019]{7th August, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}{Sheet 1}
+    2. (i) Let $S_n := \dfrac{n}{n^2+1} + \dfrac{n}{n^2 + 2} + \cdots + \dfrac{n}{n^2 + n}.$\\~\\
+    \uncover<2->{Define $T_n := \dfrac{n}{n^2+1} + \dfrac{n}{n^2 + 1} + \cdots + \dfrac{n}{n^2 + 1}$}\\~\\
+    \uncover<3->{and $R_n:= \dfrac{n}{n^2+n} + \dfrac{n}{n^2 + n} + \cdots + \dfrac{n}{n^2 + n}.$}\\~\\
+    \uncover<4->{Note that $R_n \le S_n \le T_n \quad \forall n \in \mathbb{N}.$} \uncover<5->{(Why?)}\\
+    \uncover<6->{Also, $T_n = \dfrac{n^2}{n^2+1}$ and $R_n = \dfrac{n^2}{n^2+n}.$}\\~\\
+    \uncover<7->{Observe that $\displaystyle\lim_{n\to \infty}T_n = \lim_{n\to \infty}R_n = 1.$} \uncover<8->{(Why?)}\\~\\
+    \uncover<9->{Thus, by Sandwich Theorem, $\displaystyle\lim_{n\to \infty}S_n$ exists and is equal to $1.$ }
+\end{frame}
+
+\begin{frame}{Sheet 1}
+	2. (ii) To find: $\displaystyle\lim_{n\to \infty}\dfrac{n!}{n^n}.$\\~\\
+	\uncover<2->{Observe the following for $n > 2:$}\\
+	\uncover<3->{\[a_n = \dfrac{n!}{n^n} = \dfrac{1}{n}\cdot\dfrac{2}{n}\cdots\dfrac{n-1}{n} < \dfrac{1}{n}\cdot1\cdots1 = \dfrac{1}{n}\] }
+	\uncover<4->{Thus, $a_n < \dfrac{1}{n}$ for $n > 2.$ Moreover, $a_n > 0$ for all $n \in \mathbb{N}.$}\\~\\
+	\uncover<5->{\[\therefore 0 < a_n < \dfrac{1}{n} \quad \forall n > 2.\]}
+	\uncover<6->{As $\displaystyle\lim_{n\to \infty}\dfrac{1}{n} = 0,$ we have it that $\displaystyle\lim_{n\to \infty}a_n = 0,$ by Sandwich Theorem.}
+\end{frame}
+
+\begin{frame}{Sheet 1}
+	2. (iii) $\displaystyle\lim_{n\to \infty}\left(\dfrac{n^3 + 3n^2 + 1}{n^4 + 8n^2 + 2}\right)$\\
+	\uncover<2->{Argue from $a_n = \left(\dfrac{n^3 + 3n^2 + 1}{n^4 + 8n^2 + 2}\right) < \left(\dfrac{n^3 + 3n^2 + 1}{n^4}\right) = \dfrac{1}{n} + \dfrac{3}{n^2} + \dfrac{1}{n^4}$ and $a_n > 0.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+	2. (iv) $\displaystyle\lim_{n\to \infty}(n)^{1/n}.$\\~\\
+	\uncover<2->{Define $h_n := n^{1/n} - 1.$}\\
+	\uncover<3->{Then, $h_n \ge 0 \quad \forall n \in \mathbb{N}.$ } \uncover<4->{(Why?)}\\
+	\uncover<5->{Observe the following for $n > 2:$ }\\~\\
+	\uncover<6->{$n = (1 + h_n)^n > 1 + nh_n + \dbinom{n}{2}h_n^2$}\uncover<7->{$> \dbinom{n}{2}h_n^2 = \dfrac{n(n-1)}{2}h_n^2.$}\\~\\
+	\uncover<8->{Thus, $h_n < \sqrt{\dfrac{2}{n-1}} \quad \forall n > 2.$}\\~\\
+	\uncover<9->{Using Sandwich Theorem, we get that $\displaystyle\lim_{n\to \infty}h_n = 0$ which gives us that $\displaystyle\lim_{n\to \infty}n^{1/n} = 1.$ }\\~\\
+	\uncover<10->{Where did we use that $h_n \ge 0?$}
+\end{frame}
+\begin{frame}{Sheet 1}
+	2. (v) $\displaystyle\lim_{n\to \infty}\left(\dfrac{\cos \pi\sqrt{n}}{n^2}\right)$\\~\\
+	\uncover<2->{For all $n \in \mathbb{N},$ we have that $-1 \le \cos(\pi\sqrt{n}) \le 1.$ }\\~\\
+	\uncover<3->{Thus, $\dfrac{-1}{n^2} \le \dfrac{\cos \pi\sqrt{n}}{n^2} \le \dfrac{1}{n^2} \quad \forall n \in \mathbb{N}.$ }\\~\\
+	\uncover<4->{Use Sandwich Theorem to argue that $\displaystyle\lim_{n\to \infty}\dfrac{\cos \pi\sqrt{n}}{n^2} = 0.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+	2. (vi) $\displaystyle\lim_{n\to \infty}(\sqrt{n}(\sqrt{n+1} - \sqrt{n}))$\\~\\
+	\uncover<2->{Observe that $a_n = \sqrt{n}(\sqrt{n+1} - \sqrt{n}) = \sqrt{n}(\sqrt{n+1} - \sqrt{n})\cdot\dfrac{(\sqrt{n+1} + \sqrt{n})}{(\sqrt{n+1} + \sqrt{n})} = \dfrac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n}}.$}\\~\\
+	\uncover<3->{Thus, $a_n < \dfrac{\sqrt{n}}{\sqrt{n} + \sqrt{n}} = \dfrac{1}{2}.$ }\\~\\
+	\uncover<4->{Also, $a_n > \dfrac{\sqrt{n}}{\sqrt{n+1} + \sqrt{n+1}} = \dfrac{1}{2}\sqrt{\dfrac{n}{n+1}} = \dfrac{1}{2}\sqrt{1 - \dfrac{1}{n+1}} \ge \dfrac{1}{2}\left(1 - \dfrac{1}{\sqrt{n+1}}\right).$ }\\~\\
+	\uncover<5->{Therefore, we have shown that $\dfrac{1}{2}\left(1 - \dfrac{1}{\sqrt{n+1}}\right) < a_n < \dfrac{1}{2}.$ }\\~\\
+	\uncover<6->{Use Sandwich Theorem to argue that $\displaystyle\lim_{n\to \infty}a_n = \dfrac{1}{2}.$}
+\end{frame}
+\begin{frame}{Sheet 1}
+	4. (i) Determine whether $\left\{\dfrac{n}{n^2 + 1}\right\}_{n \ge 1}$ is increasing or decreasing.\\~\\
+	\uncover<2->{Let $a_n$ denote the sequence. }\\
+	\uncover<3->{$a_{n+1} - a_n = \dfrac{(n+1)}{(n+1)^2 + 1} - \dfrac{n}{n^2 + 1} = \dfrac{(n+1)(n^2 + 1) - n\left((n+1)^2 - 1\right)}{\left((n+1)^2 + 1\right)(n^2 + 1)}$ }\\~\\
+	\uncover<4->{$a_{n+1} - a_n = \dfrac{-n^2 - n + 1}{\left((n+1)^2 + 1\right)(n^2 + 1)} < 0.$ }\\~\\
+	\uncover<5->{$\therefore a_{n+1} < a_n,$ that is, $a_n$ is a decreasing sequence. }
+\end{frame}
+\begin{frame}{Sheet 1}
+	4. (ii) $a_n = \dfrac{2^n3^n}{5^{n+1}}.$\\~\\
+	\uncover<2->{$a_{n+1} = \dfrac{2^{n+1}3^{n+1}}{5^{n+2}} = \dfrac{6}{5}a_n.$ }\\~\\
+	\uncover<3->{$\implies a_{n+1} - a_n = \dfrac{1}{5}a_n > 0.$ }\\~\\
+	\uncover<4->{Thus, $a_n$ is an increasing sequence. }
+\end{frame}
+\begin{frame}{Sheet 1}
+	4. (iii) $a_n = \dfrac{1 - n}{n^2}$ for $n \ge 2.$\\~\\
+	\uncover<2->{$a_{n+1} - a_n = \dfrac{1-(n+1)}{(n+1)^2} - \dfrac{1-n}{n^2} = \dfrac{n-1}{n^2} - \dfrac{n}{(n+1)^2}$ }\\~\\
+	\uncover<3->{$a_{n+1} - a_n = \dfrac{(n^2 - n - 1)}{n^2(n+1)^2}$ }\\~\\
+	\uncover<4->{The numerator factors as $(n - \phi)(n + 1/\phi)$ where $1 < \phi < 2.$ Thus, for $n \ge 2,$ the numerator is positive. Thus, the given sequence is increasing. }
+\end{frame}
+\begin{frame}{Sheet 1}
+	5. (i) $a_1 = 1,\; a_{n+1} = \dfrac{1}{2}\left(a_n + \dfrac{2}{a_n}\right) \quad \forall n \ge 1.$\\~\\
+	\uncover<2->{Claim 1. $a_n > 0 \quad \forall n \in \mathbb{N}.$ }\\
+	\uncover<3->{\emph{Proof. }This can be easily seen via induction. Details are left to the reader. }\\~\\
+	\uncover<4->{Claim 2. $a_n^2 > 2 \quad \forall n \ge 2.$ }\\
+	\uncover<5->{\emph{Proof. }We shall prove this via induction. The base case $n = 2$ is immediate as $a_n = 3/2.$ }\\
+	\uncover<6->{Assume that it holds for $n=k.$ }\\~\\
+	\uncover<7->{$a_{k+1}^2 - 2 = \dfrac{1}{4}\left(a_k + \dfrac{2}{a_k}\right)^2 - 2 = \dfrac{(a_k^2 - 2)^2}{4a_k^2}$ }\\
+	\uncover<8->{$(a_k^2 - 2) \neq 0$ by induction hypothesis and thus, $a_{k+1}^2 - 2 > 0.$ Therefore, by principle of mathematical induction, we have proven our claim. \hfill $\blacksquare$ }
+\end{frame}
+\begin{frame}{Sheet 1}
+	Claim 3. $a_{n + 1} < a_n \quad \forall n \ge 2.$\\
+	\uncover<2->{\emph{Proof. }Observe that $a_{n+1} - a_n = \dfrac{2-a_n^2}{2a_n}.$ }\\
+	\uncover<3->{The quantity on the right is negative, using Claim 1 and Claim 2. }\\
+	\uncover<4->{Thus, $a_{n+1} < a_n.$ \hfill $\blacksquare$ }\\
+	\uncover<5->{We have shown that the sequence is \emph{eventually} monotonically decreasing. Also, it is bounded below, by Claim 1. Thus, the limit $\displaystyle\lim_{n\to \infty}a_n$ exists. Let $L (\in \mathbb{R})$ denote this limit. }\\
+	\uncover<6->{Note: We are assuming that an \emph{eventually} monotonic bounded sequence is also convergent. }\\
+	\uncover<7->{Thus, $\displaystyle\lim_{n\to \infty}a_{n+1} = \lim_{n\to \infty}\dfrac{1}{2}\left(a_n + \dfrac{2}{a_n}\right).$ }\\
+	\uncover<8->{We had shown that $\displaystyle\lim_{n\to \infty}a_{n+1} = \lim_{n\to \infty}a_n.$ Using that and other limit properties, we get that $L^2 = 2.$ Thus, $L$ must be $\sqrt{2} > 0.$ }\uncover<9->{(Why not $-\sqrt{2}?$) }
+\end{frame}
+\begin{frame}{Sheet 1}
+	5. (ii) $a_1 = \sqrt{2},\;a_{n+1} = \sqrt{2 + a_n} \quad \forall n \ge 1.$\\
+	\uncover<2->{Claim 1. $a_n > 0 \quad \forall n \in \mathbb{N}.$ }\\
+	\uncover<3->{\emph{Proof. }This can be easily seen via induction. Details are left to the reader. }\\~\\
+	\uncover<4->{Claim 2. $a_n < 2 \quad \forall n \in \mathbb{N}.$ }\\
+	\uncover<5->{\emph{Proof.}  We shall prove this via induction. The base case $n = 1$ is immediate as $\sqrt{2} < 2.$}\\
+	\uncover<6->{Assume that it holds for $n = k.$ }\\
+	\uncover<7->{$a_{k+1}^2 - 4 = \left(\sqrt{a_k + 2}\right)^2 - 4 = a_k + 2 - 4 = a_k - 2.$ }\\
+	\uncover<8->{But $a_k - 2 < 0$ by induction hypothesis. Thus, $a_{k+1}^2 < 4$ or $a_{k+1} < 2.$ By principle of mathematical induction, we have proven the claim. \hfill $\blacksquare$ }\\~\\
+	\uncover<9->{Claim 3. $a_n < a_{n+1} \quad \forall n \in \mathbb{N}.$ }\\
+	\uncover<10->{\emph{Proof.} $a_{n+1}^2 - a_n^2 = 2 + a_n - a_n^2 = (2 - a_n)(1 + a_n) > 0.$ }\\
+	\uncover<11->{The last inequality is by the help of Claims 1 and 2. }
+\end{frame}
+\begin{frame}{Sheet 1}
+	Thus, we have $a_{n+1}^2 > a_n^2.$ Using Claim 1, we can conclude that $a_{n+1} > a_n.$ \hfill $\blacksquare$\\
+	\uncover<2->{By Claims 1 and 2, we have it that the sequence is bounded. By Claim 3, we have it that the sequence is monotone. Therefore, the sequence must converge. Let the limit be $L (\in \mathbb{R}).$ }\\
+	\uncover<3->{Taking limit on both sides of the recursive definition gives us $L = \sqrt{2 + L}.$ Thus, $L^2 = 2+L$ or $(L-2)(L+1)=0.$ }\\
+	\uncover<4->{Note that $L$ cannot be $-1.$ }\uncover<5->{(Why?) }\\
+	\uncover<6->{$\therefore L = 2.$ }
+\end{frame}
+\begin{frame}{Sheet 1}
+	5. (iii) $a_1 = \sqrt{2},\;a_{n+1} = 3 + \dfrac{a_n}{2} \quad \forall n \ge 1.$\\~\\
+	\uncover<2->{Claim 1. $a_n < 6 \quad n \in \mathbb{N}.$ }\\
+	\uncover<3->{\emph{Proof.}  We shall prove this via induction. The base case $n = 1$ is immediate as $2 < 6.$}\\
+	\uncover<4->{Assume that it holds for $n = k.$ }\\
+	\uncover<5->{$a_{k+1} = 3 + \dfrac{a_n}{2} < 3 + \dfrac{6}{2} = 6.$ }\\
+	\uncover<6->{By principle of mathematical induction, we have proven the claim. \hfill $\blacksquare$ }\\~\\
+	\uncover<7->{Claim 2. $a_n < a_{n+1} \quad \forall n \in \mathbb{N}.$ }\\
+	\uncover<8->{\emph{Proof.} $a_{n+1} - a_n = 3 - \dfrac{a_n}{2} = \dfrac{6 - a_n}{2} > 0 \implies a_{n+1} > a_n.$ \hfill $\blacksquare$ }\\~\\
+	\uncover<9->{Thus, $(a_n)$ is a monotonically increasing sequence that is bounded above. Therefore, it must converge. Using the same method as earlier gives this limit to be $6.$ }
+\end{frame}
+\begin{frame}{Sheet 1}
+	10. To show:\\
+	$\{a_n\}_{n \ge 1}$ is convergent $\iff$ $\{a_{2n}\}_{n \ge 1}$ and $\{a_{2n+1}\}_{n \ge 1}$ converge to the same limit.\\~\\
+	\uncover<2->{\emph{Proof.} $(\implies)$ Let $b_n := a_{2n}$ and $c_n := a_{2n+1}.$ We are given that $\displaystyle\lim_{n\to \infty}a_n = L.$ We must show that $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}c_n.$ }\\
+	\uncover<3->{Let $\epsilon > 0$ be given. By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ for $n \ge n_0.$}\\
+	\uncover<4->{Note that $2n > n$ and $2n + 1 > n$ for all $n \in \mathbb{N}.$ Thus, we have that }\\
+	\uncover<5->{$|b_{n} - L| < \epsilon$ and $|c_n - L| < \epsilon$ for all $n \ge n_0.$ }\\
+	\uncover<6->{Thus, $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}c_n = L.$ \hfill $\blacksquare$ }
+\end{frame}
+\begin{frame}{Sheet 1}
+	$(\impliedby)$ Let $(b_n)$ and $(c_n)$ be as defined before. We are given that $\displaystyle\lim_{n\to \infty}b_n = \displaystyle\lim_{n\to \infty}c_n = L.$ We must show that $(a_n)$ converges.\\
+	\uncover<2->{Let $\epsilon > 0$ be given. By hypothesis, there exists $n_1, \; n_2 \in \mathbb{N}$ such that\\
+	$|b_n - L| < \epsilon$ for all $n \ge n_1$ \hfill (1)\\
+	 and $|c_n - L| < \epsilon$ for all $n \ge n_2.$ \hfill (2)}\\
+	\uncover<3->{Choose $n_0 = \max\{2n_1,\;2n_2+1\}.$ }\\
+	\uncover<4->{Let $n \ge n_0$ be even. Then, $n \ge 2n_1$ or $n/2 \ge n_1$ and $a_n = b_{n/2}.$ By (1), we have it that $|a_n - L| < \epsilon.$ }\\
+	\uncover<5->{Similarly, let $n \ge n_0$ be odd. Then, $n \ge 2n_2 + 1$ or $(n-1)/2 \ge n_2$ and $a_n = c_{(n-1)/2}.$ By (2), we have it that $|a_n - L| < \epsilon.$ }\\
+	\uncover<6->{Thus, we have shown that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$ This is precisely what it means for $(a_n)$ to converge to $L.$ \hfill $\blacksquare$ }
+\end{frame}
+\begin{frame}{Sheet 2}
+	1. (i) We shall show that the statement is false with the help of a counterexample.\\
+	Let $a = -1, \; b = 1, \; c = 0.$ Define $f$ and $g$ as follows:\\
+	$f(x) = x$ and $g(x) = \left\{\begin{array}[h]{c l}
+		1/x & ;x \neq 0 \\
+		0 & ;x = 0
+	\end{array}
+	\right. .$\\
+	It can be seen that $\displaystyle\lim_{x\to 0}f(x) = 0$ but $\displaystyle\lim_{x\to c}[f(x)g(x)] = \lim_{x\to 0}1 = 1.$\\~\\
+	(ii) We shall prove that the given statement is true.\\
+	We are given that $g$ is bounded. Thus, $\exists M \in \mathbb{R}^+$ such that $|g(x)| \le M \quad \forall x \in (a,\; b).$\\
+	Let $\epsilon > 0$ be given. We want to show that there exists $\delta > 0$ such that $|f(x)g(x) - 0| < \epsilon$ whenever $0 < |x - c| < \delta.$\\
+	Let $\epsilon_1 = \epsilon/M.$
+	As $\displaystyle\lim_{x\to c}f(x) = 0,$ there exists $\delta > 0$ such that $0 < |x - c| < \delta \implies |f(x)| < \epsilon_1.$\\
+	Thus, whenever $0 < |x-c| < \delta,$ we have it that $|f(x)g(x) - 0| = |f(x)||g(x)| \le |f(x)|\cdot M < \epsilon_1\cdot M = \epsilon.$ \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 2}
+	(iii) We shall prove that the given statement is true.\\
+	Let $\epsilon > 0$ be given.\\
+	Let $l := \displaystyle\lim_{x\to c}g(x).$\\
+	Let $\epsilon_1 = \epsilon/(|l| + \epsilon).$\\~\\
+	By hypothesis, there exists $\delta_1 > 0$ such that $0 < |x - c| < \delta_1 \implies |g(x) - l| < \epsilon.$\\
+	Also, there exists $\delta_2 > 0$ such that $0 < |x-c| < \delta_2 \implies |f(x)| < \epsilon_1.$\\~\\
+	Let $\delta = \min\{\delta_1,\;\delta_2\}.$ Then, whenever $0 < |x - c| < \delta,$ we have that:
+	$|f(x)g(x)| = |f(x)g(x) - lf(x) + lf(x)| \le |f(x)||(g(x) - l)| + |l||f(x)| < |f(x)|\epsilon + |l||f(x)| = |f(x)|(\epsilon + |l|) < \epsilon_1(\epsilon + |l|)= \epsilon.$\\
+	Thus, we have it that $0 < |x - c| < \delta \implies |f(x)g(x) - 0| < \epsilon.$ \hfill $\blacksquare$\\
+\end{frame}
+\begin{frame}{Sheet 2}
+	2. We are given that $\displaystyle\lim_{x\to \alpha}f(x)$ exists. Let it be $c (\in \mathbb{R}).$ Note that it's {\color[rgb]{1, 0, 0} not} necessary that $c = f(\alpha).$\\
+	Let us evaluate $\displaystyle\lim_{h\to 0}f(\alpha + h).$ Let $(h_n)$ be an arbitrary sequence of real numbers such that $h_n \neq 0$ and $h_n \to 0.$ We need to find $\displaystyle\lim_{n\to \infty}f(\alpha + h_n).$\\
+	Consider the sequence $(x_n)$ of real numbers defined as $x_n := \alpha + h_n.$ Thus, $x_n \neq \alpha$ and $x_n \to \alpha.$ By hypothesis, we must have that $\displaystyle\lim_{n\to \infty}f(x_n) = c.$\\
+	Thus, by definition of $x_n,$ we must have that $\displaystyle\lim_{n\to \infty}f(\alpha + h_n) = c.$ This gives us that $\displaystyle\lim_{h\to 0}f(\alpha + h_n) = c.$\\
+	Similar consideration will give $\displaystyle\lim_{h\to 0}f(\alpha - h_n) = c$ as well.\\
+	Using the limit theorems for functions, we have that:
+	\[\lim_{h\to 0}[f(\alpha + h) - f(\alpha - h)] = \lim_{h\to 0}f(\alpha+h) - \lim_{h\to 0}f(\alpha-h) = c - c = 0.\]	 
+\end{frame}
+\begin{frame}{Sheet 2}
+	Converse of 2.\\
+	The converse of 2 does {\color[rgb]{1, 0, 0} not} hold. That is, given $f:\mathbb{R} \to \mathbb{R}$ and $\alpha \in \mathbb{R}$ such that $\displaystyle\lim_{h\to 0}[f(a+h) - f(a-h)] = 0,$ it is not necessary that $\displaystyle\lim_{x\to \alpha}f(x)$ exists.\\
+	We shall demonstrate this will the help of a counterexample.\\
+	Let $f:\mathbb{R} \to \mathbb{R}$ be defined as follows:
+	\[f(x) = \left\{
+	\begin{array}[h]{c l}
+		0 & \text{ if } x \in \mathbb{Q} \\
+		1 & \text{ if } x \not\in \mathbb{Q}
+	\end{array}
+	\right.\]
+	It can be easily observed that $f(x) = f(-x) \quad \forall x \in \mathbb{R}.$\\
+	Let $\alpha = 0.$\\
+	Then, $\displaystyle\lim_{h\to 0}[f(\alpha + h) - f(\alpha - h)] = \lim_{h\to 0}[f(h) - f(-h)] = \lim_{h\to 0}[0] = 0.$\\
+	However, $\displaystyle\lim_{x\to 0}f(x)$ does \textbf{not} exist.
+\end{frame}
+\begin{frame}{Sheet 2}
+	3. (i) The function is continuous everywhere except at $x = 0.$\\
+	\emph{Proof.} For $x \neq 0,$ we have it that $f$ is a composition of continuous functions. Thus, it is continuous.\\~\\
+	To show that $f$ is discontinuous at $x = 0:$\\
+	Consider the sequence $(x_n)$ where $x_n = \dfrac{2}{(4n+1)\pi}.$\\
+	Then, $x_n \to 0$ but $f(x_n) = 1 \quad \forall n \in \mathbb{N}$ and thus, $f(x_n) \to 1 \neq f(0).$\\
+	Thus, $f$ is discontinuous at $x = 0,$ by definition.
+\end{frame}
+\begin{frame}{Sheet 2}
+	3. (ii) The function is continuous everywhere.\\
+	\emph{Proof.} For $x \neq 0,$ it simply follows from the fact that product and composition of continuous functions is continuous.\\
+	To show continuity at $x = 0:$\\
+	Let $(x_n)$ be any sequence of real numbers such that $x_n \to 0.$ We must show that $f(x_n) \to 0.$\\
+	Let $\epsilon > 0$ be given.\\
+	Observe that $|f(x_n) - 0| = \left|x_n\sin\left(\dfrac{1}{x_n}\right)\right| \le |x_n|.$\\
+	Now, we shall use the fact $x_n \to 0.$ By this hypothesis, there must exist $n_1 \in \mathbb{N}$ such that $|x_n| = |x_n - 0| < \epsilon \quad \forall n \ge n_1.$\\
+	Choosing $n_0 = n_1,$ we have it that $|f(x_n) - 0| \le |x_n| < \epsilon \quad \forall n \ge n_0.$ \hfill $\blacksquare$
+
+\end{frame}
+\begin{frame}{Sheet 2}
+	3. (iii) The function can be rewritten as:
+	$f(x)=\left\{\begin{array}{ccl}{x} & {\text { if }} & {1 \leq x<2} \\ {1} & {\text { if }} & {x=2} \\ {\sqrt{6-x}} & {\text { if }} & {2<x \leq 3}\end{array}\right.$\\
+	We claim that the function is continuous on $[1, 2) \cup (2, 3]$ and discontinuous at $2.$\\
+	Given $x \in [1, 2)$ and any sequence $(x_n)$ in the domain such that $x_n \to x,$ there must exist $n \in n_0$ such that $x_n \in [1, 2) \quad \forall n \ge n_0.$ Thus, $f(x_n) = x_n \quad \forall n \ge n_0.$ It can now be easily shown that $f(x_n) \to x = f(x).$ (We have essentially used the continuity of the function $x \mapsto x.$) Thus, $f$ is continuous on $[1, 2).$\\
+	Similarly, we can argue that $f$ is continuous on $(2, 3].$ Again, this will follow from the fact that the function $x\mapsto \sqrt{6-x}$ is continuous on its domain.\\~\\
+	Now, we show that $f$ is discontinuous at $2.$ Consider the sequence $x_n := 2 - 1/n.$ It is clear that $x_n \to 2.$\\
+	Observe that $1 \le x_n < 2.$ Thus, $f(x_n) = 2-1/n.$\\
+	This gives us that $f(x_n) \to 2 \neq f(2).$ \hfill $\blacksquare$ 
+\end{frame}
+\begin{frame}{Sheet 2}
+	4. We are given that $f(x + y) = f(x) + f(y)$ for all $x, y \in \mathbb{R}.$ Thus, we can let $x = y = 0.$ This gives us that:\\
+	$f(0 + 0) = f(0) + f(0) \implies f(0) = 2f(0) \implies f(0) = 0.$\\
+	As $f$ is continuous at $0,$ we have it that $\displaystyle\lim_{h\to 0}f(h) = f(0) = 0.$\\~\\
+	Now, we will show that $f$ is continuous at every $c \in \mathbb{R}.$\\
+	Substituting $x = c$ in the original equation gives us:
+	$f(c+y) = f(c) + f(y).$ As this is true for every $y \in \mathbb{R},$ we have that: $\displaystyle\lim_{y\to 0}f(c+y) = \lim_{y\to 0}[f(c) + f(y)].$\\~\\
+	We know that $\displaystyle\lim_{y\to 0}f(c) = f(c)$ (constant sequence) and $\displaystyle\lim_{y\to 0}f(y) = 0$ (shown above). Thus, we can write: \\
+	$\displaystyle\lim_{y\to 0}f(c+y) = \lim_{y\to 0}f(c) + \lim_{y\to 0} f(y) = f(c).$ This is precisely what it means for $f$ to be continuous at $c.$\\
+\end{frame}
+\begin{frame}{Sheet 2}
+	4. \textbf{(Optional)} Here's a sketch of how one can show that $f$ satisfies $f(kx) = kf(x),$ for all $k \in \mathbb{R}.$\\
+	Step 1. Use induction and show that $f(nx) = nf(x) \quad \forall n \in \mathbb{N}.$\\
+	Step 2. Show that $f(nx) = nf(x) \quad \forall n \in \mathbb{N}.$\\
+	Step 3. Show that $f(qx) = qf(x) \quad \forall q \in \mathbb{Q}.$\\
+	Step 4. Use density of rationals and continuity of $f$ to argue that $f(kx) = kf(x) \quad \forall k \in \mathbb{R}.$\\~\\
+	%
+	Note that we didn't require continuity of $f$ in the first 3 steps.
+\end{frame}
+\begin{frame}{Sheet 2}
+	12. Let $c \in \mathbb{R}.$\\
+	Recall that given any $a,\;b\in\mathbb{R}$ such that $a < b,$ we can construct a rational number $r(a, b)$ such that $a < r(a, b) < b.$ Similarly, we can construct $i(a, b) \in \mathbb{R}\setminus\mathbb{Q}$ such that $a < i(a, b) < b.$ (Note that we have explicit constructions of these.)\\~\\
+	Define the two sequences $(r_n)$ and $(i_n)$ as follows:\\
+	$r_n := r(c, c+1/n)$ and $i_n := i(c, c + 1/n).$\\
+	Thus, we have it that $r_n \to c$ and $i_n \to c$ and also that $r_n \neq c \neq i_n.$\\
+	However, observe that $f(r_n) = 1 \quad \forall n \in \mathbb{N}$ and $f(i_n) = 0 \quad \forall n \in \mathbb{N}.$ This gives us that $f(r_n) \to 1$ and $f(i_n) \to 0.$\\
+	As $\displaystyle\lim_{n\to \infty}f(r_n) = 1 \neq 0 = \lim_{n\to \infty}f(i_n),$ $f$ cannot be continuous at $c.$ 
+\end{frame}
+\begin{frame}{Sheet 2}
+	13. Let $c \in \mathbb{R}$ be such that $f$ is continuous at $c.$ Define sequences $(r_n)$ and $(i_n)$ as before.\\
+	Thus, $f(r_n) = r_n.$ As $r_n \to c,$ we have it that $f(r_n) \to c.$\\
+	Similarly, $f(i_n) \to 1 - c.$\\
+	For $f$ to be continuous at $c,$ we must have it that $c = 1 - c = f(c).$ Solving this gives us that $c = 1/2.$\\
+	Thus, what we have shown so far is that: $f$ continuous at $c$ $\implies$ $c = 1/2.$\\~\\
+	However, we must now show that $f$ actually \emph{is} continuous at $1/2.$\\
+	This is done as follows: Let $(x_n)$ be any sequence of real numbers such that $x_n \to 1/2.$ We claim that $f(x_n) \to 1/2.$ If we can prove this claim, then we are done as $f(1/2) = 1/2.$\\
+	Note that if $x_n \in \mathbb{Q},$ then $|f(x_n) - 1/2| = |x_n - 1/2|$ and if $x \not\in\mathbb{Q},$ then $|f(x_n) - 1/2| = |1/2 - x_n| = |x_n - 1/2|.$
+\end{frame}
+\begin{frame}{Sheet 2}
+	Thus, we have it that $|f(x_n) - 1/2| = |x_n - 1/2| \quad \forall n \in \mathbb{N}.$\\
+	Let $\epsilon > 0$ be given. As $x_n \to 1/2,$ there exists $n_1 \in \mathbb{N}$ such that $|x_n - 1/2| < \epsilon$ for all $n \ge n_1.$\\
+	Choose $n_0 = n_1.$ Thus, $|f(x_n) - 1/2| < \epsilon$ for all $n \ge n_0.$\\
+	$\therefore \displaystyle\lim_{n\to \infty}f(x_n) = 1/2.$ \hfill $\blacksquare$
+\end{frame}
+\end{document}

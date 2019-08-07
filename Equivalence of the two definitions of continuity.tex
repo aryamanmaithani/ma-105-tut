@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{50, 50, 50} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Equivalence of the two definitions of continuity}
+\author{Aryaman Maithani}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\vspace{0.5cm}
+\begin{defn}
+	Let $D \subset \mathbb{R},$ $f:D\to\mathbb{R}$ and $c \in D.$ We say that $f$ is continuous at $c$ if
+	\[(x_n) \text{ is a sequence in } D,\;x_n \to c \implies f(x_n) \to f(c).\]
+\end{defn}
+\begin{defn}
+	Let $D \subset \mathbb{R},$ $f:D\to\mathbb{R}$ and $c \in D.$ We say that $f$ is continuous at $c$ if:\\
+	For every $\epsilon > 0,$ there exists $\delta > 0$ such that
+	\[x \in D \text{ and } |x - c| < \delta \implies |f(x) - f(c)| < \epsilon.\]
+\end{defn}
+We shall now prove the equivalence of the two definitions.\\
+\begin{proof}
+	Definition 2 $\implies$ Definition 1:\\
+	Let $\epsilon > 0$ be given. Let $(x_n)$ be any sequence in $D$ such that $x_n \to c.$ We must show that $f(x_n) \to f(c).$\\
+	By hypothesis, there exists $\delta > 0$ such that $x \in D$ and $|x - c| < \delta \implies |f(x) - f(c)| < \epsilon.$ \hfill (1)\\
+	As $x_n \to c,$ there exists $n_0 \in \mathbb{N}$ such that $|x_n - c| < \delta$ for all $n \ge n_0.$\\
+	Therefore, by (1), we have it that $|f(x_n) - f(c)| < \epsilon$ for all $n \ge n_0.$ This is precisely what it means for $f(x_n) \to f(c).$\\~\\
+	%
+	Definition 1 $\implies$ Definition 2:\\
+	We shall prove this by proving its contrapositive. That is, we assume that the $\epsilon-\delta$ condition does not hold and show that the sequential criterion does not hold either.\\
+	By assumption, there exists $\epsilon_0 > 0$ such that for all $\delta > 0,$ we have it that there exists $x \in D$ such that $|x - c| < \delta$ but $|f(x) - f(c)| \ge \epsilon_0.$ \hfill (2)\\
+	Using this, we shall now construct a sequence $(x_n)$ in $D$ such that $x_n \to c$ but $f(x_n) \not\to f(c).$\\
+	Let $n \in \mathbb{N}.$ As (2) is true for all $\delta > 0,$ we can choose $\delta = 1/n.$ Thus, there exists $x_n \in D$ such that $|x_n - c| < 1/n$ and $|f(x_n) - f(c)| \ge \epsilon_0.$\\
+	Thus, we now have a sequence $(x_n)$ in $D$ such that $x_n \to c.$ However, if choose $\epsilon = \epsilon_0 > 0,$ we have it that $|f(x_n) - f(c)| \ge \epsilon$ for all $n \in \mathbb{N}.$ Thus, $f(x_n)$ can not converge to $f(c).$
+\end{proof}
+\end{document}

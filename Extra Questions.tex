@@ -5,6 +5,7 @@
 \usepackage{cancel}
 \usepackage{soul}
 \usepackage{hyperref}
+\usepackage{centernot}
 
 \setlength\parindent{0pt}
 
@@ -65,6 +66,44 @@ $\mathbb{R}$ denotes the set of real numbers.
 	\item Let $(a_n)$ be a sequence of real numbers. We say that $(a_n)$ is \emph{reverse-convergent} if there is an $a \in \mathbb{R}$ such that the following condition holds.\\
 	For every $n_0 \in \mathbb{N},$ there is $\epsilon > 0$ such that $|a_n - a| < \epsilon$ for all $n \ge n_0.$\\
 	Prove or disprove that a sequence is convergent (in the normal sense) $\iff$ it is reverse-convergent.
+	%
+	\item Let $S$ be a nonempty subset of $\mathbb{R}$ which is bounded above. Let $(a_n)$ be an increasing sequence in $S$ such that $\displaystyle\lim_{n\to \infty}a_n = L \not\in S.$\\
+	 Prove or disprove that $L = \sup S.$ 
 \end{enumerate}
 For the question(s) in which the implication does not hold in both directions, does it hold in any? If yes, which?
+\section{Week 2}
+\begin{enumerate}
+	\item Show that $f:\mathbb{N}\to\mathbb{R}$ is continuous for any $f.$
+	%
+	\item Let $f:\mathbb{Q} \to \mathbb{R}$ be a continuous function. Let $a,\;b\in \mathbb{Q}$ and $r \in \mathbb{R}$ be such that $a < b$ and $f(a) < r < f(b).$ Show (with the help of an example) that it is not necessary that there exists some $c \in \mathbb{Q}\cap[a, b]$ such that $f(c) = r.$
+	%
+	\item Let $f:\mathbb{R} \to \mathbb{R}$ and $c\in\mathbb{R}.$ We say that $f$ is \emph{reverse continuous} at $c$ if for all $\delta > 0,$ there exists $\epsilon > 0$ such that $|x - c| < \delta \implies |f(x) - f(c)| < \epsilon.$\\
+	Is this notion of continuity the same as the normal notion?\\
+	If not, then give an example of a function which is reverse continuous at a point but not continuous or vice-versa.
+	%
+	\item  Let $f:\mathbb{R} \to \mathbb{R}$ and $c\in\mathbb{R}.$ We say that $f$ is \emph{upper continuous} at $c$ if for all $\epsilon > 0,$ there exists $\delta > 0$ such that $|x - c| < \delta \implies f(c) \le f(x) < f(c) + \epsilon.$
+	\begin{enumerate} 
+		\item Prove that a function is continuous at a point if it is upper continuous at that point.
+		\item Show that the converse may not be true.
+		\item Give an example of a function that is upper continuous at only one point.
+		\item Given any $n \in \mathbb{N},$ show that there exists a function that is upper continuous at exactly $n$ points.
+		\item Show that there exists a function that is upper continuous at infinitely many points.
+		\item Give an example of a function $f$ that is upper continuous everywhere.
+		\item Can you give an example of another function $g$ such that $g$ is upper continuous everywhere but $f-g$ is not constant?
+	\end{enumerate}
+	%
+	\item Let $A, B \subset \mathbb{R}$ and $f:A\to B$ be a bijection. Show with the help of an example that $f$ is continuous $\centernot\implies$ $f^{-1}$ is continuous. 
+	%
+	\item Show that there exists a bijection from $(0, 1)$ to $[0, 1].$
+	%
+	\item Show that there exists no continuous bijection from $(0, 1)$ to $[0, 1]$ or from $[0, 1]$ to $(0, 1).$
+	%
+	\item Let $f:A\to B$ be a continuous surjective function. Show that it is possible for $A$ to be a bounded open interval and $B$ to be a bounded closed interval.\\
+	Is it possible for $A$ to be a bounded closed interval and $B$ to be a bounded open interval?
+	%
+	\item Let $f:\mathbb{R}\to\mathbb{R}$ be a function with the intermediate value property. Is it necessary that $f$ is continuous \emph{somewhere}?
+	%
+	\item Let $f:\mathbb{R}\to\mathbb{R}$ be a function such that given any $c \in \mathbb{R},$ the limit $\displaystyle\lim_{x\to c}f(x)$ exists. Is it necessary that $f$ is continuous \emph{somewhere}?
+\end{enumerate}
+The last two questions are just for one to think about. I do not expect solutions for those.
 \end{document}

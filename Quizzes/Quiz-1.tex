@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 1: Solution}
+\author{Aryaman Maithani}
+\date{7th August, 2019}
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} State whether the following statement is true or false. Justify your answer.\\
+If $S$ is a nonempty subset of $\mathbb{R}$ such that $S$ is bounded above and if $c := \sup S,$ then there exists a sequence $(x_n)$ of elements of $S$ such that $(x_n)$ is convergent and $x_n \to c.$ \hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+\textbf{Answer.} T\\
+Justification: It is given that $c$ is the supremum of $S.$ Thus, any number strictly less than $c$ cannot be an upper bound. Thus, given any $n \in \mathbb{N},$ $c - 1/n$ is not an upper bound. Thus, there exists $x_n \in S$ such that $c-1/n < x_n.$ As $c$ is an upper bound of $S,$ we have it that
+\[c - \frac{1}{n} < x_n \le c \quad \forall n \in \mathbb{N}.\]
+Thus, by Sandwich Theorem, we can conclude that $x_n \to c.$
+
+\hrulefill
+
+Common mistakes:
+\begin{enumerate} 
+	\item Many have said that we can take an increasing sequence $(x_n)$ in $S$ and then $x_n \to c.$\\
+	This is not true. It is true that such a sequence \emph{will} converge as $S$ is bounded above but it is not necessary that it converges to $c$ as $\sup\{a_n|n\in\mathbb{N}\}$ may not be equal to $c.$\\
+	Example: $S = [0, 2]$ and $x_n := 1 - 1/n.$ We have it that $x_n \to 1 \neq 2 = \sup S.$
+	%
+	\item Many have said that we can take the sequence $x_n = c - 1/n.$ There is no reason that such a sequence will actually be a sequence in $S.$ For example, $S = \{1\}.$\\
+	Even if we take the case where $c \not\in S,$ the statement need not be true.\\
+	For example, let $S = (0, 1)\setminus\left\{\frac{1}{2},\frac{2}{3},\frac{3}{4},\ldots\right\}.$
+	%
+	\item Many have tried to construct a counterexample but it does not work in the correct manner. For example, if you pick a specific set $S$ and a specific sequence $(x_n)$ of elements of $S$ such that $x_n \not\to c,$ you have \textbf{not} disproved the question. The question asked for the existence of \emph{\textbf{a}} sequence.\\
+	If one did want to give a counterexample, they would have to find a particular set $S$ which satisfies the hypothesis of the question and show that \emph{every} sequence in that set does not converge to $c.$
+	%
+	\item Similar to the last point, you have \textbf{not} proven the statement either if you choose a specific set $S$ and show the existence of a sequence there. It must work for every $S.$ 
+	%
+	\item Many have not considered that the constant sequence is a perfectly valid sequence for the case when $c \in S.$
+\end{enumerate}
+\end{document}

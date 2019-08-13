@@ -1,0 +1,133 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 03}  % change
+\author{Aryaman Maithani}
+\date[14-08-2019]{14th August, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\newcommand{\cosec}{\operatorname{cosec}}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 2}                            % change
+	6. Given: $|f(x+h) - f(x)| \le C|h|^\alpha$ for all $x, x + h \in (a, b).$\\
+	Assuming $h \neq 0,$ we can write:\\~\\
+	$\left|\dfrac{f(x + h) - f(x)}{h}\right| \le C|h|^{\alpha-1}$\\~\\
+	$\implies -C|h|^{\alpha-1} \le \dfrac{f(x + h) - f(x)}{h} \le C|h|^{\alpha-1}$\\~\\
+	As $\alpha > 1,$ we have it that $\displaystyle\lim_{h\to 0}C|h|^{\alpha-1} = 0.$ Thus, by Sandwich Theorem, we have it that the limit $\displaystyle\lim_{h\to 0}\dfrac{f(x + h) - f(x)}{h}$ exists and is equal to 0. Thus, the function is differentiable, by definition.\\~\\
+	By the definition of $f'(x),$ we also have it that $f'(x) = 0.$
+\end{frame}
+\begin{frame}{Sheet 2}
+7. \[\lim_{h\to 0^+}\dfrac{f(c + h) - f(c - h)}{2h}%
+		= \lim_{h\to 0^+}\dfrac{f(c + h) - f(c) + f(c) - f(c - h)}{2h}\]
+
+Now, it is given that $f$ is differentiable at $c.$ This means that $\displaystyle\lim_{h\to 0^+}\dfrac{f(c + h) - f(c)}{h}$ exists. Moreover, it is equal to $f'(c).$\\
+Similarly, the limit $\displaystyle\lim_{h\to 0^+}\dfrac{f(c) - f(c-h)}{h}$ exists and equals $f'(c).$ Now that we know the existence of these limits, we can split the sum above.\\~\\
+$\displaystyle\lim_{h\to 0^+}\dfrac{f(c + h) - f(c) + f(c) - f(c - h)}{2h}$\\~\\
+$=\displaystyle\dfrac{1}{2}\left(\lim_{h\to 0^+}\dfrac{f(c + h) - f(c)}{h} + \lim_{h\to 0^+}\dfrac{f(c) - f(c - h)}{h}\right)$\\~\\
+$=\dfrac{1}{2}\left(f'(c) + f'(c)\right) = f'(c).$ \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 2}
+	8. Given: $f(x + y) = f(x)f(y)$ for all $x, y \in \mathbb{R}.$ \hfill (1)\\
+	Let $x = y = 0.$ This gives us that $f(0) = \left(f(0)\right)^2.$\\
+	Thus, $f(0) = 0$ or $f(0) = 1.$\\
+	Case 1. $f(0) = 0.$\\
+	Substitute $y = 0$ in (1). Thus, $f(x) = f(0)f(x) = 0.$\\
+	Therefore, $f$ is identically $0$ which means it's differentiable everywhere with derivative $0.$ (We did not need to use the fact that $f$ is differentiable at $0,$ it followed from definition.)\\
+	Case 2. $f(0) = 1.$\\
+	As $f$ is differentiable at $0,$ we know that:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(0+h) - f(0)}{h} = f'(0).$\\
+	$\implies \displaystyle\lim_{h\to 0}\dfrac{f(h) - 1}{h} = f'(0).$ \hfill (2)\\
+\end{frame}
+\begin{frame}{Sheet 2}
+	Now, let us show that $f$ is differentiable everywhere.\\
+	Let $c \in \mathbb{R}.$ We must show that the following limit exists:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(c + h) - f(c)}{h}$\\~\\
+	Using (1), we can write the above expression as:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(c)f(h) - f(c)}{h} = \lim_{h\to 0}\dfrac{f(c)(f(h) - 1)}{h} = f(c)\cdot\lim_{h\to 0}\dfrac{f(h) - 1}{h}.$\\~\\
+	By (2), we know that the above limit exists. Thus, we have it that $f$ is differentiable at $c$ for every $c \in \mathbb{R}.$ Moreover, $f'(c) = f'(0)f(c).$\\~\\
+	%
+	\textbf{(Optional)} We have gotten that the derivative of $f$ is a scalar multiple of $f.$ Use this to conclude.	
+\end{frame}
+\begin{frame}{Sheet 2}
+	9. (i) Let $f(x) := \cos x$ for $x \in (0, \pi).$ Then $f$ is one-one and continuous. Consider $c \in (0, \pi).$ Now $f'(c) = -\sin c \neq 0.$\\
+	Further, $f\left((0, \pi)\right) = (-1, 1).$ If $d \in (-1, 1)$ and $f(c) = \cos c = d,$ then
+	\[(f^{-1})'(d) = \dfrac{1}{f'(c)} = -\dfrac{1}{\sin c} = - \dfrac{1}{\sqrt{1 - \cos^2c}} = - \dfrac{1}{\sqrt{1 - d^2}}.\]
+	(ii) Let $f(x) := \cosec x$ for $x \in \left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\setminus\{0\}.$ Then $f$ is one-one and continuous. Consider $c \in \left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\setminus\{0\}.$ Now $f'(c) = -\cosec c\cot c = -\cosec^2 c\cos c \neq 0.$\\
+	Further, $f\left(\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\setminus\{0\}\right) = (-\infty, -1)\cup(1, \infty).$ If $|d| > 1$ and $f(c) = \cosec c= d,$ then
+	\[(f^{-1})'(d) = \dfrac{1}{f'(c)} = - \dfrac{1}{\cosec^2 c \cos c} = - \dfrac{1}{\cosec^2 c \sqrt{1 - \frac{1}{\cosec^2 c}}} = - \dfrac{1}{|d|\sqrt{d^2 - 1}}.\]
+\end{frame}
+\begin{frame}{Sheet 2}
+	10. Define $g(x) := \dfrac{2x - 1}{x + 1}$ for $x \in \mathbb{R}\setminus\{1\}.$\\~\\
+	Given, $y = (f\circ g)(x).$ As $g$ is differentiable in its domain and so is $f,$ we know that $f\circ g$ is differentiable wherever defined and its derivative is given by:
+	\[\dfrac{dy}{dx} = (f\circ g)'(x) = f'(g(x))g'(x) = \sin\left((g(x))^2\right)g'(x).\]
+	Let us compute $g'(x).$
+	$g(x) = \dfrac{2x - 1}{x + 1} = \dfrac{2x + 2 - 3}{x + 1} = 2 - \dfrac{3}{x+1}.$\\~\\
+	Using quotient rule, we get that $g'(x) = \dfrac{3}{(x+1)^2}.$
+	\[\therefore \dfrac{dy}{dx} = \sin\left(\left(\dfrac{2x - 1}{x+1}\right)^2\right)\dfrac{3}{x+1}\]
+\end{frame}
+\begin{frame}{Sheet 3}
+	2. Assume that the cubic (denote it by $f(x)$) has two roots, $a$ and $b.$ We may assume that $a < b.$ Then, we know the following:\\
+	(i) $f$ is continuous on $[a, b],$\\
+	(ii) $f$ is differentiable on $(a, b),$ and\\
+	(iii) $f(a) = f(b).$\\
+	Thus, by Rolle's Theorem, there exists $c \in (a, b)$ such that $f'(c) = 0.$\\
+	However, $f'(c) = 3c^2 + p$ cannot be $0$ as $3c^2$ is always non-negative and $p$ is strictly positive.
+\end{frame}
+\begin{frame}{Sheet 3}
+	3. Part 1. We will first show the existence of such an $x_0 \in (a, b).$\\
+	\emph{Proof.} $I := [a, b]$ is an interval and $f$ is continuous. Thus, $f$ has the intermediate value property on $I.$ Thus, the range $J := f(I)$ must be an interval. As $f(a)$ and $f(b)$ are of different signs, $0$ lies between them. As $f(a), f(b) \in J$ and $J$ is an interval, we have it that $0 \in J = f(I).$
+	Thus, $0 = f(x_0)$ for some $x_0 \in I = (a, b).$ \hfill $\blacksquare$\\~\\
+	Part 2. Now we will show the uniqueness of $x_0.$ Assume that there exists $x_1 \in (a, b)$ such that $f(x_1) = 0.$ We may assume that $x_0 < x_1.$\\
+	Now, we know the following:\\
+	(i) $f$ is continuous on $[x_0, x_1],$\\
+	(ii) $f$ is differentiable on $(x_0, x_1),$ and\\
+	(iii) $f(x_0) = f(x_1).$\\
+	Thus, by Rolle's Theorem, there exists $x_2 \in (x_0, x_1)$ such that $f'(x_2) = 0.$ But this contradicts the hypothesis that $f'(x) \neq 0$ for all $x \in (a, b).$ \hfill $\blacksquare$\\
+\end{frame}
+\begin{frame}{Lagrange's Mean Value Theorem (MVT)}
+	\begin{theorem}[MVT]
+		Let $a < b$ and $f:[a, b] \to \mathbb{R}$ be a function such that\\
+		(i) $f$ is continuous on $[a, b],$ and\\
+		(ii) $f$ is differentiable on $(a, b).$\\
+		Then there exists $c \in (a, b)$ such that $f'(c) = \dfrac{f(b) - f(a)}{b - a}.$
+	\end{theorem}
+\end{frame}
+\begin{frame}{Sheet 3}
+	5. To prove that $|\sin a - \sin b| \le |a - b|$ for all $a, b \in \mathbb{R}.$\\
+	Case 1. $a = b.$ Trivial.\\
+	Case 2. $a \neq b.$ Without loss of generality, we can assume that $a < b.$\\
+	As $f := \sin$ is continuous and differentiable on $\mathbb{R},$ there exists $c \in (a, b)$ such that $f'(c) = \dfrac{f(b) - f(a)}{b - a}.$ \hfill (By MVT)\\~\\
+	Also, we know that $|f'(c)| = |\cos c| \le 1.$\\~\\
+	Thus, we have it that $\left|\dfrac{f(b) - f(a)}{b - a}\right| \le 1.$\\~\\
+	This is equivalent to what we wanted to prove. \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 3}
+	6. Let $c := \dfrac{a+b}{2}.$ It is clear that $a < c < b.$ Moreover, we have it that $2(c - a) = 2(b - c) = b-a.$\\
+	By MVT, there exists $c_1 \in (a, c)$ such that $f'(c_1) = \dfrac{f(c) - f(a)}{c - a}$ and there exists $c_2 \in (c, b)$ such that $f'(c_2) = \dfrac{f(b) - f(c)}{b - c}.$ As $c_1$ and $c_2$ belong to disjoint intervals, it is clear that $c_1 \neq c_2.$\\~\\
+	Observe that $f'(c_1) + f'(c_2) = \dfrac{f(c) - f(a)}{c - a} + \dfrac{f(b) - f(c)}{b - c} = 2\left(\dfrac{f(c) - f(a) + f(b) - f(c)}{b - a}\right) = 2.$ \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 3}
+	8. Assume not. That is, $f(0) \neq 0.$ Then, there are two possibilities.\\
+	Case 1. $f(0) > 0.$\\
+	The function $f$ satisfies the hypothesis of MVT, thus there must exist $c \in (-a, 0)$ such that $f'(c) = \dfrac{f(0) - f(-a)}{0 - (-a)} = \dfrac{f(0)}{a} + 1.$\\
+	As $f(0) > 0$ and $a > 0,$ we get that $f'(c) > 1$ which contradicts the hypothesis.\\~\\
+	Case 2. $f(0) < 0.$\\
+	The function $f$ satisfies the hypothesis of MVT, thus there must exist $d \in (0, a)$ such that $f'(d) = \dfrac{f(a) - f(0)}{a - 0} =1 - \dfrac{f(0)}{a}.$\\
+	As $f(0) < 0$ and $a > 0,$ we get that $f'(d) > 1$ which contradicts the hypothesis.\\~\\
+\end{frame}
+\begin{frame}{Sheet 3}
+	\textbf{(Optional)} Note the following:
+	\[\dfrac{f(x) - f(-a)}{x - (-a)} = \dfrac{f(x) - x + x + a}{x + a} = \dfrac{f(x) - x}{x + a} + 1\]
+	and
+	\[\dfrac{f(a) - f(x)}{a - x} = \dfrac{a - x + x - f(x)}{a - x} = 1 + \dfrac{x - f(x)}{a - x}\]
+	Choose $x \in (-a, a)$ and use MVT appropriately to get contradictions for $f(x) > x$ and $f(x) < x.$
+\end{frame}
+\end{document}

@@ -35,16 +35,23 @@ $=\displaystyle\dfrac{1}{2}\left(\lim_{h\to 0^+}\dfrac{f(c + h) - f(c)}{h} + \li
 $=\dfrac{1}{2}\left(f'(c) + f'(c)\right) = f'(c).$ \hfill $\blacksquare$
 \end{frame}
 \begin{frame}{Sheet 2}
+	(Converse.)\\
+	The converse need not be true. That is,
+	\[\lim_{h\to 0^+}\dfrac{f(c + h) - f(c - h)}{2h}\]
+	may exist but $f$ could still be non-differentiable at $c.$\\
+	Show this explicitly using $f(x) := |x|$ as an example.
+\end{frame}
+\begin{frame}{Sheet 2}
 	8. Given: $f(x + y) = f(x)f(y)$ for all $x, y \in \mathbb{R}.$ \hfill (1)\\
 	Let $x = y = 0.$ This gives us that $f(0) = \left(f(0)\right)^2.$\\
-	Thus, $f(0) = 0$ or $f(0) = 1.$\\
+	Thus, $f(0) = 0$ or $f(0) = 1.$\\~\\
 	Case 1. $f(0) = 0.$\\
 	Substitute $y = 0$ in (1). Thus, $f(x) = f(0)f(x) = 0.$\\
-	Therefore, $f$ is identically $0$ which means it's differentiable everywhere with derivative $0.$ (We did not need to use the fact that $f$ is differentiable at $0,$ it followed from definition.)\\
+	Therefore, $f$ is identically $0$ which means it's differentiable everywhere with derivative $0.$ \\
+	Verify that $f'(c) = f'(0)f(c)$ does hold for all $x \in \mathbb{R}.$ (We did not need to use the fact that $f$ is differentiable at $0,$ it followed from definition.)\\~\\
 	Case 2. $f(0) = 1.$\\
 	As $f$ is differentiable at $0,$ we know that:\\
-	$\displaystyle\lim_{h\to 0}\dfrac{f(0+h) - f(0)}{h} = f'(0).$\\
-	$\implies \displaystyle\lim_{h\to 0}\dfrac{f(h) - 1}{h} = f'(0).$ \hfill (2)\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(0+h) - f(0)}{h} = f'(0) \implies \displaystyle\lim_{h\to 0}\dfrac{f(h) - 1}{h} = f'(0).$ \hfill (2)\\
 \end{frame}
 \begin{frame}{Sheet 2}
 	Now, let us show that $f$ is differentiable everywhere.\\
@@ -79,7 +86,8 @@ $=\dfrac{1}{2}\left(f'(c) + f'(c)\right) = f'(c).$ \hfill $\blacksquare$
 	(ii) $f$ is differentiable on $(a, b),$ and\\
 	(iii) $f(a) = f(b).$\\
 	Thus, by Rolle's Theorem, there exists $c \in (a, b)$ such that $f'(c) = 0.$\\
-	However, $f'(c) = 3c^2 + p$ cannot be $0$ as $3c^2$ is always non-negative and $p$ is strictly positive.
+	However, $f'(c) = 3c^2 + p$ cannot be $0$ as $3c^2$ is always non-negative and $p$ is strictly positive.\\
+	Note: We have shown that the cubic has \textbf{\emph{at most}} $1$ root. We haven't actually shown that $f$ has \emph{a} root. This can be shown using IVT. (How?)
 \end{frame}
 \begin{frame}{Sheet 3}
 	3. Part 1. We will first show the existence of such an $x_0 \in (a, b).$\\

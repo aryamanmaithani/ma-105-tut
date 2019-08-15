@@ -106,4 +106,41 @@ For the question(s) in which the implication does not hold in both directions, d
 	\item Let $f:\mathbb{R}\to\mathbb{R}$ be a function such that given any $c \in \mathbb{R},$ the limit $\displaystyle\lim_{x\to c}f(x)$ exists. Is it necessary that $f$ is continuous \emph{somewhere}?
 \end{enumerate}
 The last two questions are just for one to think about. I do not expect solutions for those.
+\section{Week 3}
+\begin{enumerate} 
+	\item Let $f:\mathbb{R}\to\mathbb{R}$ be a differentiable function. Let $c \in \mathbb{R}.$ Is it necessary that there exist $a,\;b \in \mathbb{R}$ such that $a < c < b$ and $f'(c) = \dfrac{f(b) - f(a)}{b - a}?$
+	%
+	\item Let $k\in \mathbb{N}.$ Construct a function $f:\mathbb{R}\to\mathbb{R}$ that is $k$ times differentiable everywhere but not $(k+1)$ times differentiable somewhere.
+	%
+	\item Construct a function $f:\mathbb{R}\to\mathbb{R}$ which is differentiable at only one point.
+	%
+	\item Let $f:\mathbb{R}\to\mathbb{R}$ be differentiable. Suppose there is $\alpha \in \mathbb{R}$ such that for all $x \in \mathbb{R},$ $|f'(x)| \le \alpha < 1.$ Let $a_1 \in \mathbb{R}$ and set $a_{n+1} := f(a_n)$ for all $n \in \mathbb{N}.$ Show that the sequence $(a_n)$ converges.
+	%
+	\item Let $D \subset \mathbb{R}.$ A function $f:D\to \mathbb{R}$ is said to be \emph{convex} if
+	\[f(\lambda x + (1 - \lambda)y) \le \lambda f(x) + (1 - \lambda)f(y) \quad \forall x,\;y\in D,\;\forall \lambda\in [0, 1].\]
+	
+	Prove that if $I$ is an open interval and $f:I\to\mathbb{R}$ is convex, then $f$ is continuous. Where did you use that $I$ is an open interval?\\
+	Give an example to show that if $J$ is not an open interval, then a convex function $f:J\to\mathbb{R}$ need not be continuous.
+	%
+	\item Let $D \subset \mathbb{R}$ and $f:D\to\mathbb{R}$ be a differentiable function. Show by example that $f'(x) = 0 \quad \forall x \in D$ does not imply that $f$ is constant.
+	%
+	\item Let $D \subset \mathbb{R}$ and $f:D\to\mathbb{R}$ be a differentiable function.\\
+	We say that $f$ is increasing if $\forall x,\;y \in D:$ $x \le y \implies f(x) \le f(y).$\\
+	Show by example that $f'(x) \ge 0 \quad \forall x\in D$ does not imply that $f$ is increasing.
+	%
+	\item Show that the implication in the last two questions would be true if $D$ were an interval.
+	%
+	\item Let $A$ and $B$ be open intervals in $\mathbb{R}$ and $f:A\to B$ be a bijection such that $f$ is differentiable. Show that it is not necessary that $f^{-1}$ is differentiable.
+	%
+	\item * Construct a function $f_1:\mathbb{R}\to\mathbb{R}$ with the following properties or show that no such function exists:\\
+	$1.$ $f_1$ is differentiable everywhere except one point $x_1.$\\
+	$2.$ Define $f_2 : \mathbb{R}\setminus\{x_1\} \to \mathbb{R}$ as $f_2(x) := $ derivative of $f_1$ at $x.$ This $f_2$ must be differentiable everywhere in its domain except one point $x_2.$\\
+	$3.$ Define $f_3 : \mathbb{R}\setminus\{x_1,\;x_2\} \to \mathbb{R}$ as $f_3(x) := $ derivative of $f_2$ at $x.$ This $f_3$ must be differentiable everywhere in its domain except one point $x_3.$\\
+	\vdots
+
+	$n.$ Define $f_n : \mathbb{R}\setminus\{x_1, \cdots, x_{n-1}\} \to \mathbb{R}$ as $f_n(x) := $ derivative of $f_{n-1}$ at $x.$ This $f_n$ must be differentiable everywhere in its domain except one point $x_n.$\\
+	\vdots
+
+	(Note that we do not stop at any $n.$) 
+\end{enumerate}
 \end{document}

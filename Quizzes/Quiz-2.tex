@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 2: Solution}
+\author{Aryaman Maithani}
+\date{14th August, 2019}
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} State whether the following statement is true or false. Justify your answer.\\
+Suppose $f:\mathbb{R}\to\mathbb{R}$ is defined by
+\[f(x) = x^3 + \sin x + \frac{x}{1 + x^2} \quad \text{for }x \in \mathbb{R}.\]
+Then there exists a real number $c$ such that $f(c) = 2019.$ \hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+\textbf{Answer.} T \hfill \textbf{[2]}\\
+Justification: The function $f$ is continuous as it is the sum of $x^3,$ $\sin x,$ and $\frac{x}{1+x^2},$ each of which is a continuous function. The function $\frac{x}{1 + x^2}$ is continuous as it the quotient of two continuous functions where the denominator is never $0.$ \hfill \textbf{[1]}\\~\\
+%
+There exist $a,\;b\in\mathbb{R}$ such that $f(a) < 2019$ and $f(b) > 2019.$ For example, one can take $a = 0$ and $b = 2019.$ \hfill \textbf{[1]}\\~\\
+%
+The conclusion follows by applying the Intermediate value theorem on the \emph{interval} $[a, b] \subset \mathbb{R}.$ \hfill \textbf{[1]}\\
+
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item For those who have argued only using the justification that $\displaystyle\lim_{x\to \infty}f(x) = \infty$ or $\displaystyle\lim_{x\to -\infty}=-\infty,$ half a mark has been deducted. The reason for this is simply - We have talked only about real numbers when talking about limits of functions. $\pm\infty$ are not real numbers.
+	\item For those who have not mentioned the crucial point that IVT can be used since the function is continuous \emph{on an interval,} half a mark has been deducted. This is crucial as functions which are continuous on sets which are not intervals need not have the Intermediate value property.
+	\item The choice of $a$ and $b$ is obviously not unique and marks have been awarded as long as the bounds are correct, whether it be as narrow as $[12, 13]$ or as wide as $[0, 10^6].$
+	\item No marks have been cut even if the person has not explicitly mentioned the reason for continuity of $\frac{x}{1 + x^2}.$
+\end{enumerate}
+
+\end{document}

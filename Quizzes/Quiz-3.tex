@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 3: Solution}      % here
+\author{Aryaman Maithani}
+\date{21st August, 2019}			 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} State whether the following statement is true or false. Justify your answer.\\
+Is it possible to find a function $f : \mathbb{R} \to \mathbb{R}$ such that
+\begin{enumerate}[label = (\alph*)]
+	\item $f$ is continuous on $[-7, 0]$
+	\item $f$ is differentiable on $(-5, 0)$
+	\item $f'(x) \le 2$
+	\item $f(-5) = -3$ and $f(0) = 8.$
+\end{enumerate}
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} F \hfill \textbf{[2]}\\  % Fill T/F
+Justification: \\
+Assume that such a function $f$ exists.\\
+By hypothesis, $f$ is continuous on $[-7, 0];$ thus, it is continuous on $[-5, 0].$ \hfill \textbf{[0.5]}\\
+Moreover, $f$ is differentiable on $(-5, 0).$ \hfill \textbf{[0.5]}\\
+Thus, by MVT, we know that there exists $c \in (-5, 0)$ such that
+\[f'(c) = \dfrac{f(0) - f(-5)}{0 - (-5)} = \dfrac{11}{5} > 2\]
+\begin{flushright}
+	\textbf{[2]}
+\end{flushright}	
+However, by hypothesis $f'(c) \le 2.$ Thus, we have arrived at a contradiction. \hfill $\blacksquare$\\
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Those who have not mentioned that $f$ is continuous on $[-5, 0]$ have lost half a mark as per the above scheme. It is important to mention that as we cannot appeal to the Mean Value Theorem otherwise.
+	\item For those who written that $11/5 = 2.1$ or $11/5 = 2.5,$ a quarter mark has been deducted. Note that it was not necessary to calculate $11/5$ in its decimal expansion. However, if you write something that is incorrect and use that to justify your claim, it is not be correct.
+	\item Half a mark has been deducted for simply writing $f'(c) = \dfrac{f(0) - f(-5)}{0 - (-5)}$ without mentioning what $c$ is, that is, not writing ``for some $c$ in $(-5, 0)$'' or ``$\exists c \in (-5, 0).$''
+\end{enumerate}
+
+\end{document}

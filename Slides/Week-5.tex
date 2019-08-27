@@ -1,0 +1,155 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 05}  % change
+\author{Aryaman Maithani}
+\date[28-08-2019]{28th August, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 4}                            % change
+	5. Let $P = \{x_0, x_1, \ldots, x_n\}$ be a partition of $[0, 2].$\\
+	Then, there exists a unique $i_0$ such that $x_{i_0} \in [0, 1]$ and $x_{i_0 + 1} \in (1, 2].$\\
+	For $i = 1, 2, \ldots, i_0,$ we have
+	\[m_i(f) = \inf_{x \in [x_{i-1}, x_i]} f(x) = 1 \text{ and } M_i(f) = \sup_{x \in [x_{i-1}, x_i]}f(x) = 1,\]
+	for $i = i_0 + 1,$ we have
+	\[m_i(f) = \inf_{x \in [x_{i-1}, x_i]} f(x) = 1 \text{ and } M_i(f) = \sup_{x \in [x_{i-1}, x_i]}f(x) = 2,\]
+	for $i = i_0 + 2, \ldots, n,$ we have
+	\[m_i(f) = \inf_{x \in [x_{i-1}, x_i]} f(x) = 2 \text{ and } M_i(f) = \sup_{x \in [x_{i-1}, x_i]}f(x) = 2.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	Thus,
+	\[L(P, f) = \sum_{i=1}^{n}m_i(f)(x_i - x_{i-1}) = 1(x_{i_0 + 1} - x_0) + 2(x_n - x_{i_0 + 1}) = 4 - x_{i_0 + 1}.\]
+	Similarly,
+	\[U(P, f) = \sum_{i=1}^{n}M_i(f)(x_i - x_{i-1}) = 1(x_{i_0} - x_0) + 2(x_n - x_{i_0}) = 4 - x_{i_0}.\]
+	Note that we have used that $x_0 = 0$ and $x_n = 2.$\\~\\
+	Recall the following:\\
+	A bounded function $f:[a, b] \to \mathbb{R}$ is (Riemann) integrable if and only if there s a sequence $(P_n)$ of partitions of $[a, b]$ such that $U(P_n, f) - L(P_n, f) \to 0.$ In this case,
+	\[L(P_n, f) \to \int_{a}^{b} f(x) dx \leftarrow U(P_n, f).\]
+	
+\end{frame}
+\begin{frame}{Sheet 4}
+	We shall now construct such a sequence of partitions. For $n \in \mathbb{N},$ let $P_n$ denote the partition of $[0, 2]$ into $n$ equal parts.\\
+	Thus, we get $U(P_n, f) - L(P_n, f) = x_{i_0 + 1} - x_{i_0} = \dfrac{1}{n}.$\\
+	Seeing our old friend $1/n,$ we can immediately conclude that $U(P_n, f) - L(P_n, f) \to 0.$\\
+	Thus, we have now shown that $f$ is (Riemann) integrable on $[0, 2].$\\~\\
+	%
+	Now, we must actually compute the integral. This is not tough either.\\
+	Using the definition of $i_0,$ show that it must be the (unique!) integer in interval $(n/2 - 1, n/2].$ This gives us that $1 - 2/n \le x_{i_0} \le 1.$\\
+	Thus, the $L(U_n, f) \to 4-1 = 3,$ which is the required integral. \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 4}
+	6. (a) Let $P = \{x_0, x_1, \ldots, x_n\}$ be any partition of $[a, b].$\\
+	For $i = 1, 2, \ldots, n,$ we have
+	\[M_i(f) = \sup_{x \in [x_{i-1}, x_i]}f(x) \ge 0.\]
+	We have used that the supremum of a set of non-negative real numbers is nonnegative. (Why?)\\
+	Thus, $U(P, f) \ge 0.$ As $f$ is given to be Riemann integrable on $[a, b],$ there exists a sequence $(P_n)$ of partitions of $[a, b]$ such that $U(P_n, f) \to \displaystyle\int_{a}^{b} f(x) dx .$ But $U(P_n, f) \ge 0$ for all $n.$ (Shown above)\\
+	Thus, $\displaystyle\int_{a}^{b} f(x) dx = \lim_{n\to \infty}U(P_n, f) \ge 0.$\\
+	Note that here we have used the fact that the limit of a sequence of nonnegative real numbers, if it exists, is nonnegative.
+\end{frame}
+\begin{frame}{Sheet 4}
+	To prove the next part, let us prove the contrapositive. That is, if $f(x) \neq 0$ for some $x \in [a, b],$ then $\displaystyle\int_{a}^{b} f(x) dx \neq 0.$\\~\\
+	%
+	Suppose $c \in [a, b]$ is the number such that $f(c) \neq 0.$ As $f(x) \ge 0$ for all $x \in [a, b],$ we have it that $f(c) > 0.$ Let $\epsilon := f(c).$\\
+	%Let us assume that $c$ is an interior point 
+	As $f$ is continuous, there is a $\delta > 0$ such that if $x \in [a, b]$ and $|x - c| < \delta,$ then $|f(x) - f(c)| < \epsilon/2$ which implies that $\epsilon/2 < f(x).$\\
+	Now, let us take the partition $P := \{x_0, x_1, x_2, x_3\}$ with $x_0 = a,\; x_1 = c-\delta,\;x_2 = c+\delta$ and $x_3 = b.$ If it is the case that $x_1 < x_0,$ then discard $x_1.$ If it is the case that $x_2 > x_3,$ discard $x_2.$ Relabel if required.\\
+	Now, there exists $x_i \in P$ such that $\displaystyle\inf_{x \in [{x_{i-1}, x_i}]}f(x) \ge \epsilon/2 > 0.$\\
+	Thus, $L(P, f) > 0.$ As $f$ is Riemann integrable, $\displaystyle\int_{a}^{b} f(x) dx = \sup\{L(P, f): P \text{ is a partition of } [a, b]\} > 0$ as we have found a partition that has a strictly positive lower sum.
+\end{frame}
+\begin{frame}{Sheet 4}
+	(b) Let $a = 0, b = 2$ and $f:[a, b] \to \mathbb{R}$ be defined as
+	\[f(x) = \left\{\begin{array}[h]{c l}
+		0 & ; x \neq 1 \\
+		1 & ; x = 1
+	\end{array}
+	\right.\]
+	Show that $f$ is actually Riemann integrable on $[0, 2]$ with the integral equal to $0.$
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	1. Brute calculation.\\
+	We need the following to happen:\\
+	\begin{enumerate} 
+		\item $f(1) = 6,$
+		\item $f(-1) = 10,$
+		\item $f'(-1) = 0,$
+		\item $f''(-1) < 0,$
+		\item $f"(1) = 0$ and
+		\item $f"$ changes sign around $1.$
+	\end{enumerate}
+	It will turn out that condition 1, 2, 3 and 5 are sufficient to find the constants. Verify whether the other conditions are being fulfilled or not.
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	If $g(a) = g(b),$ then it will directly follow from LMVT. (How?)\\
+	Let us assume that $g(a) \neq g(b).$\\
+	Define $h:[a, b] \to \mathbb{R}$ as $h(x) := f(x) - c_0g(x)$ for a particular constant $c_0$ which we shall choose such that $h(a) = h(b).$\\
+	Thus, $f(a) - c_0g(a) = f(b) - c_0g(b) \iff f(a) - f(b) = c_0(g(a) - g(b)).$ As $g(a) - g(b) \neq 0,$ the desired $c_0$ exists.\\
+	By hypothesis, $h$ is also continuous on $[a, b]$ and differentiable on $(a, b).$ (Why?)\\
+	As $h(a) = h(b),$ by Rolle's Theorem, we know that there exists $c \in (a, b)$ such that $h'(c) = 0.$\\
+	\begin{align*}
+		&h'(c) = 0\\
+		\implies& f'(c) - c_0g'(c) = 0\\
+		\implies& f'(c)(g(b) - g(a)) - c_0(g(b) - g(a))g'(c) = 0\\
+		\implies& f'(c)(g(b) - g(a)) = g'(c)(f(b) - f(a))
+	\end{align*}
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	3. (i) Let us assume that we know the derivative of $x^n$ when $n \in \mathbb{N}$ and derive it for the case when $n$ is any rational number. \\
+	Given $n \in \mathbb{N},$ let us first find the derivative of the following function, $g:(0, 2) \to (0, 2^{1/n})$ defined as $g(x) := x^{1/n}.$ We shall do so using the inverse function theorem.\\
+	Define $f:(0, 2^{1/n}) \to (0, 2)$ as $f(x) := x^n,$ then $f$ is 1-1 and continuous in the domain. Moreover, $f'(c) = nc^{n-1} \neq 0.$\\
+	Also, $f\left((0,2^{1/n})\right) = (0, 2).$	Thus, for $d \in (0, 2),$ $d = f(c) = c^n$ for some $c \in (0, 2^{1/n})$ and
+	\[(f^{-1})'(d) = \dfrac{1}{f'(c)} = \dfrac{1}{nc^{n-1}} = \dfrac{1}{n}d^{\frac{1}{n} - 1}.\]
+	As $f^{-1} = g,$ we have it that $g'(x) = \dfrac{1}{n}x^{\frac{1}{n} - 1}.$
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	Given $m \in \mathbb{Z}^-,$ that is, the set of negative integers, we can find the derivative of $f:(0, 2) \to (0, 2^m)$ defined as $f(x) := x^m.$\\
+	This can be done using the chain rule as follows:
+	\[f'(x) = \left(\left(\frac{1}{x}\right)^{-m}\right)' = (-m)\left(\frac{1}{x}\right)^{-m-1}\left(-\dfrac{1}{x^2}\right) = mx^{m-1}.\]
+	For $m = 0,$ one derive $(x^m)'$ easily.\\
+	Thus, we can now derive the derivative of the following function:
+	\[f:(-1, 1) \to \mathbb{R}\] \[f(x) := (1 + x)^r\]
+	for $r \in \mathbb{Q}.$
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	Given $r \in \mathbb{Q},$ we can write $r$ as $m/n$ for some $m \in \mathbb{Z}$ and some $n \in \mathbb{N}.$ Using our results from earlier, we have differentiate the function using chain rule as follows:
+	\[\left((1 + x)^r\right)' = \left(\left((1+x)^m\right)^{1/n}\right)' = \frac{1}{n}\left[((1+x)^m)^{1/n - 1}\right]\left[m(1 + x)^{m-1}\right] = r(1 + x)^{r-1}.\]
+	Now, one can inductively show that $f^{(n)}(x) =r (r-1)\cdots (r - (n-1))(1 + x)^{r-n}.$\\
+	The $n^{\text{th}}$ Taylor polynomial around $a = 0$ is given by
+	\[f(0) + \dfrac{f'(0)}{1!}x + \dfrac{f''(0)}{2!}x^2 + \cdots + \dfrac{f^{(n)}(0)}{n!}x^n.\]
+	Thus, in this case, it is
+	\[1 + rx + \dfrac{r(r-1)}{2!}x^2 + \cdots \dfrac{r(r-1)\cdots(r-n+1)}{n!}x^n.\]
+	Note the \emph{Taylor polynomial} does not include the remainder term.
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	3. (ii) Left as an exercise. Be careful with the signs.\\
+	(iii) Exercise.
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	4. Let us extend $f$ and $g$ by defining $f(c) := 0 =: g(c).$ By hypothesis, $f, g$ are now continuous on $(c-r, c+r).$ (Why?)\\
+	As $g'(x)$ is never zero, $g(x) \neq g(y)$ whenever $x \neq y.$ (Why?)\\
+	We will show that that if $\displaystyle\lim_{x\to c^+}\frac{f'(x)}{g'(x)} = l,$ then $\displaystyle\lim_{x\to c^+}\frac{f(x)}{g(x)} = l.$ \hfill (Given the remaining hypothesis.
+\end{frame}
+\begin{frame}{Sheet 5 (Additional Problems)}
+	
+	Suppose $(x_n)$ in $D$ is a sequence such that $x_n \to c^+.$ Given any $n \in \mathbb{N},$ $f$ and $g$ are continuous on $[c, x_n]$ and differentiable on $(c, x_n).$ Then, by CMVT, there exists $c_n \in (c, x_n)$ such that
+	\[\frac{f'(c_n)}{g'(c_n)} = \frac{f(x_n) - f(c)}{g(x_n) - g(c)} = \frac{f(x_n)}{g(x_n)}\]
+	\[\implies \lim_{n\to \infty} \frac{f'(c_n)}{g'(c_n)} = \lim_{n\to \infty}\frac{f(x_n)}{g(x_n)}\]
+	As $c < c_n < x_n$ and $x_n \to c,$ we have it that $c_n \to c$ along with $c_n > c.$\\
+	As we are given that $\displaystyle\lim_{x\to c}f'(x)/g'(x)$ exists, we can write the LHS as $\displaystyle\lim_{x \to c^+} \frac{f'(c_n)}{g'(c_n)}.$ As $(x_n)$ was arbitrarily chosen and now that we know that $\displaystyle\lim_{n\to \infty}\frac{f(x_n)}{g(x_n)}$ exists, it must be equal to $\displaystyle\lim_{x \to c^+}\frac{f(x_n)}{g(x_n)},$ by definition.
+\end{frame}
+	
+\begin{frame}{Sheet 5 (Additional Problems)}
+	Thus, we have shown that
+	\[\lim_{x \to c^+} \frac{f'(c_n)}{g'(c_n)} = \lim_{x \to c^+}\frac{f(x_n)}{g(x_n)}.\]
+	Similarly, one can show a similar result for $x \to c^-.$ As we are give that $f'(x)/g'(x) \to l$ as $x \to c,$ we know that both the limits must coincide. Thus, we have proven the theorem.\\~\\
+	Note that we didn't require $l$ to be a real number.
+\end{frame}
+\end{document}

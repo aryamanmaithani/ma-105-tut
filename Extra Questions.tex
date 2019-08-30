@@ -143,4 +143,30 @@ The last two questions are just for one to think about. I do not expect solution
 
 	(Note that we do not stop at any $n.$) 
 \end{enumerate}
+\section{Any Week}
+\begin{enumerate} 
+	\item Let $D \subset \mathbb{R}.$ We say a function $f : D \to \mathbb{R}$ is \emph{uniformly continuous} if for all $\epsilon > 0,$ there exists $\delta > 0$ such that whenever $x,\;y \in D$ and $|x - y| < \delta,$ then $|f(x) - f(y)| < \epsilon.$
+	\begin{enumerate} 
+		\item Understand how this definition is different from the definition of (usual) continuity.
+		\item Give an example of a function which is continuous but not uniformly continuous.
+		\item Show that any uniformly continuous function is also continuous.
+	\end{enumerate}
+	\item Let $(f_n)$ be a sequence of real valued functions defined on $[a, b]$ such that each $f_n$ is continuous. Moreover, you are given that for each $x \in [a, b],$ the limit $\displaystyle\lim_{n\to \infty}f_n(x)$ exists. \\
+	Define the function $f : [a, b] \to \mathbb{R}$ as follows:
+	\[f(x) := \lim_{n\to \infty}f_n(x).\]
+	Show with the help of an example that it is not necessary that $f$ is continuous.
+	\item Let $f_n : D \to \mathbb{R}$ be a sequence from the set $D \subset \mathbb{R}$ to $\mathbb{R}.$ We say that the sequence $(f_n)$ \emph{converges uniformly} to the function $f:D \to \mathbb{R}$ if given $\epsilon > 0,$ there exists an integer $N$ such that
+	\[|f_n(x) - f(x)| < \epsilon\]
+	for all $n > N$ and all $x \in D.$\\
+	Prove that if $(f_n)$ is a sequence of continuous functions that converges uniformly to $f,$ then $f$ is continuous.\\
+	If you have solved the previous question, show that $(f_n)$ didn't uniformly converge to $f$ for that example.
+	\item Let $f:[a, b] \to \mathbb{R}$ be any function. Then, we know that if
+	\begin{enumerate} 
+		\item $f$ is monotonic, or
+		\item $f$ is bounded and has at most a finite number of discontinuities in $[a, b],$
+	\end{enumerate}
+	then $f$ is (Riemann) integrable.\\
+	Is the converse true?\\
+	That is, if $f$ is (Riemann) integrable, then is it necessary that one of (a) or (b) should be true? Prove or disprove via counterexample. \hfill (Credit: Amit)
+\end{enumerate}
 \end{document}

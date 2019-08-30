@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+\let\emptyset\varnothing
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{50, 50, 50} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Restricted Topology}
+\author{Aryaman Maithani}
+\date{}
+
+\begin{document}
+\maketitle
+\hrulefill
+
+In this document, I will be talking about concepts that you already have seen but in a \emph{slightly} more general perspective. Hopefully, this will help you in viewing these concepts in a more enlightened way.\\
+The name of this document is so because I define every concept in terms of topological concepts but at the same time, just restrict ourselves to metric spaces.\\
+\section{Metric Spaces}
+	When we talk about $\mathbb{R}$ and see definitions of continuity and sequences, you may have observed that all we really require to define them is some sort of notion about ``distance'' between two numbers. We will now see an abstract notion of this ``distance.''
+	\begin{defn}
+		Let $X$ be a set. We say that a function $d:X\times X \to \mathbb{R}$ is a \emph{metric} on $X$ if it satisfies the following properties:
+		\begin{enumerate} 
+			\item For all $x, y \in X:$ $d(x, y) \ge 0;$ moreover, $d(x, y) = 0 \iff x = y.$
+			\item For all $x, y \in X:$ $d(x, y) = d(y, x).$
+			\item For all $x, y, z \in X:$ $d(x, z) \le d(x, y) + d(y, z).$
+		\end{enumerate}
+	\end{defn}
+	That last property is known as the \emph{Triangle inequality.}
+	Thus, the modulus function is a function that is \emph{a} metric on $\mathbb{R}.$\\
+	However, it is \emph{not} the only metric that could be defined on $\mathbb{R}.$ For example, one could define $d(x, y) := \dfrac{|x-y|}{1 + |x-y|}$ for $x, y \in \mathbb{R}.$ It is an exercise for the reader to check that this actually is a metric. The first two conditions are easy to verify.\\~\\
+	Another thing to observe is that we assume \emph{nothing} about the set $X.$ All we care about is defining a distance on it. Thus, one could very well take $X := \{\text{apple}, \pi, \text{apple pie}\}$ and define a metric $d:X \times X \to Y$ as:
+	\[d(x, y) := \left\{\begin{array}{c r}
+		1 & x \neq y\\
+		0 & x = y
+	\end{array}
+	\right.\]
+	Thus, there's no need for the set to have ``numbers.'' In fact, the metric we just defined is a metric that is valid for any $X.$ This is known as the \emph{discrete metric} on $X.$\\~\\
+	\textbf{Exercises} 
+	\begin{enumerate}[nosep]
+		\item Verify that the discrete metric is actually a metric on $X.$ (For any set $X.$)
+		\item Show that if $d$ is a metric on $X,$ then so is $d' : X \times X \to \mathbb{R}$ defined as $d'(x, y) := \dfrac{d(x, y)}{1 + d(x, y)}.$
+		\item Given $\textbf{x} = (x_1, x_2, \ldots, x_n)$ and $\textbf{y} = (y_1, y_2, \ldots, y_n) \in \mathbb{R}^n$, we define $\rho:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}$ as
+		\[\rho(\textbf{x}, \textbf{y}) := \max\{|x_1 - y_1|, \ldots, |x_n - y_n|\}.\]
+		Show that $\rho$ is a metric on $\mathbb{R}^n.$
+		\item Show that the standard Euclidean distance on $\mathbb{R}^n$ defined as 
+		\[d(\textbf{x}, \textbf{y}) := \left(\sum_{i=1}^{n}(x_i - y_i)^2\right)^{1/2}\]
+		is a metric on $\mathbb{R}^n.$
+	\end{enumerate}
+	Now that we are familiar with what a metric is, let us define what a metric space is.
+	\begin{defn}
+		Given a set $X$ with an associated metric $d,$ we say that $(X, d)$ is a metric space.
+	\end{defn}
+	By abuse of notation, we often say that $X$ is a metric space and omit the mention of $d$ if it is clear what $d$ is.\\
+	The modulus function defined on $\mathbb{R}$ is called the \emph{standard metric} on $\mathbb{R}$ and whenever we say ``$\mathbb{R}$ with the standard (usual) metric,'' we shall refer to the metric space $(\mathbb{R}, x \mapsto |x|).$ Similarly, the Euclidean distance is the standard (usual) metric on $\mathbb{R}^n.$\\
+	One can observe that if $(X, d)$ is a metric space and $Y \subset X,$ then $Y$ can naturally be regarded as a metric space by restricting the domain of $d$ to $Y \times Y.$ It can easily be verified that this new function is indeed a metric on $Y.$ \footnote{Note that we say ``new'' function as it is a function with a different domain.} We then say that $Y$ is a metric subspace of $X.$
+	%
+	\section{Open sets}
+	\begin{defn}
+		Let $(X, d)$ be a metric space and let $p \in X.$ For $r > 0,$ we define the set $B_r(p) := \{q \in X : d(p, q) < r\}.$ This is called the $r-$ball centered at $p.$
+	\end{defn}
+	\textbf{Exercises}
+	\begin{enumerate}[nosep] 
+		\item Describe the appearance of $r-$balls in $\mathbb{R},\; \mathbb{R}^2$ and $\mathbb{R}^3.$ (With the standard metric.)
+		\item Let $X$ be a set with the discrete metric and let $p \in X.$ Describe the set $B_r(p)$ for $r > 0.$\\
+		Take the cases $0 < r < 1$ and $r \ge 1.$
+		\item Let $(X, d)$ be a metric space and let $p \in X.$ Show that $p \in B_r(p)$ for all $r > 0.$
+		\item Let $(X, d)$ be a metric space and let $p, q \in X$ such that $p \neq q.$ Show that there exists $r > 0$ such that $q \not \in B_r(p).$
+	\end{enumerate}
+	\begin{defn}
+		Let $(X, d)$ be a metric space. Let $E$ be a subset of $X.$ A point $p \in E$ is said to be an \textbf{interior point} of $E$ if there exists some $r > 0$ such that the $r-$ball centered at $p$ is contained in $E.$
+	\end{defn}
+	What this intuitively means is that the point $p$ is ``inside'' $E$ and not on the ``edge'' or ``boundary.''
+	\begin{defn}
+		Let $(X, d)$ be a metric space. Let $E$ be a subset of $X.$ $E$ is said to be \textbf{open in $X$} if every point of $E$ is an interior point of $E.$
+	\end{defn}
+	\textbf{Exercises}
+	\begin{enumerate}[nosep] 
+		\item Show that any point of the interval $I = (0, 1)$ in an interior point of $I.$ That is, show that $I$ is open in $\mathbb{R}.$
+		\item Show that $0$ is \emph{not} an interior point of the set $[0, 1).$ Thus, $[0, 1)$ is not open in $\mathbb{R}.$
+		\item Let $B^2 := \{(x, y) \in \mathbb{R}^2 : x^2 + y^2 < 1\}.$ Show that $B^2$ is open in $\mathbb{R}^2.$
+		\item Let $(X, d)$ be a metric space. Show that $X$ is open in $X.$
+	\end{enumerate}
+	Note that it is important to mention the larger space in which we are talking about a set being open. As the last exercise shows, every set\footnote{We are being lazy and saying just ``set'' when we really mean a set on which a metric has been defined.} is open in itself. What this means is that $[0, 1)$ is actually open in $[0, 1)$ even though it was not open in $\mathbb{R}.$ (Recall that we can view a subset of a metric space as a metric space itself.)\\
+	This is because when we look at $r-$balls around $0$ in $\mathbb{R},$ they look like $(-r, r).$ However, when we talk about $r-$balls around $0$ in $[0, 1),$ they look like $[0, r).$ (Assuming $r < 1.$) Thus, choosing $r = 1/2$ gives us that $0$ is an interior point of $[0, 1).$\\
+	\textbf{Exercises}
+	\begin{enumerate}[nosep] 
+		\item Show that $r-$balls are always open.
+		\item Let $(X, d)$ be a metric space and let $Y \subset X.$ Show that $U$ is open in $Y$ if and only if there exists some set $V$ open in $X$ such that $U = V \cap Y.$
+	\end{enumerate}
+	\begin{defn}
+		Let $(X, d)$ be a metric space and let $x \in X.$ We say that a subset $U$ of $X$ is a \textbf{neighbourhood} of $x$ if $x \in U$ and $U$ is open in $X.$
+	\end{defn}
+	To be precise, one should also mention the set in which $U$ is a neighbourhood of $x$ but we usually omit it if no confusion arises. 
+	\subsection{Some properties of open sets}
+	Now we list some important properties of open sets.\\
+	Let $(X, d)$ be a metric space. Then the following statements holds.
+	\begin{enumerate} 
+		\item $\emptyset$ and $X.$
+		\item Finite intersection of open sets is open.
+		\item Arbitrary unions of open sets is open.
+	\end{enumerate}
+	$\emptyset$ being open is \emph{vacuously true}. It's similar to how the statement ``All my children are cats'' is a true statement when said by someone who does not have children. If you don't like this, you could just accept that we are defining $\emptyset$ to be empty.\\~\\
+	\textbf{A side note}\\
+	The reason we mention these properties separately is because these are the properties that a general topological space has. In fact, that's how a topological space is defined. In this document, we defined open sets using a very specific method (i.e., defining a metric). In topology, one studies a set $X$ by defining \emph{a topology} on the set which is simply a collection of subsets of $X$ which are called \emph{open sets} such that they follow the above mentioned properties.\\
+	Topological spaces are even more abstract than what we are studying. In fact, metric spaces are quite ``well-behaved,'' in the sense that we have theorems on metric spaces that need not hold for more general topological spaces. One such example is what was mentioned in the exercises - given any two distinct points $x$ and $y$ in a metric space, there exist disjoint neighbourhoods $U$ and $V$ of $x$ and $y,$ respectively. This is not true in general for topological spaces.
+	\section{Sequences}
+	With the definition of open sets in place, we can talk about sequences.
+	\begin{defn}
+		Let $X$ be any nonempty set. By a \textbf{sequence in $X$}, we mean a function $x$ defined on the set $\mathbb{N}$ to the set $X.$ It is customary to write $x_n$ to denote $x(n).$\\
+		The sequence itself is denoted by $(x_n).$
+	\end{defn}
+	We now give two definitions of convergence of sequences.
+	\begin{defn}
+		Let $(X, d)$ be a metric space and $(x_n)$ be a sequence in $X.$\\
+		$(x_n)$ is said to converge to $x$ if for every $\epsilon > 0,$ there exists a natural number $N$ such that $n \ge N$ implies that $d(x, x_n) < \epsilon.$\\
+		This $x$ is called a limit of the sequence.
+	\end{defn}
+	This is the familiar definition for convergence that you have seen. We now phrase it in a different but equivalent (check!) manner.
+	\begin{defn}
+		Let $(X, d)$ be a metric space and $(x_n)$ be a sequence in $X.$\\
+		$(x_n)$ is said to converge to $x$ if for every neighbourhood $U$ of $x,$ all but finitely many elements of the sequence are in $U.$\\
+		This $x$ is called a limit of the sequence.
+	\end{defn}
+	It can be seen how the latter definition can be appropriately modified to be applicable to any topological space. All we would need to do is start with ``Let $(X, \mathcal{T})$ be a topological space.''
+	\begin{defn}
+		A sequence in $X$ is said to converge if there exists $x \in X$ such that the sequence converges to $x.$\\
+		Also, we denote that $x$ is a limit of a sequence $(x_n)$ by writing $\displaystyle\lim_{n\to \infty}x_n = x$ or $x_n \to x.$
+	\end{defn}
+	Once again, one needs to be careful when talking about the space in which a sequence converges. For example, the sequence $x_n := 1/n$ can be viewed as a sequence in $\mathbb{R}$ or in $\mathbb{R}^+.$ However, it converges only in the former.\\~\\
+	\textbf{Exercises}\\
+	Assume that we are talking about metric spaces when solving the following.
+	\begin{enumerate}[nosep]
+		\item Show that the two definitions of convergence are equivalent.
+		\item Show that if a sequence does have a limit, then it must be unique. Try to argue by just using the open set definition.
+	\end{enumerate}
+	The last exercise depends on the existence of disjoint neighbourhoods of distinct points that we mentioned earlier. In general topological spaces, there are examples of sequences which have more than one limit.
+\end{document}

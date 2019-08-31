@@ -1,0 +1,45 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ Integration with tagged partitions}  % change
+\author{Aryaman Maithani}
+\date[31-08-2019]{31st August, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Introduction}
+	In these slides, I will give an alternate definition of Riemann integrals which does not involve lower and upper sums but rather, relies on something knows as \emph{tags.}\\~\\
+	As one would expect, this definition is indeed equivalent to the one that you did in class. As usual, if you see someone claiming that two definitions are equivalent, you must demand a proof.\\
+	I shall, however, leave the burden of proof to you.
+\end{frame}
+\begin{frame}{Integration: some objects}
+	Consider a closed and bounded interval $I = [a,\;b].$\\
+	A {\color[rgb]{1, 1, 1} partition} of $I$ is a finite, ordered set of points $a = x_0 < x_1 < x_2 < \cdots < x_n = b,$ and is usually denoted by $\mathcal{P}.$\\
+	The points in a partition are used to divide the interval $I$ into non-overlapping subintervals, $[x_0, x_1],\;\ldots,\;[x_{n-1}, x_n].$\\~\\
+	If a point $t_i$ is selected from each subinterval $[x_{i}, x_{i+1}]$ then we call the partition to be {\color[rgb]{1, 1, 1} tagged}. It will be denoted by $\dot{\mathcal{P}}.$ Tags can be selected in any way.
+	%
+	\[\mathcal{P} = (x_0 < x_1 < \cdots < x_n) \text{ and } \dot{\mathcal{P}} = \{([x_i, x_{i+1}], t_i) : i = 0, \ldots, n-1\}.\]
+	We define the {\color[rgb]{1, 1, 1} norm} of a partition $\mathcal{P}$ to be the number
+	\[\|\mathcal{P}\| := \max\{x_1 - x_0, x_2 - x_1, \ldots, x_n - x_{n-1}\}.\]
+	For a tagged partition $\dot{\mathcal{P}},$ we define $\|\dot{\mathcal{P}}\| = \|\mathcal{P}\|.$
+	
+\end{frame}
+\begin{frame}{Riemann Sum}
+	If $f:[a, b] \to \mathbb{R}$ is a function, the {\color[rgb]{1, 1, 1} Riemann sum} of $f$ corresponding to a tagged partition $\dot{\mathcal{P}}$ of $[a, b]$ is the number
+	\[S(f, \dot{\mathcal{P}}) := \sum_{i=0}^{n-1}f(t_i)\left(x_{i+1} - x_i\right).\]
+\end{frame}
+\begin{frame}{Integration: Definition}
+	A function $f:[a, b] \to \mathbb{R}$ is said to be {\color[rgb]{1, 1, 1} Riemann integrable} over $[a, b]$ if there exists a number $L \in \mathbb{R}$ such that for every $\epsilon > 0$ there exists $\delta > 0$ such that if $\dot{\mathcal{P}}$ is any tagged partition of $[a, b]$ with $\|\dot{\mathcal{P}}\| < \delta,$ then
+	\[|S(f, \dot{\mathcal{P}}) - L| < \epsilon.\]
+	The number $L,$ in this case, will be called the {\color[rgb]{1, 1, 1} Riemann integral} of $f$ over $[a, b].$ We denote it as 
+	\[\int_{a}^{b} f \text{ or } \int_a^b f(x) dx.\]
+\end{frame}
+\end{document}

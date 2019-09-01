@@ -11,6 +11,10 @@
 \let\emptyset\varnothing
 \setlength\parindent{0pt}
 
+\newcounter{exercise}
+\newcommand{\exercise}{\refstepcounter{exercise}\par\medskip
+   {\textbf{Exercise \theexercise }} \rmfamily}
+
 \usepackage{xcolor}
 \definecolor{mybgcolor}{RGB}{50, 50, 50} %46, 51, 63
 
@@ -28,7 +32,7 @@
 
 \title{Topology, restricted}
 \author{Aryaman Maithani}
-\date{}
+\date{\today}
 
 \begin{document}
 \maketitle
@@ -56,8 +60,8 @@ The name of this document is so because I define every concept in terms of topol
 	\end{array}
 	\right.\]
 	Thus, there's no need for the set to have ``numbers.'' In fact, the metric we just defined is a metric that is valid for any $X.$ This is known as the \emph{discrete metric} on $X.$\\~\\
-	\textbf{Exercises} 
-	\begin{enumerate}[nosep]
+	\exercise
+	\begin{enumerate}[nosep]\label{ex:standard-metrics}
 		\item Verify that the discrete metric is actually a metric on $X.$ (For any set $X.$)
 		\item Show that if $d$ is a metric on $X,$ then so is $d' : X \times X \to \mathbb{R}$ defined as $d'(x, y) := \dfrac{d(x, y)}{1 + d(x, y)}.$
 		\item Given $\textbf{x} = (x_1, x_2, \ldots, x_n)$ and $\textbf{y} = (y_1, y_2, \ldots, y_n) \in \mathbb{R}^n$, we define $\rho:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}$ as
@@ -79,7 +83,7 @@ The name of this document is so because I define every concept in terms of topol
 	\begin{defn}
 		Let $(X, d)$ be a metric space and let $p \in X.$ For $r > 0,$ we define the set $B_r(p) := \{q \in X : d(p, q) < r\}.$ This is called the $r-$ball centered at $p.$
 	\end{defn}
-	\textbf{Exercises}
+	\exercise
 	\begin{enumerate}[nosep] 
 		\item Describe the appearance of $r-$balls in $\mathbb{R},\; \mathbb{R}^2$ and $\mathbb{R}^3.$ (With the standard metric.)
 		\item Let $X$ be a set with the discrete metric and let $p \in X.$ Describe the set $B_r(p)$ for $r > 0.$\\
@@ -94,7 +98,7 @@ The name of this document is so because I define every concept in terms of topol
 	\begin{defn}
 		Let $(X, d)$ be a metric space. Let $E$ be a subset of $X.$ $E$ is said to be \textbf{open in $X$} if every point of $E$ is an interior point of $E.$
 	\end{defn}
-	\textbf{Exercises}
+	\exercise
 	\begin{enumerate}[nosep] 
 		\item Show that any point of the interval $I = (0, 1)$ in an interior point of $I.$ That is, show that $I$ is open in $\mathbb{R}.$
 		\item Show that $0$ is \emph{not} an interior point of the set $[0, 1).$ Thus, $[0, 1)$ is not open in $\mathbb{R}.$
@@ -103,20 +107,30 @@ The name of this document is so because I define every concept in terms of topol
 	\end{enumerate}
 	Note that it is important to mention the larger space in which we are talking about a set being open. As the last exercise shows, every set\footnote{We are being lazy and saying just ``set'' when we really mean a set on which a metric has been defined.} is open in itself. What this means is that $[0, 1)$ is actually open in $[0, 1)$ even though it was not open in $\mathbb{R}.$ (Recall that we can view a subset of a metric space as a metric space itself.)\\
 	This is because when we look at $r-$balls around $0$ in $\mathbb{R},$ they look like $(-r, r).$ However, when we talk about $r-$balls around $0$ in $[0, 1),$ they look like $[0, r).$ (Assuming $r < 1.$) Thus, choosing $r = 1/2$ gives us that $0$ is an interior point of $[0, 1).$\\
-	\textbf{Exercises}
+	\exercise
 	\begin{enumerate}[nosep] 
 		\item Show that $r-$balls are always open.
 		\item Let $(X, d)$ be a metric space and let $Y \subset X.$ Show that $U$ is open in $Y$ if and only if there exists some set $V$ open in $X$ such that $U = V \cap Y.$
 	\end{enumerate}
+	Due to the first exercise above, we also refer to $r-$balls as ``open balls.''\\
+	That is given a metric space $(X, d)$ an open ball is any element of the collection $\{B_r(x) : x \in X,\; r > 0\}.$
 	\begin{defn}
 		Let $(X, d)$ be a metric space and let $x \in X.$ We say that a subset $U$ of $X$ is a \textbf{neighbourhood} of $x$ if $x \in U$ and $U$ is open in $X.$
 	\end{defn}
 	To be precise, one should also mention the set in which $U$ is a neighbourhood of $x$ but we usually omit it if no confusion arises. 
+	\exercise
+	\begin{enumerate}[nosep] 
+		\item Let $(X, d)$ be a metric space and $U \subset X$ be open in $X.$ Show that the $U$ can be written as a union of open balls.
+		\item Fix $n \in \mathbb{N}.$ Let $d$ and $\rho$ be defined as in Exercise \ref{ex:standard-metrics}. Show that a set is open in $(\mathbb{R}^n, d)$ if and only if it is open in $(\mathbb{R}^n, \rho).$\\
+		Hint: Solve for the case $n = 2$ first and observe what it means geometrically. Convert that into an algebraic proof.
+		\item Let $X$ be any set and $d$ be a metric defined on $X.$ Define a new metric $\bar{d}$ on $X$ as $\bar{d}(x, y) = \min\{1, d(x, y)\}.$ Show that a set is open in $(X, d)$ if and only if it is open in $(X, \bar{d}).$
+	\end{enumerate}
+	%
 	\subsection{Some properties of open sets}
 	Now we list some important properties of open sets.\\
 	Let $(X, d)$ be a metric space. Then the following statements holds.
 	\begin{enumerate} 
-		\item $\emptyset$ and $X.$
+		\item $\emptyset$ and $X$ are open.
 		\item Finite intersection of open sets is open.
 		\item Arbitrary unions of open sets is open.
 	\end{enumerate}
@@ -147,12 +161,39 @@ The name of this document is so because I define every concept in terms of topol
 		A sequence in $X$ is said to converge if there exists $x \in X$ such that the sequence converges to $x.$\\
 		Also, we denote that $x$ is a limit of a sequence $(x_n)$ by writing $\displaystyle\lim_{n\to \infty}x_n = x$ or $x_n \to x.$
 	\end{defn}
-	Once again, one needs to be careful when talking about the space in which a sequence converges. For example, the sequence $x_n := 1/n$ can be viewed as a sequence in $\mathbb{R}$ or in $\mathbb{R}^+.$ However, it converges only in the former.\\~\\
-	\textbf{Exercises}\\
+	Once again, one needs to be careful when talking about the space in which a sequence converges. For example, the sequence $x_n := 1/n$ can be viewed as a sequence in $\mathbb{R}$ or in $\mathbb{R}^+.$ However, it converges only in the former.\\
+	\exercise\\
 	Assume that we are talking about metric spaces when solving the following.
 	\begin{enumerate}[nosep]
 		\item Show that the two definitions of convergence are equivalent.
 		\item Show that if a sequence does have a limit, then it must be unique. Try to argue by just using the open set definition.
 	\end{enumerate}
 	The last exercise depends on the existence of disjoint neighbourhoods of distinct points that we mentioned earlier. In general topological spaces, there are examples of sequences which have more than one limit.
+	%
+	\section{Limit points and Closed sets}
+	%
+	\begin{defn}
+		Let $(X, d)$ be a metric space and $E \subset X.$ A point $p \in X$ is called a \textbf{limit point} of $E$ if \emph{every} neighbourhood of $p$ contains a point $q \neq p$ such that $q \in E.$
+	\end{defn}
+	Note that the definition does not require that $p$ actually be an element of $E.$ As usual, it matters what the bigger set is.\\
+	The set of limit points of $E$ is denoted by $E'.$
+	\exercise
+	\begin{enumerate}[nosep] 
+		\item Following the conventions of the above definition, let $X = \mathbb{R}$ and $E = (0, 1).$ Show that $E' = [0, 1].$ Does your answer change if we consider $X = E = (0, 1)?$
+		\item Let $X = \mathbb{R}$ and $E = \mathbb{N}.$ Show that $\mathbb{N}' = \emptyset.$ Does your answer change if we consider $X = E = \mathbb{N}?$
+		\item Let $X = \mathbb{R}.$ What is $\mathbb{Q}'?$
+		\item Let $X = E = \mathbb{R}.$ What is $E'?$
+	\end{enumerate}
+	%
+	\begin{defn}
+		Let $(X, d)$ be a metric space and $E \subset X.$ $E$ is \textbf{closed} in $X$ if its complement is open in $X.$
+	\end{defn}
+	Once again, it is important to note that it does not make sense to talk about a set being closed by itself. It depends on the space we are in. \\
+	\begin{theorem}
+		A set is closed if and only if it contains all of its limit points.
+	\end{theorem}
+	\begin{proof}
+		Suppose that $E \subset X$ is closed. Let $p$ be a limit point of $E.$ Assume that $p \in E^c.$ As $E^c$ is open, $p$ is an interior point of $E^c,$ by definition. Thus, there exists $r > 0$ such that $B_r(p) \subset E^c.$ But this means that there exists a neighbourhood of $p$ which is disjoint from $E.$ This contradicts the fact that $p$ was a limit point of $E.$ Thus, $p \in E,$ as desired.\\
+		Conversely, suppose that $E' \subset E.$ We shall show that $E^c$ is an open set. Let $p \in E^c.$ As $E' \subset E,$ $p$ is not a limit point of $E.$ Thus, there exists $r > 0$ such that $B_r(p) \cap E$ does not contain any point, except possibly $p.$ As $p \in E^c,$ we have it that $B_r(p) \cap E \neq \emptyset.$ Thus, $B_r(p) \subset E^c.$ This shows that $p$ is an interior point of $E.$ As $p$ was arbitrary, $E$ is an open set. 
+	\end{proof}
 \end{document}

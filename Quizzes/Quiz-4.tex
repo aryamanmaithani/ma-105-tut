@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 4: Solution}      % here
+\author{Aryaman Maithani}
+\date{28th August, 2019}			 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.}
+Recall that a cubic polynomial is a function $q:\mathbb{R} \to \mathbb{R}$ given by $q(x) = ax^3 + bx^2 + cx + d$ for $a,\;b,\;c,\;d \in \mathbb{R}$ and $a \neq 0.$\\
+State whether the following statement is true or false. Justify your answer.\\ 
+Every cubic polynomial has an inflection point.
+\hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} T \hfill \textbf{[2]}\\  % Fill T/F
+Justification: \\
+We will justify our answer using the third derivative test. \\
+First note that a cubic polynomial is thrice differentiable. \hfill \textbf{[1]}\\
+We compute the following derivatives: $f''(x) = 6ax + b$ and $f'''(x) = 6a.$ \hfill \textbf{[1]}\\
+As $a \neq 0,$ the following quantity is well-defined, $x_0 := -\frac{b}{3a}.$ Moreover, $f''(x_0) = 0$ and $f'''(x_0) = 6a \neq 0.$ \hfill \textbf{[1]}\\
+This is a \emph{sufficient} condition for an inflection point. Thus, we have shown that every cubic polynomial has an inflection point.
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate}
+	\item We do have an alternate solution which relies only on the function being twice differentiable and checking the sign of $f''$ around $-\frac{b}{3a}.$
+	\item Half a mark has been deducted for those who simply wrote that $f''(x) > 0$ for $x > -\frac{b}{3a}$ as this is true only when $a > 0.$ 
+	\item Marks have been appropriately deducted when a student has written a wrong statement, some common ones being - 
+	\begin{enumerate}[nosep] 
+		\item $f''(c) = 0$ is a sufficient condition for an inflection point.\\
+		Counterexample - $f(x) = x^4$ and $c = 0.$
+		\item $f''(c) = 0$ and $f'''(c) \neq 0$ is a necessary condition for an inflection point.\\
+		Counterexample - $f(x) = x^5$ and $c = 0.$\\
+		This is especially wrong as is not even necessary for a function to be continuous at a point of inflection.
+	\end{enumerate}
+\end{enumerate}
+
+\end{document}

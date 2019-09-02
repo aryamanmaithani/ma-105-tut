@@ -111,6 +111,9 @@ The name of this document is so because I define every concept in terms of topol
 	\begin{enumerate}[nosep] 
 		\item Show that $r-$balls are always open.
 		\item Let $(X, d)$ be a metric space and let $Y \subset X.$ Show that $U$ is open in $Y$ if and only if there exists some set $V$ open in $X$ such that $U = V \cap Y.$
+		\item 
+		\item Let $Y$ be a subspace of $X.$ Show that if $A$ is open in $Y$ and $Y$ is open in $X,$ then $A$ is open in $X.$
+		\item Let $E$ be a set and let $E^o$ denote the set of interior points of $E.$ Show that $E^o$ is open. (Note that if you think that this is \emph{obvious,} you might be not interpreting it correctly.)
 	\end{enumerate}
 	Due to the first exercise above, we also refer to $r-$balls as ``open balls.''\\
 	That is given a metric space $(X, d)$ an open ball is any element of the collection $\{B_r(x) : x \in X,\; r > 0\}.$
@@ -196,4 +199,59 @@ The name of this document is so because I define every concept in terms of topol
 		Suppose that $E \subset X$ is closed. Let $p$ be a limit point of $E.$ Assume that $p \in E^c.$ As $E^c$ is open, $p$ is an interior point of $E^c,$ by definition. Thus, there exists $r > 0$ such that $B_r(p) \subset E^c.$ But this means that there exists a neighbourhood of $p$ which is disjoint from $E.$ This contradicts the fact that $p$ was a limit point of $E.$ Thus, $p \in E,$ as desired.\\
 		Conversely, suppose that $E' \subset E.$ We shall show that $E^c$ is an open set. Let $p \in E^c.$ As $E' \subset E,$ $p$ is not a limit point of $E.$ Thus, there exists $r > 0$ such that $B_r(p) \cap E$ does not contain any point, except possibly $p.$ As $p \in E^c,$ we have it that $B_r(p) \cap E \neq \emptyset.$ Thus, $B_r(p) \subset E^c.$ This shows that $p$ is an interior point of $E.$ As $p$ was arbitrary, $E$ is an open set. 
 	\end{proof}
+	It is important to note that being \emph{closed} is \textbf{not} the same as \emph{not being open.}\\
+	As an example, it is easy to verify that $\mathbb{R}$ is both open and closed in $\mathbb{R}.$ The set $(0, 1]$ is neither open nor closed in $\mathbb{R}.$ This is because $1$ is in the set but it is not an interior point and $0$ is a limit point of the set which is not in the set.\\
+	Any set with no limit points is vacuously closed.\\
+	\exercise
+	\begin{enumerate}[nosep] 
+		\item Let $(X, d)$ be a metric space and let $Y \subset X.$ Show that $U$ is closed in $Y$ if and only if there exists some set $V$ closed in $X$ such that $U = V \cap Y.$
+		\item Let $Y$ be a subspace of $X.$ Show that if $A$ is closed in $Y$ and $Y$ is closed in $X,$ then $A$ is closed in $X.$
+		\item Show that the set $K = \left\{\dfrac{1}{n} : n \in \mathbb{N}\right\}$ is not closed in $\mathbb{R}$ but $K \cup \{0\}$ is.
+		\item Let $C$ be a closed set and $(x_n)$ be any sequence in $C.$ Show that if $(x_n)$ converges, then $\displaystyle\lim_{n\to \infty}x_n \in C.$\\
+		Give an example to show that without the hypothesis of $C$ being closed, this is not necessarily true.
+		\item Let $E$ be any subset of a metric space $X.$ Show that if $(x_n)$ is a convergent sequence in $E,$ then $\displaystyle\lim_{n\to \infty}x_n \in E'.$
+		\item Let $E$ be any subset of a metric space $X.$ Show that if $x \in E',$ then there exists a sequence $(x_n)$ in $E$ such that $x_n \to x.$ (Note that this statement is true even if $E' = \emptyset.$)
+		\item Fill out the table - \\~\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$(X, d)$ & $E$ & $E$ is open in $X$ & $E$ is closed in $X$\\
+			\hline
+			$\mathbb{R}$ (standard metric) & $\mathbb{Q}$ & & \\
+			$\mathbb{R}$ (standard metric) & $\mathbb{N}$ & & \\
+			$\mathbb{R}$ (standard metric) & $[a, b]$ for any $a,\;b \in \mathbb{R}$ & & \\
+			$\mathbb{R}$ (standard metric) & $(a, b)$ for any $a,\;b \in \mathbb{R}$ & & \\
+			$\mathbb{R}$ (standard metric) & $(a, \infty)$ for any $a \in \mathbb{R}$ & & \\
+			$\mathbb{R}$ (standard metric) & $[a, \infty)$ for any $a \in \mathbb{R}$ & & \\
+			$\mathbb{R}^2$ (standard metric) & $\mathbb{R}^2 \setminus \{(0, 0)\}$ & & \\
+			$\mathbb{R}^2$ (standard metric) & $\mathbb{R}^2 \setminus \{(x, 0) \in \mathbb{R}^2 : x \in \mathbb{R}\}$ & & \\
+			$\mathbb{R}^2$ (standard metric) & $\{(x, y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}$ & & \\
+
+			Any $X$ with the discrete metric & Any subset $E$ of $X$ & & \\
+			Any $(X, d)$ & $X$ & & \\
+			Any $(X, d)$ & $\emptyset$ & & \\
+			\hline	
+		\end{tabular}
+		\item Give an example to show that $E$ and $E'$ do not necessarily have the same limit points.
+	\end{enumerate}
+	%
+	\subsection{Some properties of closed sets}
+	Analogous to the properties of open sets, we have the following property for closed sets.
+	Let $(X, d)$ be a metric space. Then the following statements holds.
+	\begin{enumerate} 
+		\item $\emptyset$ and $X$ are closed.
+		\item Arbitrary intersections of closed sets is closed.
+		\item Finite union of closed sets is closed.
+	\end{enumerate}
+	%
+	These follow directly from the definition of closed sets and DeMorgan's laws of complement. (Check!)\\
+	\exercise
+	\begin{enumerate}[nosep] 
+		\item Give an example to show that arbitrary intersections of open sets might not be open.\\
+		(Hint: Consider $A_n = \left(-\frac{1}{n}, \frac{1}{n}\right).$)
+		\item Give an example to show that arbitrary unions of closed sets might not be closed.\\
+		(Hint: Consider $A_n = \left[\frac{1}{n}, 2-\frac{1}{n}\right].$)\\~\\
+		%
+		(Make sure that you don't justify the first one by simply writing that the intersection is \emph{closed.} ``Closed'' does not necessarily mean ``not open.'' Similar thing is to be kept in mind for the second part.)
+
+	\end{enumerate}
 \end{document}

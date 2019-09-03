@@ -1,0 +1,178 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 06}  % change
+\author{Aryaman Maithani}
+\date[4-09-2019]{4th September, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 4}                            % change
+	7. (i) Note that \\
+	\[S_n = \dfrac{1}{n^{5/2}}\displaystyle\sum_{i=1}^{n}i^{3/2} = \sum_{i=1}^{n}\left(\dfrac{i}{n}\right)^{3/2}\left(\dfrac{i}{n} - \dfrac{i-1}{n}\right).\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := \frac{2}{5}x^{5/2}.$ Then, we have that $f'(x) = x^{3/2}.$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = S(P_n, f').$ Since $\mu(P_n) = 1/n \to 0,$ it follows that
+	\[S(P_n, f') \to \int_{0}^{1} x^{3/2} dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = \dfrac{2}{5}.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	7. (ii) Note that \\
+	\[S_n = \sum_{i=1}^{n}\dfrac{n}{i^2 + n^2} = \sum_{i=1}^{n}\dfrac{1}{\left(\frac{i}{n}\right)^2 + 1}\left(\frac{i}{n} - \frac{i-1}{n}\right) .\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := \tan^{-1}x.$ Then, we have that $f'(x) = \frac{1}{x^2 + 1}.$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = S(P_n, f').$ Since $\mu(P_n) = 1/n \to 0,$ it follows that
+	\[S(P_n, f') \to \int_{0}^{1} \dfrac{1}{x^2 + 1} dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = \dfrac{\pi}{4}.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	7. (iii) Note that \\
+	\[S_n = \sum_{i=1}^{n}\dfrac{1}{\sqrt{in + n^2}} = \sum_{i=1}^{n}\dfrac{1}{\sqrt{\left(\frac{i}{n}\right) + 1}}\left(\frac{i}{n} - \frac{i-1}{n}\right) .\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := 2\sqrt{x + 1}.$ Then, we have that $f'(x) = \frac{1}{\sqrt{x+ 1}}.$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = S(P_n, f').$ Since $\mu(P_n) = 1/n \to 0,$ it follows that
+	\[S(P_n, f') \to \int_{0}^{1} \frac{1}{\sqrt{x+ 1}} dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = 2\sqrt{2} - 2.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	7. (iv) Note that \\
+	\[S_n = \dfrac{1}{n}\sum_{i=1}^{n}\cos\left(\dfrac{i\pi}{n}\right) = \sum_{i=1}^{n}\cos\left(\dfrac{i\pi}{n}\right)\left(\frac{i}{n} - \frac{i-1}{n}\right) .\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := \frac{1}{\pi}\sin(\pi x).$ Then, we have that $f'(x) = \cos(\pi x).$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = S(P_n, f').$ Since $\mu(P_n) = 1/n \to 0,$ it follows that
+	\[S(P_n, f') \to \int_{0}^{1} \cos(\pi x) dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = 0.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	7. (v) Note that \\
+	\[S_n = \dfrac{1}{n}\left\{\sum_{i=1}^{n}\left(\frac{i}{n}\right) + \sum_{i=n+1}^{2n}\left(\frac{i}{n}\right)^{3/2} + \sum_{i=2n+1}^{3n}\left(\frac{i}{n}\right)^2\right\} .\]
+	We shall find $\displaystyle\lim_{n\to \infty}S_n$ by finding the limits of the individual sums and showing that they all exist.\\
+\end{frame}
+	
+\begin{frame}{Sheet 4}
+	Define $A_n := \displaystyle\dfrac{1}{n}\left\{\sum_{i=1}^{n}\left(\frac{i}{n}\right)\right\} =\sum_{i=1}^{n}\left(\frac{i}{n}\right)\left(\frac{i}{n} - \frac{i-1}{n}\right).$\\
+	Define $a:[0, 1] \to \mathbb{R}$ by $a(x) := \frac{x^2}{2}.$ Then, we have that $a'(x) = x.$\\
+	As $a'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $p_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $A_n = S(P_n, a').$ Since $\mu(P_n) = 1/n \to 0,$ it follows that
+	\[S(P_n, a') \to \int_{0}^{1} x dx = \int_{0}^{1} a'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}A_n = \int_{0}^{1} a'(x) dx = a(1) - a(0) = \dfrac{1}{2}.\]
+
+\end{frame}
+
+\begin{frame}{Sheet 4}
+	Define $B_n := \displaystyle\dfrac{1}{n}\left\{\sum_{i=n+1}^{2n}\left(\frac{i}{n}\right)^{3/2}\right\} =\sum_{i=n+1}^{2n}\left(\frac{i}{n}\right)^{3/2}\left(\frac{i}{n} - \frac{i-1}{n}\right).$\\
+	Define $b:[1, 2] \to \mathbb{R}$ by $b(x) := \frac{2}{5}x^{5/2}.$ Then, we have that $b'(x) = x^{3/2}.$\\
+	As $b'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $R_n := \{1, 1+1/n, \ldots, 1+n/n\}$ and $r_i := (n+i)/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $B_n = S(R_n, b').$ Since $\mu(R_n) = 1/n \to 0,$ it follows that
+	\[S(R_n, b') \to \int_{1}^{2} x^{3/2} dx = \int_{0}^{1} b'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}B_n = \int_{1}^{2} b'(x) dx = b(2) - b(1) = \dfrac{2}{5}(4\sqrt{2} - 1).\]
+
+\end{frame}
+
+\begin{frame}{Sheet 4}
+	Define $C_n := \displaystyle\dfrac{1}{n}\left\{\sum_{i=2n+1}^{3n}\left(\frac{i}{n}\right)^{2}\right\} =\sum_{i=2n+1}^{3n}\left(\frac{i}{n}\right)^{2}\left(\frac{i}{n} - \frac{i-1}{n}\right).$\\
+	Define $c:[2, 3] \to \mathbb{R}$ by $c(x) := \frac{x^3}{3}.$ Then, we have that $c'(x) = x^{2}.$\\
+	As $c'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $T_n := \{2, 2+1/n, \ldots, 2+n/n\}$ and $t_i := (2n+i)/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $C_n = S(T_n, c').$ Since $\mu(T_n) = 1/n \to 0,$ it follows that
+	\[S(T_n, c') \to \int_{2}^{3} x^{2} dx = \int_{2}^{3} c'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}C_n = \int_{2}^{3} c'(x) dx = c(3) - c(2) = \dfrac{19}{3}.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	It is easy to observe that $S_n = A_n + B_n + C_n$ for all $n \in \mathbb{N}.$\\
+	As all the limits individually exist, we can write
+	\[\lim_{n\to \infty}S_n = \lim_{n\to \infty}A_n + \lim_{n\to \infty}B_n + \lim_{n\to \infty}C_n = \dfrac{1}{2} + \dfrac{2}{5}(4\sqrt{2} - 1) + \dfrac{19}{3}.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	8. (a) We are given that
+	\[x = \int_{0}^{y} \frac{1}{\sqrt{1 + t^2}} dt \]
+	As the integrand is continuous, we have it $x$ is a differentiable function of $y.$ Using Fundamental Theorem of Calculus (Part 1), we can write that
+	\[\frac{dx}{dy} = \frac{1}{\sqrt{1 + y^2}}.\]
+	As $\dfrac{dx}{dy}$ is positive, we get that $x$ is a strictly increasing function of $y.$ In particular, it is one-one. It is also continuous and its derivative is never zero. Thus, by the inverse function theorem, we get that
+	\[\frac{dy}{dx} = \sqrt{1 + y^2}.\]
+\end{frame}
+	
+\begin{frame}{Sheet 4}
+	Now, we can calculate the double derivative as follows,
+	\[\frac{d^2y}{dx^2} = \frac{d}{dx}\sqrt{1 + y^2} = \dfrac{y}{\sqrt{1 + y^2}}\dfrac{dy}{dx} = y.\]
+\end{frame}
+\begin{frame}{Sheet 4}
+	8. (b) \\
+	Let $g$ be a continuous function. Define $G(x) := \displaystyle\int_{a}^{x} g(t) dt.$ Then $G'(x) = g(x),$ by Fundamental Theorem of Calculus (Part 1). Note that
+	\[\int_{u(x)}^{v(x)} g(t) dt = \int_{a}^{v(x)} g(t) dt - \int_{a}^{u(x)} f(t) dt = G(v(x)) - G(u(x)).\]
+	Thus, by the Chain Rule, one has
+	\[\dfrac{d}{dx}\int_{u(x)}^{v(x)} g(t) dt = G'(v(x))v'(x) - G'(u(x))u'(x) = g(v(x))v'(x) - g(u(x))u'(x).\]
+	We can now easily solve the question.
+\end{frame}
+	
+\begin{frame}{Sheet 4}
+	(i)\\
+	Given, $F(x) = \displaystyle\int_{1}^{2x} \cos(t^2) dt $
+	\begin{align*}
+		\therefore \frac{dF}{dx} &= \cos\left((2x)^2\right)(2x)' - \cos(1)(1)' \\
+		&= 2\cos(4x^2).
+	\end{align*}
+\end{frame}
+\begin{frame}{Sheet 4}
+	(ii)\\
+	Given, $F(x) = \displaystyle\int_{0}^{x^2} \cos(t) dt $
+	\begin{align*}
+		\therefore \frac{dF}{dx} &= \cos\left(x^2\right)(x^2)' - \cos(0)(0)'\\
+		& = 2x\cos(x^2).
+	\end{align*}
+\end{frame}
+\begin{frame}{Sheet 4}
+	9. Define $F:\mathbb{R} \to \mathbb{R}$ as
+	\[F(a) := \int_{a}^{a+p} f(t) dt.\]
+	If we show that $F$ is constant, then we are done.\\
+	%Using domain additivity, we can write $F(a) = \displaystyle\int_{0}^{a+p} f(t)dt - \int_{0}^{a} f(t) dt.$\\
+	As $f$ is a continuous, Fundamental Theorem of Calculus (Part 1) tells us that $F$ is differentiable everywhere. Using the result we had shown earlier, we have it that $F'(a) = f(a+p)\cdot 1 - f(a)\cdot 1 = 0.$\\
+	As $F$ is defined on an interval ($\mathbb{R}$), we have it that $F$ is constant. \hfill $\blacksquare$
+\end{frame}
+\begin{frame}{Sheet 4}
+	10. 
+	\begin{align*}
+		g(x) &= \dfrac{1}{\lambda}\int_{0}^{x} f(t)\sin \lambda(x - t) dt\\
+		&= \dfrac{1}{\lambda}\int_{0}^{x} f(t) \left(\sin \lambda x\cos \lambda t - \cos \lambda x \sin \lambda t\right) dt\\
+		&= \frac{1}{\lambda}\sin\lambda x\int_{0}^{x} f(t)\cos \lambda t dt - \frac{1}{\lambda}\cos \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+	\end{align*}
+	Now, we can differentiate $g$ using product rule and Fundamental Theorem of Calculus (Part 1).
+	\begin{align*}
+	\therefore g'(x) %&= \cos\lambda x\int_{0}^{x} f(t)\cos \lambda t dt + \frac{1}{\lambda}f(x)\sin\lambda x \cos \lambda x dt + \sin \lambda x \int_{0}^{x} f(t)\sin \lambda t dt - \frac{1}{\lambda}f(x)\cos \lambda x \sin \lambda \\
+	&= \cos\lambda x\int_{0}^{x} f(t)\cos \lambda t dt + \sin \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+	\end{align*}
+\end{frame}
+		
+\begin{frame}{Sheet 4}
+	It is easy to verify that both $g(0)$ and $g'(0)$ are 0.\\
+	We can differentiate $g'$ in a similar way and get,
+	\begin{align*}
+		g''(x) &= -\lambda\sin\lambda x\int_{0}^{x} f(x)\cos \lambda t dt + f(x)\cos^2\lambda x + \lambda \cos \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+		& + f(x)\sin^2 \lambda x\\
+		&= f(x) - \lambda^2\left(\dfrac{1}{\lambda}\int_{0}^{x} f(t) \left(\sin \lambda x\cos \lambda t - \cos \lambda x \sin \lambda t\right) dt\right)\\
+		&= f(x) - \lambda^2g(x)\\
+		\implies & g''(x) + \lambda^2g(x) = f(x) & \blacksquare
+	\end{align*}
+\end{frame}
+\end{document}

@@ -30,7 +30,7 @@
 
 \title{Extra Questions for MA 105}
 \author{Aryaman Maithani}
-\date{Semester: Autumn 2019}
+\date{Semester: Autumn 2019\\ Latest update: \today}
 
 \begin{document}
 \maketitle
@@ -38,6 +38,7 @@
 
 Notation:\\
 $\mathbb{N} = \{1,\; 2,\; \ldots\}$ denotes the set of natural numbers.\\
+$\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n : n\in\mathbb{N}\}$ denotes the set of integers.\\
 $\mathbb{Q}$ denotes the set of rational numbers.\\
 $\mathbb{R}$ denotes the set of real numbers.
 \section{Week 1}
@@ -168,5 +169,24 @@ The last two questions are just for one to think about. I do not expect solution
 	then $f$ is (Riemann) integrable.\\
 	Is the converse true?\\
 	That is, if $f$ is (Riemann) integrable, then is it necessary that one of (a) or (b) should be true? Prove or disprove via counterexample. \hfill (Credit: Amit)
+	%
+	\item Show that any function $f:\mathbb{N} \to \mathbb{R}$ is uniformly continuous.
+	\item Let $a \in \mathbb{R}$ and $(a_n)$ be a sequence of real numbers with the following property: Given any subsequence $\left(a_{n_k}\right)$ of $(a_n),$ there exists a subsequence $\left(a_{n_{k_l}}\right)$ of $\left(a_{n_k}\right)$ with the property that $\displaystyle\lim_{l\to \infty}a_{n_{k_l}}	= a.$\\
+	Prove that $\displaystyle\lim_{n\to \infty}a_n = a.$
+	\item Let $E$ be a bounded subset of $\mathbb{R}$ with the following property:\\
+	There exists $x_0 \in \mathbb{R}\setminus E$ such that there exists a sequence $(x_n)$ in $E$ which converges to $x_0.$ (For those familiar with the lingo, $E$ is not a closed set.)\\
+	Show that there exists:
+	\begin{enumerate}[nosep] 
+		\item A function $g:E\to \mathbb{R}$ which is continuous but not bounded.
+		\item A function $f:E\to \mathbb{R}$ such that $f(E)$ is bounded but does not have a maximum.
+		\item A function $h:E\to \mathbb{R}$ such that $h$ is continuous but not uniformly continuous.
+	\end{enumerate}
+	\item Let $f:(a, b) \to \mathbb{R}$ be a monotonically increasing function, that is, $a < x < y < b \implies f(x) \le f(y).$\\
+	Show that for any $x \in (a, b),$ both $\displaystyle\lim_{t\to x^-}f(t)$ and $\displaystyle\lim_{t\to x^+}f(t)$ exist. Moreover, show that $\displaystyle\lim_{t\to x^-}f(t) \le f(x) \le \displaystyle\lim_{t\to x^+}f(t).$\\~\\
+	Also show that if $x < y,$ then $\displaystyle\lim_{t\to x^+}f(t) \le \displaystyle \lim_{t\to y^-}f(t).$\\~\\
+	(Hint: Try relating $\displaystyle\lim_{t\to x^-}f(t)$ with $\displaystyle\sup_{a < t < x}f(t).$)
+	\item Let $S = \{a + b\sqrt{2} : a, b \in \mathbb{Z}\}.$ Show that given any $x \in \mathbb{R},$ there exists a sequence $(s_n)$ in $S$ that converges to $x.$\\
+	Bonus 1: Generalise the argument by replacing $\sqrt{2}$ by any irrational square root of a natural number.\\
+	Bonus 2: Generalise the argument by replacing $\sqrt{2}$ by any irrational number.
 \end{enumerate}
 \end{document}

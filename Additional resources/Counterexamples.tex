@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\usepackage{centernot}
+
+\setlength\parindent{0pt}
+\let\emptyset\varnothing
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{50, 50, 50} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{titlesec}
+\titleformat{\section}[block]
+  {\normalfont\scshape}{}{0.25cm}{\large}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Counterexamples in Calculus}
+\author{Aryaman Maithani}
+\date{Semester: Autumn 2019\\ Latest update: \today}
+
+\begin{document}
+\maketitle
+\hrulefill
+\begin{enumerate} 
+	\item A bounded sequence need not be convergent.\\
+	\textbf{Example:} $a_n := (-1)^n.$
+	%
+	\item A continuous function need not have the intermediate value property.\\
+	\textbf{Example:} $f:(0, 1) \cup (2, 3) \to \mathbb{R}$ given by $f(x) := x.$
+	\item The inverse of a differentiable function need not be continuous.\\
+	\textbf{Example:} $f:[0, 1] \cup (2, 3] \to [0, 2]$ given by
+	\[f(x) := \left\{
+	\begin{array}{l c}
+		x & x \in [0, 1]\\
+		x-1 & x \in (2, 3]		
+	\end{array}
+	\right.\]
+	Corollaries: The inverse of a continuous function need not be continuous. The inverse of a differentiable function need not be differentiable.
+	\item A function defined on an interval with the intermediate value property need not be continuous \emph{anywhere.}\\
+	\textbf{Example:} Conway Base 13 function.
+	\item A Riemann integrable function may have infinitely many discontinuities.\\
+	\textbf{Example:} Thomae's functions.
+	\item A differentiable function with derivative zero everywhere need not be constant.\\
+	\textbf{Example:} $f:(0, 1) \cup (2, 3) \to \mathbb{R}$ defined as
+	\[f(x) := \left\{
+	\begin{array}{l c}
+		1 & x \in (0, 1)\\
+		2 & x \in (2, 3)		
+	\end{array}
+	\right.\]
+	\item A differentiable function with strictly negative derivative everywhere need not be monotonically decreasing.\\
+	\textbf{Example:} $f:\mathbb{R}\setminus\{0\} \to \mathbb{R}$ defined as $f(x) := x^{-1}.$
+	\item Integrability of $|f|$ does not imply integrability of $f.$\\
+	\textbf{Example:} $f:[-1, 1] \to \mathbb{R}$ defined as
+	\[f(x) := \left\{
+	\begin{array}{r c}
+		1 & x \in \mathbb{Q}\\
+		-1 & x \not\in \mathbb{Q}		
+	\end{array}
+	\right.\]
+\end{enumerate}
+\end{document}

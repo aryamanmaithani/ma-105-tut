@@ -1,0 +1,108 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 08}  % change
+\author{Aryaman Maithani}
+\date[25-09-2019]{25th September, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 6}                            % change
+	(1) (i) Given any non-zero real number, it has a multiplicative inverse. Conversely, if a real number has a multiplicative inverse, then the number is non-zero.\\
+	Thus, whenever $x^2 = y^2,$ we get that the expression is not defined and it is defined otherwise. Thus, the domain is $D = \{(x,\;y) \in \mathbb{R}^2 : x^2 \neq y^2\}.$\\~\\
+	(ii) We know that the $\ln$ function is defined for positive real numbers. Thus, the expression given is defined whenever $x^2 + y^2 > 0.$ It can be seen that the set of all such values of $(x,\;y)$ is precisely the following set $D = \mathbb{R}^2\setminus\{(0,\;0)\}.$
+\end{frame}
+\begin{frame}{Sheet 6}
+	(2) (i) Given any $c$ from the options, the level curve is the line $x - y = c$ in the $XY$ plane, that is, the set of points $\{(x,\;y) \in \mathbb{R}^2 : x - y = c\}$ in $\mathbb{R}^2.$\\
+	The contour line for that $c$ is the line in $\mathbb{R}^3$ which consists of the set of points $\{(x,\;y,\;z)\in\mathbb{R}^3 : x - y = c,\;z = c\}.$ That is, it is the contour line just shifted parallel-y in the $z-$direction.\\~\\
+	(ii) For $c < 0,$ the contour lines and level curves are empty sets.\\
+	For $c = 0,$ the level curve is just the point $(0,\;0)\in \mathbb{R}^2$ and the counter line is $(0,\;0,\;0)\in \mathbb{R}^3.$\\
+	For $c > 0,$ the level curve $L$ is the circle $\{(x,\;y)\in\mathbb{R}^2:x^2 + y^2 = c\}$ and the contour line is the ``same curve, just shifted $c$ units upwards'' in $z-$direction. More precisely, the contour line is the set $L \times \{c\}.$\\~\\
+	(iii) You can work this out similarly.\\
+\end{frame}
+	
+\begin{frame}{Note}
+	Note: It is technically not correct to say that the contour lines are just the ``level curves shifted upwards'' because the two curves are not lying in the same space. More precisely, $\mathbb{R}^2 \not\subset \mathbb{R}^3.$ However, we do have a natural ``embedding'' of $\mathbb{R}^2$ into $\mathbb{R}^3$ which is what we were referring to.
+	\vfill
+	P.S.: Thank you, Adway Girish, for pointing out the error in the original slides where I swapped contour lines with level curves.
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	(3) (i) Claim: the function is not continuous at $(0,\;0).$\\
+	\emph{Proof.} Consider the following sequence $(x_n,\;y_n) = \left(\frac{1}{n},\;\frac{1}{n^3}\right).$ It is clear that $(x_n,\;y_n) \to (0,\;0).$\\
+	But $f(x_n,\;y_n) = \frac{1/n^6}{2/n^6} = \frac{1}{2}.$ Thus, $f(x_n,\;y_n) \to \frac{1}{2} \neq 0.$\\
+	Thus, $f$ is not continuous at $(0,\;0).$ \hfill $\blacksquare$\\~\\
+	(ii) Claim: the given function is continuous at $(0,\;0).$\\
+	\emph{Proof.} Let $(x_n,\;y_n)$ be any sequence in $\mathbb{R}^2$ such that $(x_n,\;y_n) \to (0,\;0).$ Then, $x_n \to 0$ and $y_n \to 0.$ \hfill (1)\\
+	Note that if $(x_n,\;y_n) \neq (0,\;0),$ then $\left|\dfrac{x^2 - y^2}{x^2 + y^2}\right| \le 1.$\\
+	Thus, $0 \le |f(x_n,\;y_n)| \le \left|x_ny_n\right|.$ \hfill (This inequality holds even if $(x_n,\;y_n) = (0,\;0).$)\\
+	Note that (1) tells us that $x_ny_n \to 0.$\\
+	Now, using our knowledge of limits of real sequences, we get that $\displaystyle\lim_{n\to \infty}|f(x_n,\;y_n)| = 0$ and we are done. \hfill (How?)
+\end{frame}
+\begin{frame}{Sheet 6}
+	(3) (iii) The function is continuous at $(0,\;0).$ Similar proof as before will work using the fact that modulus is a continuous function.
+\end{frame}
+\begin{frame}{Sheet 6}
+	(4) (i), (ii), (iii), (iv) \\
+	Let $(x_0,\;y_0)$ be any point in $\mathbb{R}^2.$ We show that the function is continuous at this point.\\
+	Let $(x_n,\;y_n)$ be any sequence in $\mathbb{R}^2$ such that $(x_n,\;y_n) \to (x_0,\;y_0).$ This gives us that $x_n \to x_0$ and $y_n \to y_0.$ \hfill (Why?)\\
+	Hence, $f(x_n) \to f(x_0)$ and $g(y_n) \to g(y_0).$ (Definition of continuity of real functions.)\\
+	Now, we can use properties of sum and difference of real sequences to get our answers.\\~\\
+	For (iii), use the fact that $\max\{a,\;b\} = \frac{|a + b| + |a - b|}{2}$ and that modulus is a continuous function. Similar considerations apply for (iv).
+\end{frame}
+\begin{frame}{Sheet 6}
+	(5) First we show that the iterated limit $\displaystyle\lim_{x\to 0}\left[\displaystyle\lim_{y\to 0}f(x,\;y)\right]$ exists.\\
+	To do this, we must first compute the inner limit. What that means is that we treat $x$ as a constant and let $y \to 0.$ The resulting expression must be a function of $x$ alone.\\
+	If $x = 0,$ then we get that the inner limit is simply $0.$\\
+	If $x \neq 0,$ then we get the function must be continuous at $(x,\;0)$ as it is quotient of two polynomials such that the denominator is not zero at $(x,\;0).$ Thus, we can simply substitute $y = 0$ and get our answer as $0,$ once again.\\~\\
+	Thus, the iterated limit now evaluates to $\displaystyle\lim_{x\to 0}[0],$ which is clearly $0.$ Moreover, observe that $f(x,\;y) = f(y,\;x).$ Thus, it is clear that both the iterated limits exist.
+\end{frame}
+\begin{frame}{Sheet 6}
+	(5) Now we show that the $\displaystyle\lim_{(x,\;y)\to (0,\;0)}f(x,\;y)$ does not exist.\\
+	This is easy as one could take the following sequences:
+	\begin{enumerate} 
+		\item $\left(x_n,\;y_n\right) = (0,\;1/n),$ and
+		\item $(x_n,\;y_n) = (1/n,\;1/n).$
+	\end{enumerate}
+	Clearly, in both the cases we have that $(x_n,\;y_n) \to (0,\;0).$ However, $f(x_n,\;y_n)$ converges to different values in each case.
+\end{frame}
+\begin{frame}{Sheet 6}
+	(6) (i) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given.\\
+	Then, 
+	\begin{align*}
+		f_x(0,\;0) &= \displaystyle\lim_{h\to 0}\frac{f(0+h,\;0) - f(0,\;0)}{h}\\
+		&= \displaystyle\lim_{h\to 0}\left(h\cdot0\cdot\frac{h^2 - 0^2}{h^2 + 0^2}\right)\frac{1}{h} \\
+		&= 0
+	\end{align*}
+	It can be verified that $f_y(0,\;0)$ also exists and equals $0$ in a similar manner.
+\end{frame}
+\begin{frame}{Sheet 6}
+	(6) (ii) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given.\\
+	Then, 
+	\begin{align*}
+		f_x(0,\;0) &= \displaystyle\lim_{h\to 0}\frac{f(0+h,\;0) - f(0,\;0)}{h}\\
+		&= \displaystyle\lim_{h\to 0}\left(\frac{\sin^2(h)}{h|h|}\right)
+	\end{align*}
+	The above limit does not exist. \hfill (Why?)
+	(Hint: Take a strictly positive sequence and a strictly negative sequence, both of which converge to 0.)\\
+	It can be verified that $f_y(0,\;0)$ also does not exist in a similar manner.
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	(8) The continuity of $f$ is immediate. It is extremely similar to what we've seen many times by now.\\
+	Let us show that the partial derivatives don't exist.\\
+	The partial derivative of $f$ at $(0,\;0)$ with respect to the first variable $(x)$ is given by
+	\[\lim_{h\to 0}\frac{f(0 + h,\; 0) - f(0,\;0)}{h} = \lim_{h\to 0}\sin\left(\frac{1}{h}\right),\]
+	which we know does not exist.\\
+	Similar considerations apply for the other partial derivative.
+\end{frame}
+
+\end{document}

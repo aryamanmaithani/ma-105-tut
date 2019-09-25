@@ -1,0 +1,63 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 09}  % change
+\author{Aryaman Maithani}
+\date[29-09-2019]{29th September, 2019\\ \tiny (Happy birthday to me!)}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	(7) Argue about the continuity of $f$ at $(0,\;0)$ using the fact that $|f(x,\;y)| \le |x^2 + y^2|.$ (Recall Tutorial 2, Question 3. (ii))\\~\\
+	It can also be easily verified that $f_x(0,\;0) = f_y(0,\;0) = 0.$ (Write the expression like the previous questions and arrive at the conclusion.)\\~\\
+	Now, let us evaluate $f_x(x_0,\;y_0)$ for $(x_0,\;y_0) \neq (0,\;0).$\\
+	It can be easily evaluated using product and chain rules to be:
+	\[f_x(x_0,\;y_0) = 2x\left(\sin\left(\frac{1}{x^2 + y^2}\right) - \frac{1}{x^2 + y^2}\cos\left(\frac{1}{x^2 + y^2}\right)\right).\]
+	The function $\displaystyle2x\sin\left(\frac{1}{x^2 + y^2}\right)$ is bounded in any disc centered at $(0,\;0).$ \hfill (How?)\\
+\end{frame}
+	
+\begin{frame}{Sheet 6}
+	However, $\displaystyle\frac{2x}{x^2 + y^2}\cos\left(\frac{1}{x^2 + y^2}\right)$ is not bounded in any such disc. To see this, consider any $r > 0$ and any $M \in \mathbb{R}.$ One can find an $n \in \mathbb{N}$ such that $\frac{1}{\sqrt{n\pi}} < r$ and $\sqrt{n\pi} > M.$ \hfill (How? Archimedean.)\\
+	In that case, the point $(x_0,\;y_0) = (1/\sqrt{2n\pi},\;0)$ will lie in the disc centered at $(0,\;0)$ with radius $r$ and $f(x_0,\;y_0) > M.$
+\end{frame}
+
+\begin{frame}{Sheet 7}
+	(3) We shall assume that $z$ is a ``sufficiently smooth'' function of $x$ and $y.$\\
+	We are given that $\sin (x+y)+\sin (y+z)=1$ and $\cos (y+z) \neq 0.$\\ 
+	Differentiating with respect to $x$ while keeping $y$ constant gives us $\cos (x+y)+\cos (y+z) \frac{\partial z}{\partial x}=0.$ \hfill $(*)$\\~\\
+	Similarly, differentiating with respect to $y$ while keeping $x$ constant gives us $\cos (x+y)+\cos (y+z)\left(1+\frac{\partial z}{\partial y}\right)=0.$ \hfill $(**)$\\~\\
+	Differentiating $(*)$ with respect to $y$ gives us $-\sin (x+y)-\sin (y+z)\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}+\cos (y+z) \frac{\partial^{2} z}{\partial x \partial y}=0.$\\~\\
+	Thus, using $(*)$ and $(**),$ we get
+\end{frame}
+\begin{frame}{Sheet 7}
+	\begin{align*} \frac{\partial^{2} z}{\partial x \partial y} &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z) \cdot\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}\right] \\~\\ &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\right] \\~\\ &=\frac{\sin (x+y)}{\cos (y+z)}+\tan (y+z) \frac{\cos ^{2}(x+y)}{\cos ^{2}(y+z)} \end{align*}
+\end{frame}
+
+\begin{frame}{Sheet 7}
+	(4) We have that
+	\[f_{x y}(0,0)=\lim _{k \rightarrow 0} \frac{f_{x}(0, k)-f_{x}(0,0)}{k}.\]
+	For $k \neq 0,$ we know that
+	\[f_{x}(0, k)=\lim _{h \rightarrow 0} \frac{f(h, k)-f(0, k)}{h}=-k.\]
+	We also know that 
+	\[f_{x}(0,0)=\lim _{h \rightarrow 0} \frac{f(h, 0)-f(0,0)}{h}=0.\]
+\end{frame}
+
+\begin{frame}{Sheet 7}
+	Thus, we get that
+	\[f_{x y}(0,0)=\lim _{k \rightarrow 0} \frac{-k-0}{k}=-1.\]
+	By similar calculations, we get that $f_{y x}(0,0)=1.$\\
+	Thus, $f_{x y}(0,0) \neq f_{y x}(0,0).$\\~\\
+	For $(x,\;y) \neq (0,\;0),$ one can calculate the second derivatives and see that they turn out to be discontinuous.
+	\[{f_{x}(x, y)=\frac{x^{4} y+4 x^{2} y^{3}-y^{5}}{\left(x^{2}+y^{2}\right)^{2}}, f_{y}(x, y)=\frac{x^{5}-4 x^{3} y^{2}-x y^{4}}{\left(x^{2}+y^{2}\right)^{2}}} \]
+	\[ {f_{xy}(x,y)=\frac{x^{6}+9 x^{4} y^{2}-9 x^{2} y^{4}-y^{6}}{\left(x^{2}+y^{2}\right)^{3}},f_{yx}(x, y)=\frac{x^{6}+9 x^{4} y^{2}-9 x^{2} y^{4}-y^{6}}{\left(x^{2}+y^{2}\right)^{3}}}\]
+\end{frame}
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 6: Solution}      % here
+\author{Aryaman Maithani}
+\date{11th September, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} State whether the following statement is true or false. Justify your answer.
+\[\int_{0}^{2\pi} e^{\sin x + \cos x} dx = \int_{\sqrt{2}-\pi}^{\sqrt{2}+\pi} e^{\sin x + \cos x} dx. \]
+\hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} T \hfill \textbf{[2]}\\  % Fill T/F
+Justification: \\
+The function $f:\mathbb{R} \to \mathbb{R}$ defined by
+\[f(x) := e^{\sin x + \cos x} \quad \text{for } x \in \mathbb{R}\]
+is clearly continuous and periodic with period $2\pi.$ \hfill \textbf{[1]}\\
+Hence, if we let
+\[F(x) := \int_{x}^{x + 2\pi} f(t)dt - \int_{0}^{x + 2\pi} f(t) dt \quad \text{for }x\in\mathbb{R}, \]
+then by the Fundamental Theorem (Part 1), $F$ is differentiable and $F'(x) = f(x+2\pi) - f(x) = 0$ for all $x \in \mathbb{R}.$
+\begin{flushright}
+\textbf{[1]}
+\end{flushright}
+
+As $F$ is defined on an interval, we get that $F$ is a constant function, and in particular,
+\[F(0) = F(\sqrt{2} - \pi),\]
+which yields the desired equality. \hfill \textbf{[1]}
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item $2$ marks have been cut if the person has simply used the property that we had proven for integrals of continuous and periodic functions.
+	\item Further half a mark has been deducted if the person has simply written that the integrand is periodic without mentioning its continuity.
+	\item A mark has been deducted has been deducted for those who differentiated $F$ without justifying \emph{why} it's differentiable. (The integrand is continuous.)
+	\item A person may get the correct answer without invoking continuity but using a different proof than the one given which relies only on periodicity. Full marks have been awarded if that is done correctly.
+	\item No marks have been deducted even if the student has not mentioned that $F$ is defined on an interval.
+\end{enumerate}
+
+\end{document}

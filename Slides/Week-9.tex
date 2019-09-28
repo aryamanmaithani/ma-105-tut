@@ -15,7 +15,24 @@
 \begin{frame}
 	\titlepage
 \end{frame}
-
+\begin{frame}{An example}
+	Consider the function $f:\mathbb{R}^2 \to \mathbb{R}$ defined as follows:
+	\[f(x,\;y) := \left\{
+	\begin{array}{c c}
+		\frac{x^2y}{x^4 + y^2} & (x,\; y) \neq (0,\;0)\\
+		0 & (x,\;y) = (0,\;0)
+	\end{array}
+	\right.\]
+	Then, verify that
+	\[(\mathbf{D_{u}}f)(0,\;0) = \left\{
+	\begin{array}{c c}
+		u_1^2/u_2 & u_2 \neq 0\\
+		0 & u_2 = 0
+	\end{array}
+	\right.\]
+	Thus, observe that \emph{all} directional derivatives of $f$ at $(0,\;0)$ exist even though $f$ is discontinuous at $(0,\;0).$ Also, note that $f$ is not differentiable, that is, its total derivative does not exist. The last note should not be surprising as $f$ is discontinuous at the origin. Also, note that $(\mathbf{D_u}f)(0,\;0) = (\nabla f)(0,\;0)\cdot\mathbf{u}$ is not true in general.\\~\\
+	The aim of this example was to drive home the point that even existence of all directional derivatives does not imply differentiability (or even continuity!).
+\end{frame}
 \begin{frame}{Sheet 6}
 	(7) Argue about the continuity of $f$ at $(0,\;0)$ using the fact that $|f(x,\;y)| \le |x^2 + y^2|.$ (Recall Tutorial 2, Question 3. (ii))\\~\\
 	It can also be easily verified that $f_x(0,\;0) = f_y(0,\;0) = 0.$ (Write the expression like the previous questions and arrive at the conclusion.)\\~\\
@@ -28,6 +45,97 @@
 \begin{frame}{Sheet 6}
 	However, $\displaystyle\frac{2x}{x^2 + y^2}\cos\left(\frac{1}{x^2 + y^2}\right)$ is not bounded in any such disc. To see this, consider any $r > 0$ and any $M \in \mathbb{R}.$ One can find an $n \in \mathbb{N}$ such that $\frac{1}{\sqrt{n\pi}} < r$ and $\sqrt{n\pi} > M.$ \hfill (How? Archimedean.)\\
 	In that case, the point $(x_0,\;y_0) = (1/\sqrt{2n\pi},\;0)$ will lie in the disc centered at $(0,\;0)$ with radius $r$ and $f(x_0,\;y_0) > M.$
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	(9) (i) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given in the question.\\
+	For a unit vector $\textbf{u} := (u_1, u_2)$ and $t \neq 0,$
+	\[\frac{f\left(0+t u_{1}, 0+t u_{2}\right)-f(0,0)}{t} = u_1u_2(u_1^2 - u_2^2)t.\]
+	Hence, $\left(\mathbf{D_u} f\right)(0,0)$ exists and equals $0$ for all $\textbf{u}.$ Thus, all directional derivatives exist.\\~\\
+	\emph{If} $f$ is differentiable, then the total derivative \emph{must} be $(f_x(0, 0), f_y(0, 0)) = (0, 0).$ Let us now see whether this does indeed satisfy the condition for being the total derivative. For that, we must check whether
+	\[\lim _{(h, k) \rightarrow(0,0)} \frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}}=0.\]
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	For $(h,k) \neq (0,0),$ we have it that
+	\[\frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}} = hk\frac{(h^2 - k^2)}{(h^2 + k^2)^{3/2}}.\]
+	Also, note that
+	\[\left|hk\frac{(h^2 - k^2)}{(h^2 + k^2)^{3/2}}\right| \le \left|h\frac{k}{\sqrt{h^2 + k^2}}\right| \le |h|.\]
+	Thus, the required limit indeed does exist and equals $0.$\\
+	Hence, $f$ is differentiable at $(0,0)$ with (total) derivative equal to $(0, 0).$
+\end{frame}
+\begin{frame}{Sheet 6}
+	(9) (ii) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given in the question.\\
+	For a unit vector $\textbf{u} := (u_1, u_2)$ and $t \neq 0,$
+	\[\frac{f\left(0+t u_{1}, 0+t u_{2}\right)-f(0,0)}{t} = u_1^3.\]
+	Hence, $\left(\mathbf{D_u} f\right)(0,0)$ exists and equals $u_1$ for all $\textbf{u}.$ Thus, all directional derivatives exist.\\~\\
+	\emph{If} $f$ is differentiable, then the total derivative \emph{must} be $(f_x(0, 0), f_y(0, 0)) = (1, 0).$ Let us now see whether this does indeed satisfy the condition for being the total derivative. For that, we must check whether
+	\[\lim _{(h, k) \rightarrow(0,0)} \frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-1 h-0 k}{\sqrt{h^{2}+k^{2}}}=0.\]
+\end{frame}
+\begin{frame}{Sheet 6}
+	For $(h,k) \neq (0,0),$ we have it that
+	\[\frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}} = -\frac{hk^2}{(h^2 + k^2)^{3/2}}.\]
+	It can be seen that the limit for the above expression as $(h, k) \to (0, 0)$ does not exist. Indeed, if one approaches $(0, 0)$ along the curve $h = mk,$ the limit along that path turns out to be $-m/(1 + m^2)^{3/2}.$ Thus, taking $m = 1$ and $m = 0$ demonstrates the non-existence of limit.
+\end{frame}
+\begin{frame}{Sheet 6}
+	(9) (iii) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given in the question.\\
+	For a unit vector $\textbf{u} := (u_1, u_2)$ and $t \neq 0,$
+	\[\frac{f\left(0+t u_{1}, 0+t u_{2}\right)-f(0,0)}{t} = t\sin\left(\frac{1}{t^2}\right).\]
+	Hence, $\left(\mathbf{D_u} f\right)(0,0)$ exists and equals $0$ for all $\textbf{u}.$ \hfill (How?)\\
+	Thus, all directional derivatives exist.\\~\\
+	\emph{If} $f$ is differentiable, then the total derivative \emph{must} be $(f_x(0, 0), f_y(0, 0)) = (0, 0).$ Let us now see whether this does indeed satisfy the condition for being the total derivative. For that, we must check whether
+	\[\lim _{(h, k) \rightarrow(0,0)} \frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}}=0.\]
+\end{frame}
+\begin{frame}{Sheet 6}
+	For $(h,k) \neq (0,0),$ we have it that
+	\[\frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}} = \sqrt{h^2 + k^2}\sin\left(\frac{1}{h^2 + k^2}\right).\]
+	Also, note that
+	\[\left|\sqrt{h^2 + k^2}\sin\left(\frac{1}{h^2 + k^2}\right)\right| \le \left|\sqrt{h^2 + k^2}\right|.\]
+	Thus, the required limit indeed does exist and equals $0.$\\
+	Hence, $f$ is differentiable at $(0,0)$ with (total) derivative equal to $(0, 0).$
+\end{frame}
+
+\begin{frame}{Sheet 6}
+	(10) The continuity of $f$ at $(0, 0)$ is easy to show using the $\epsilon-\delta$ condition.\\
+	Indeed, observe that $|f(x, y) - f(0, 0)| = \left|\sqrt{x^2 + y^2}\right|$ for $y \neq 0$ and $|f(x, y) - f(0, 0)| = 0$ for $y = 0.$\\
+	Thus, in general, we have that $|f(x, y) - f(0, 0)| \le \left|\sqrt{x^2 + y^2}\right|.$ \\
+	Let $\delta := \epsilon$ and call it a day.\\~\\
+	%
+	For a unit vector $\textbf{u} := (u_1, u_2)$ and $t \neq 0,$
+	\[\frac{f\left(0+t u_{1}, 0+t u_{2}\right)-f(0,0)}{t} = \left\{
+		\begin{array}{c c}
+			0 & u_2 = 0\\
+			\frac{u_2}{|u_2|}t & u_2 \neq 0
+		\end{array}
+	\right.\]
+	Hence, $\left(\mathbf{D_u} f\right)(0,0)$ exists and equals $0$ for all $\textbf{u}.$ Thus, all directional derivatives exist.\\~\\
+\end{frame}
+\begin{frame}{Sheet 6}
+	\emph{If} $f$ is differentiable, then the total derivative \emph{must} be $(f_x(0, 0), f_y(0, 0)) = (0, 0).$ Let us now see whether this does indeed satisfy the condition for being the total derivative. For that, we must check whether
+	\[\lim _{(h, k) \rightarrow(0,0)} \frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}}=0.\]
+	For $(h,k) \neq (0,0),$ we have it that
+	\[\frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}} = \frac{k}{|k|}.\]
+	It is clear that the limit of the above expression as $(h, k) \to (0, 0)$ does not exist. Hence, $f$ is not differentiable at $(0, 0).$
+\end{frame}
+
+\begin{frame}{Sheet 7}
+	(1) Note that the partial derivatives of $F$ do exist at $(1, -1, 3).$ Indeed, given any $(x_0, y_0, z_0),$ we have it that,
+	\[F_x(x_0, y_0, z_0) = 2x_0 + 2y_0,\]
+	\[F_y(x_0, y_0, z_0) = 2x_0 - 2y_0,\]
+	\[F_z(x_0, y_0, z_0) = 2z_0.\]
+	Thus, $(\nabla F)(1, -1, 3) = (0, 4, 6).$ \\
+	Moreover, the direction of the normal at to the surface $F(x, y, z) = c$ at the point $(x_0, y_0, z_0)$ is given by $(\nabla F)(x_0, y_0, z_0).$ \hfill (How?)\\
+	Thus, the required normal line is $(1, -1, 3) + t(0, 4, 6)$ as $t$ varies over $\mathbb{R}.$\\~\\
+	Also, the corresponding tangent plane is given by
+	\[0\cdot(x - 1) + 4(y + 1) + 6(z - 3) = 0.\]
+\end{frame}
+
+\begin{frame}{Sheet 7}
+	(2) It is not too tough to show that the direction of the normal to a sphere at a point on the sphere is the same as the direction of the vector joining the center to that point.\\
+	Indeed, we get that $(\nabla S)(x_0, y_0, z_0) = 2(x_0, y_0, z_0),$ where $S(x, y, z) := x^2 + y^2 + z^2$ for $(x, y, z) \in \mathbb{R}^3.$\\
+	Thus, the required $\mathbf{u}$ is $\frac{1}{3}(2, 2, 1).$\\
+	Hence,
+	\[(\mathbf{D_u}F)(2, 2, 1) = \lim_{t\to 0}\frac{3(2t/3) - 5(2t/3) + 2(t/3)}{t} = -\frac{2}{3}.\]
 \end{frame}
 
 \begin{frame}{Sheet 7}

@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 7: Solution}      % here
+\author{Aryaman Maithani}
+\date{25th September, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} Let $a, b \in \mathbb{R}$ with $a > b > 0.$ Set up the surface area of the oblate ellipsoid formed by rotating the ellipse $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ around the $y-$axis as a Riemann integral, that is, express the area in the form 
+\[\int_{c}^{d} \varphi(y) dy. \]
+\begin{flushright}
+	[5]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} Since we interested in revolving the figure about $y-$axis, it suffices to revolve the curve given by $x = \dfrac{a}{b}\sqrt{b^2 - y^2}.$ Thus, we have $\dfrac{dx}{dy} = -\dfrac{ay}{b\sqrt{b^2 - y^2}}.$ \hfill \textbf{[2]}\\~\\
+Given, a curve of the form $x = f(y)$ for $y \in [c, d]$ such that $f(y)$ is always nonnegative, we know that the surface area of revolution of such a curve about the $y-$axis is given by
+\[\int_{c}^{d} 2\pi x\sqrt{1 + \left(\dfrac{dx}{dy}\right)^2} dy. \]
+\begin{flushright}
+	\textbf{[2]}\\~\\
+\end{flushright}
+Thus, in our case we have it that the surface area $S$ is given as:
+\[S = \int_{-b}^{b} 2a\pi\sqrt{1 + \left(\dfrac{a^2}{b^2} - 1\right)\dfrac{y^2}{b^2}} dy. \]
+Which gives us that $c = -b,$ $d = b,$ and $\varphi(y) = 2a\pi\sqrt{1 + \left(\dfrac{a^2}{b^2} - 1\right)\dfrac{y^2}{b^2}}.$ \hfill \textbf{[1]}
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Even if the integrand hasn't been simplified to this extent, it is still accepted as long as it's correct.
+	\item One may simplify further and write the integral from $0$ to $b$ and multiplying with a $2,$ that is accepted as well.
+	\item Forgetting to mention $2$ or $\pi$ has been penalised.
+	\item Many have made a mistake in writing the expression for the surface area. The required surface area is \emph{not} given by $\displaystyle\int_{-b}^{b} 2\pi x dy $ or $\displaystyle\int_{-b}^{b} \pi x^2 dy.$
+	\item Some have incorrectly calculated the volume instead of surface area. Marks have not been awarded in that case, unless there are some common computations such as that of $\frac{dx}{dy}.$
+	\item Some have started by writing the following formula:
+	\[S = \int_{-b}^{b} 2\pi x \sqrt{(dx)^2 + (dy)^2}.\]
+	This does not make sense by the way we have defined things as $dx$ and $dy$ are not real numbers. Thus, operations such as squaring and adding them are not defined. Half a mark has been cut for this.
+	\item On similar lines as above, implicitly differentiating in the following manner has also been penalised:
+	\[\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1 \implies \dfrac{2xdx}{a^2} + \dfrac{2ydy}{b^2} = 0 \implies \dfrac{dx}{dy} = -\dfrac{ay}{b\sqrt{b^2 - y^2}}.\]
+	The reason for doing so is hopefully clear. Note that the following has \emph{not} been penalised:
+	\[\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1 \implies \dfrac{2x}{a^2}\cdot\dfrac{dx}{dy} + \dfrac{2y}{b^2} = 0 \implies \dfrac{dx}{dy} = -\dfrac{ay}{b\sqrt{b^2 - y^2}}.\]
+	\item Many have found $\dfrac{dy}{dx}$ and simply substituted its reciprocal as $\dfrac{dx}{dy}.$ Note that is not correct as you are appealing to the inverse function theorem most likely. However, when considering $x$ as a function of $y,$ we are looking at the curve in the first and fourth quadrants. In this region, $y$ is \emph{not} a function of $x.$\\
+	Most importantly, this calculation is \emph{not} valid at the point $(0, b).$
+	\item Unexplained parametrisations in terms of $\theta$ are not awarded marks.
+	\item Lastly, few have misread the question as surface of revolution about $x-$axis. They have been awarded up to 4 marks on the basis of their steps.
+\end{enumerate}
+
+\end{document}

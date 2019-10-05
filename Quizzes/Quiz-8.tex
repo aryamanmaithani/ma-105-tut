@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 8: Solution}      % here
+\author{Aryaman Maithani}
+\date{29th September, 2019 \\ \tiny (Happy birthday to me!)}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} Consider the function $f:\mathbb{R}^2 \to \mathbb{R}$ defined as follows: $f(x, y) = (x^4 + y^3)/(x^4 + y^2)$ if $(x, y) \neq (0, 0)$ and $f(0, 0) = 0.$ \\
+State whether the following statements are true or false. Justify your answer.
+\begin{enumerate}[label = (\alph*)] 
+	\item The function $f$ is continuous at $(0,0).$
+	\item Both the partial derivatives of $f$ exist.
+\end{enumerate}
+% question here
+\hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} 
+\begin{enumerate}[label = (\alph*), nosep] 
+	\item F \hfill \textbf{[1]}
+	\item F \hfill \textbf{[1]}\\
+\end{enumerate}
+
+Justification:
+\begin{enumerate}[label = (\alph*)] 
+	\item To see this, note that the sequence $(x_n, y_n) = (1/n, 0) \in \mathbb{R}^2$ converges to $(0,0),$ but $f(x_n, y_n) = 1$ for all $n \in \mathbb{N}.$ Thus, $f(x_n, y_n) \to 1 \neq 0 = f(0, 0).$\\
+	Hence, $f$ is not continuous at $(0, 0).$ \hfill \textbf{[1]}\\~\\
+	Note that the sequence $(x_n, y_n) = (1/n, 1/n^2)$ also confirms this. Marks have obviously been awarded for this and any other valid sequence.
+	\item We show that $f_x$ does not exist $(0, 0).$ \hfill \textbf{[1]}\\
+	Note that for $h \neq 0,$ we have it that $\dfrac{f(0 + h, 0) - f(0, 0)}{h} = \dfrac{1}{h}.$\\
+	Recall the definition of $f_x$ to see that it does not exist since $\displaystyle\lim_{h\to 0}\dfrac{1}{h}$ does not exist. \hfill \textbf{[1]}
+\end{enumerate}
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Many students have taken just one sequence $(x_n, y_n) \in \mathbb{R}^2$ that converges to $(0,0)$ such that $f(x_n, y_n)$ converges to $0$ and concluded that the function is continuous.\\
+	This is \textbf{obviously wrong} as the definition clearly states that the above must happen for \emph{every} sequence with the required property. \\
+	No marks have been awarded for the first part in this case. \\
+	It is extremely disappointing to see this mistake being made at this stage in the course.
+	\item For some bizarre reason, many of you have forgotten to write $\displaystyle\lim_{h\to 0}$ when writing the definition of partial derivative. Half a mark has been deducted for that.
+	\item Many students have simply differentiated the given rational function with respect to $x$ and said that the derivative exists everywhere without bothering to check the well-defined-ness of the expression at $(0,0).$ Indeed, the expression written is not defined at $(0,0)$ as it has $(x^4 + y^2)^2$ in the denominator.\\
+	No marks have been awarded in this case.
+	\item For those who have differentiated as mentioned in the above point and then said that the partial derivative (/derivatives) does (/do) not exist since the limit (/limits) does (/do) not exist, no marks have been given for justification.\\
+	It has been mentioned many times that the derivative of a function need not be continuous. We have looked at the expression $x^2\sin\left(\dfrac{1}{x}\right)$ numerous times to drive the point home.
+	\item Note that it is not necessary to calculate $f_y(0,0)$ and show its existence. We are done as soon as we get that $f_x(0,0)$ does not exist.
+	\item Many have concluded the second part by saying ``Both the partial derivatives of $f$ don't exist.''\\
+	Note that that is not the correct statement to write. One must instead write ``Not both the partial derivatives exist.'' (One student did indeed write that.)\\
+	However, no marks have been deducted for this.
+\end{enumerate}
+\end{document}

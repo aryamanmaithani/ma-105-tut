@@ -41,7 +41,7 @@ Notation:\\
 $\mathbb{N} = \{1,\; 2,\; \ldots\}$ denotes the set of natural numbers.\\
 $\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n : n\in\mathbb{N}\}$ denotes the set of integers.\\
 $\mathbb{Q}$ denotes the set of rational numbers.\\
-$\mathbb{R}$ denotes the set of real numbers.
+$\mathbb{R}$ denotes the set of real numbers.\\
 \section{Week 1}
 \begin{enumerate}
 	\item Let $f$ be any bijection from $\mathbb{N}$ to $\mathbb{Q} \cap [0,\; 1].$\\
@@ -207,5 +207,51 @@ The last two questions are just for one to think about. I do not expect solution
 	Is the result true if we drop the continuity hypothesis.\\
 	Can you think of a more general result? More simply, what sort of sets can we replace $\mathbb{Q}$ with?
 	\item Let $f:\mathbb{R} \to \mathbb{R}$ be a differentiable function such that $f'$ is bounded. Show that $f$ is uniformly continuous.
+	%\item Let $A_0$ be the closed interval $[0, 1].$ Let $A_1$ be the set obtained from $A_0$ by deleting its ``middle third'' $\left(\frac{1}{3}, \frac{2}{3}\right).$ Let $A_2$ be the set obtained from $A_1$ by deleting its ``middle thirds'' $\left(\frac{1}{9}, \frac{2}{9}\right) \cup \left(\frac{7}{9}, \frac{8}{9}\right).$ In general, define $A_n$ by the equation
+	%\[A_n = A_{n-1} - \bigcup_{k = 0}\left(\frac{1 + 3k}{3^n}, \frac{2 + 3k}{3^n}\right).\]
+%	The intersection
+%	\[C = \bigcap_{n \in \mathbb{N}}A_n\]
+%	is called the \textbf{Cantor set.}\\
+%	Let $f:[0, 1] \to \mathbb{R}$ be a bounded function. Show that if $f$ is continuous 
+\end{enumerate}
+\section{Multi-variable Calculus}
+Notation: For $x \in \mathbb{R}^n$ and $\epsilon > 0,$ we define $B_\epsilon(x) := \{y \in \mathbb{R}^n : \|y - x\| < \epsilon\}.$
+\begin{enumerate} 
+	\item Are the following subsets of $\mathbb{R}^2$ closed? Identify $\partial D$ in each case (except the last four).
+	\begin{enumerate}[nosep] 
+		\item $\mathbb{R}^2$
+		\item $\mathbb{Q}^2$
+		\item $(\mathbb{R}\setminus\mathbb{Q})^2$
+		\item $\mathbb{N}^2$
+		\item $\{(x, y)\in\mathbb{R}^2 : x^2 + y^2 < 1\}$
+		\item $\{(x, y)\in\mathbb{R}^2 : x^2 + y^2 \le 1\}$
+		\item Any finite set of points.
+		\item $\{(x, 1/x) \in \mathbb{R}^2 : x \in \mathbb{R}\setminus\{0\}\}.$
+		\item $\left\{\left(x, \sin\left(\dfrac{1}{x}\right)\right) \in \mathbb{R}^2: x \in (0, 1]\right\} \cup \{0\}\times[-1, 1].$
+		\item $\left\{\dfrac{1}{n} : n \in \mathbb{N}\right\}\times\{0\}.$
+		\item $C_1 \cup C_2,$ where $C_1$ and $C_2$ are closed subsets of $\mathbb{R}^2.$
+		\item $C_1 \cap C_2,$ where $C_1$ and $C_2$ are closed subsets of $\mathbb{R}^2.$
+		\item $\displaystyle\bigcup_{i \in \mathbb{N}}C_i,$ where each $C_i$ is a closed subset of $\mathbb{R}^2.$ \hfill (Not always, give a counterexample)
+		\item $\displaystyle\bigcap_{i \in \mathbb{N}}C_i,$ where each $C_i$ is a closed subset of $\mathbb{R}^2.$ \hfill (Yes)
+	\end{enumerate}
+	%
+	\item Let $D$ be a subset of $\mathbb{R}^2.$ Let's call $x \in \mathbb{R}^2$ a limit point of $D$ if for every $\epsilon > 0,$ there exists $y \in B_\epsilon(x)$ such that $y \in D$ and $y \neq x.$\\
+	Prove that $D$ is closed if and only if it contains all of its limits points.\\
+	For each of the examples above (except for the last four), find the set of its limit points.
+	%
+	\item Let $n \in \mathbb{N}.$ Show that there exists a countable subset $E$ of $\mathbb{R}^n$ such that $\mathbb{R}^n = E \cup \partial E.$\\
+	(Hint: $\mathbb{Q}$ is countable.)
+	%
+	\item Let $D$ be a subset of $\mathbb{R}^2$ such that every point of $D$ is an interior point. Let $f : D \to \mathbb{R}$ be a continuously differentiable function such that $\nabla f = 0$ on $D.$\\
+	Show that it is not necessary that $f$ is constant on $D.$
+	%
+	\item Let $D \subset \mathbb{R}^2$ be defined as $D := \{(x, y)\in\mathbb{R}^2 : 0 < x^2 + y^2 < 1\}.$ Suppose $f:D \to \mathbb{R}$ is a continuously differentiable function such that $\nabla f = 0$ on $D.$\\
+	Prove that $f$ is constant on $D.$ \\
+	(Note that you can't directly use bivariate MVT.) \hfill (Why not?)
+	%
+	\item Let $D \subset \mathbb{R}^2$ be defined as $D = \{(x, y) \in \mathbb{R}^2 : (x, y) \in (\mathbb{Q} \cap [0, 1])^2\}.$ That is, the set of all points in the rectangle $[0,1]\times[0,1]$ with both coordinates rational.\\
+	Show that $\partial D = [0, 1]\times[0, 1].$\\
+	Show that the function $f:D \to \mathbb{R}$ defined as $f(x, y) := 0$ for $(x, y) \in D$ is integrable over $D.$\\
+	(This is an example of a function that is integrable over a domain $D$ even though $\partial D$ is not of content $0.$)
 \end{enumerate}
 \end{document}

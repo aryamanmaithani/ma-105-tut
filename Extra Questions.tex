@@ -259,5 +259,19 @@ Notation: For $x \in \mathbb{R}^n$ and $\epsilon > 0,$ we define $B_\epsilon(x) 
 	Show that $f$ is differentiable at $(0, 0).$\\
 	Show that the partial derivative $f_x(0, k)$ does not exist whenever $k \neq 0.$ Show the analogous result for $f_y.$\\
 	Conclude that the function is differentiable at $(0, 0)$ even though the partial derivatives aren't continuous at $(0, 0).$ \hfill (They don't even exist in a neighbourhood!) 
+	\item Let $f:[-1,1]\times[-1, 1] \to \mathbb{R}$ be defined as follows:
+	\[f(x, y) := \left\{
+	\begin{array}{cc}
+		\dfrac{2xy}{(x^2 + y^2)^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)
+	\end{array}
+	\right.\]
+	Show that for any fixed $x \in [-1, 1]$ the function is Riemann integrable on $[-1, 1]$ with respect to $y.$ Compute $I_x = \displaystyle\int_{-1}^{1} f(x, y) dy.$\\
+	Show that this function $I_x$ is Riemann integrable on $[-1, 1]$ with respect to $x.$ Compute $\displaystyle\int_{0}^{1} I_x dx.$\\
+	Now, show that for a fixed $y \in [-1, 1],$ the function is Riemann integrable on $[-1, 1]$ with respect to $x.$ Compute $I_y = \displaystyle\int_{-1}^{1} f(x, y) dx.$\\
+	Show that this function $I_y$ is Riemann integrable on $[-1, 1]$ with respect to $y.$ Compute $\displaystyle\int_{-1}^{1} I_y dy.$\\
+	In other words, you have shown that the iterated integrals $\displaystyle\int_{-1}^{1} \left(\int_{-1}^{1} f(x, y) dy\right) dx $ and $\displaystyle\int_{-1}^{1} \left(\int_{-1}^{1} f(x, y) dx\right) dy $ both exist.\\
+	They should also turn out to be equal.\\~\\
+	Now, show that $f$ is not bounded on $R = [-1, 1]\times[-1, 1]$ and hence, conclude that $f$ is not Riemann integrable on $R.$
 \end{enumerate}
 \end{document}

@@ -144,10 +144,10 @@
 	We are given that $\sin (x+y)+\sin (y+z)=1$ and $\cos (y+z) \neq 0.$\\ 
 	Differentiating with respect to $x$ while keeping $y$ constant gives us $\cos (x+y)+\cos (y+z) \frac{\partial z}{\partial x}=0.$ \hfill $(*)$\\~\\
 	Similarly, differentiating with respect to $y$ while keeping $x$ constant gives us $\cos (x+y)+\cos (y+z)\left(1+\frac{\partial z}{\partial y}\right)=0.$ \hfill $(**)$\\~\\
-	Differentiating $(*)$ with respect to $y$ gives us $-\sin (x+y)-\sin (y+z)\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}+\cos (y+z) \frac{\partial^{2} z}{\partial x \partial y}=0.$\\~\\
-	Thus, using $(*)$ and $(**),$ we get
+	Differentiating $(*)$ with respect to $y$ gives us $-\sin (x+y)-\sin (y+z)\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}+\cos (y+z) \frac{\partial^{2} z}{\partial x \partial y}=0.$ \footnote{Note that I have implicitly assumed that $\frac{\partial^2z}{\partial x\partial y} = \frac{\partial^2z}{\partial y\partial x}.$ However, using a different set of calculations, one can arrive at the same answer without assuming this. I encourage you to try that.}
 \end{frame}
 \begin{frame}{Sheet 7}
+	Thus, using $(*)$ and $(**),$ we get
 	\begin{align*} \frac{\partial^{2} z}{\partial x \partial y} &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z) \cdot\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}\right] \\~\\ &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\right] \\~\\ &=\frac{\sin (x+y)}{\cos (y+z)}+\tan (y+z) \frac{\cos ^{2}(x+y)}{\cos ^{2}(y+z)} \end{align*}
 \end{frame}
 

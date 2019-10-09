@@ -113,7 +113,7 @@
 \end{frame}
 \begin{frame}{Sheet 7}
 	8. Let $g:\mathbb{R}^3 \to \mathbb{R}$ be defined as $g(x, y, z) := x^2 + y^2 + z^2 - 1.$ We need to maximise the function $T(x, y, z) = 400xyz$ subject to the constraint $g = 0.$ 
-	\uncover<2->{Note that the set $S^2 = \{(x, y, z) \in \mathbb{R}^3 : g(x, y, z) = 0\}$ is nonempty, closed and bounded, and $T$ is continuous on it. }\\
+	\uncover<2->{Note that the set $S^2 = \{(x, y, z) \in \mathbb{R}^3 : g(x, y, z) = 0\}$ is nonempty, closed and bounded, and $T$ is continuous on it. Thus, $f$ will attain its maximum on $S^2.$ }\\
 	\uncover<3->{Now, $(\nabla T)(x, y, z)=\lambda(\nabla g)(x, y, z) \text { and } g(x, y, z)=0$ means}
 	\uncover<4->{\[400 y z = 2 \lambda x, \quad 400 x z = 2 \lambda y, \quad 400 x y = 2 \lambda z, \quad x^2 + y^2 + z^2 = 1.\] }\\
 	\uncover<5->{The above gives us that $400 x y z= 2 \lambda x^{2}= 2 \lambda y^{2}= 2 \lambda z^{2}.$ }\\~\\
@@ -130,22 +130,29 @@
 \end{frame}
 \begin{frame}{Sheet 7}
 	9. We wish to maximise $f(x, y, z)=x y z$ subject to the constraints $g(x, y, z) = x+y+z - 40 = 0 \text { and } h(x, y, z) = x+y - z = 0.$\\
-	\uncover<2->{We solve $\nabla f = \lambda\nabla g + \mu\nabla h$ along with $g = h = 0$ for $\lambda, \mu, x, y, z.$}\\~\\
-	\uncover<3->{We see that $\nabla f = (yz, zx, xy),\;\nabla g = (1, 1, 1),\;\nabla h = (1, 1, -1).$ }\\
-	\uncover<4->{Thus, we get $yz = \lambda + \mu,\;zx = \lambda + \mu,\;xy = \lambda - \mu.$ \hfill $(*)$ }\\~\\
-	\uncover<5->{Note that $g = h = 0$ gives us that $z = 20.$ }\\
-	\uncover<6->{Also, the first two equalities of $(*)$ now give us that $x = y.$ }\\
-	\uncover<7->{Combining that with $h = 0$ gives us $x = y = 10.$ }\\~\\
-	\uncover<8->{Thus, we get $(x, y, z) = (10, 10, 20)$ as the only solution along with $(\lambda, \mu) = (150, 50).$ }\\
-	\uncover<9->{Now, we calculate $f$ at the above point to get $2000$ as an extremal value. To see that it is indeed the maximum and not the minimum, we substitute some other point like $(0, 20, 20)$ satisfying the constraints and compare. }
+	$g = h = 0$ clearly gives us that $z = 20.$\\
+	Using this and $h,$ we get that $x + y = 20.$\\
+	Thus, $f(x, y, z) = 20x(20 - x) = -20\left((x-10)^2 - 100\right).$\\
+	Note that $(x-10)^2\ge0$ and hence, $f(x, y, z) \le 2000.$\\
+	Thus, we get that $f$ is bounded above by $2000$ under the constraints $g=h=0.$\\
+	Moreover, $f$ does attain this value at $(10, 10, 20)$ which is a point satisfying the constraints.\\
+	Thus, we get that the maximum value attained by $f$ is $2000,$ given the constraints.\\~\\
+	Note that this time, our constraint set was not bounded. Thus, we had no reason to assume a priori that the maximum is attained.
 \end{frame}
 \begin{frame}{Sheet 7}
 	10. We wish to maximise $f(x, y, z)=x^2 + y^2 + z^2$ subject to the constraints $g(x, y, z) = x+2 y+3 z - 6=0 \text { and }  h(x, y, z) = x+3 y+4 z - 9= 0$\\
+	Note that the set $E := \{(x, y, z) \in \mathbb{R}^3 : g(x, y, z) = h(x, y, z) = 0\}$ is \textbf{not} bounded. Thus, we can't straight away say that $f$ does indeed attain a minimum on $E.$\\
+	However, observe that $(0, 3, 0) \in E$ and $f(0, 3, 0) = 9.$ Thus, if there were to exist a global minimum at some point $(x, y, z),$ then it would have to be the case that $f(x, y, z) \le 9.$ This motivates us to consider the new set
+	\[E' = \{(x, y, z) \in E: f(x, y, z) \le 9\}.\]
+	This set is clearly bounded. Moreover, it is closed as well. Thus, $f$ attains a minimum on $E'$ which would in turn be a minimum on $E$ as well. Now, we turn back to Lagrange.
+\end{frame}
+	
+\begin{frame}{Sheet 7}
 	\uncover<2->{We solve $\nabla f = \lambda\nabla g + \mu\nabla h$ along with $g = h = 0$ for $\lambda, \mu, x, y, z.$}\\~\\
-	\uncover<3->{We see that $\nabla f = (2x, 2y, 2z),\;\nabla g = (1, 2, 3),\;\nabla h = (1, 3, 4).$ Thus, it is clear that $\nabla g$ and $\nabla h$ are always non-zero. Moreover, they are non-parallel at all points. }\\
+	\uncover<3->{We see that $\nabla f = (2x, 2y, 2z),\;\nabla g = (1, 2, 3),\;\nabla h = (1, 3, 4).$ \\
+	Thus, it is clear that $\nabla g$ and $\nabla h$ are always non-zero. Moreover, they are non-parallel at all points. }\\
 	\uncover<4->{Thus, we get $2x = \lambda + \mu,\;2y = 2\lambda + 3\mu,\;2z = 3\lambda + 4\mu.$ \hfill $(*)$ }\\~\\
 	\uncover<5->{Note that $2g = 2h = 0$ along with $(*)$ gives us that $\lambda = -10,\;\mu = 8.$ }\\
-	\uncover<6->{Now, the equalities of $(*)$ give us that $x = -1,\;y = 2,\;z = 1.$ }\\~\\
-	\uncover<7->{Now, we calculate $f$ at the above point to get $6$ as an extremal value. To see that it is indeed the minimum and not the maximum, we substitute some other point like $(0, 3, 0)$ satisfying the constraints and compare. }\\~\\
+	\uncover<6->{Now, the equalities of $(*)$ give us that $x = -1,\;y = 2,\;z = 1.$ It is clear that this is indeed a point of minimum. }\\~\\
 \end{frame}
 \end{document}

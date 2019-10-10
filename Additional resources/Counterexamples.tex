@@ -30,7 +30,7 @@
 }
 
 \title{Counterexamples in Calculus}
-\author{Aryaman Maithani}
+\author{Aryaman Maithani\\\small TA of D1-T5}
 \date{Semester: Autumn 2019\\ Latest update: \today}
 
 \begin{document}
@@ -65,6 +65,16 @@
 	\right.\]
 	\item A differentiable function with strictly negative derivative everywhere need not be monotonically decreasing.\\
 	\textbf{Example:} $f:\mathbb{R}\setminus\{0\} \to \mathbb{R}$ defined as $f(x) := x^{-1}.$
+	%
+	\item \label{diric} Let $f:[0, 1]\to\mathbb{R}$ be a bounded function. $f$ need not be integrable on $[0, 1].$\\
+	\textbf{Example:} Take $f$ to be the Dirichlet function defined as
+	\[f(x) := \left\{
+	\begin{array}{r c}
+		1 & x \in \mathbb{Q}\\
+		0 & x \not\in \mathbb{Q}		
+	\end{array}
+	\right.\]
+	%
 	\item Integrability of $|f|$ does not imply integrability of $f.$\\
 	\textbf{Example:} $f:[-1, 1] \to \mathbb{R}$ defined as
 	\[f(x) := \left\{
@@ -73,5 +83,100 @@
 		-1 & x \not\in \mathbb{Q}		
 	\end{array}
 	\right.\]
+	%
+	\item Let $f:\mathbb{R}^2\to\mathbb{R}$ be a differentiable function such that $f_{xy}(0, 0)$ and $f_{yx}(0, 0)$ exist. It is not necessary that they are equal.\\
+	\textbf{Example:} Let $f:\mathbb{R}^2 \to \mathbb{R}$ be defined as
+	\[f(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{xy(x^2 - y^2)}{x^2 + y^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+	%
+	\item Suppose $f:\mathbb{R}^2\to\mathbb{R}$ is a function such that all directional derivatives of $f$ exist at $(0, 0).$ It is not necessary that the function is continuous at $(0, 0).$\\
+	\textbf{Example:} Let $f:\mathbb{R}^2 \to \mathbb{R}$ be defined as
+	\[f(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{x^3y}{x^6 + y^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+	The above function also satisfies $(\mathbf{D_u}f)(x_0, y_0) = (\nabla f)(x_0, y_0)\cdot\mathbf{u}$ for every unit vector $\mathbf{u} \in \mathbb{R}^2.$
+	%
+	\item Let $(x_0, y_0)$ be an interior point of a subset $D$ of $\mathbb{R}^2,$ and let $f:D\to\mathbb{R}.$ Suppose the following conditions hold:
+	\begin{enumerate}[nosep] 
+		\item Both partial derivatives $f_x(x_0,y_0)$ and $f_y(x_0, y_0)$ exist.
+		\item The directional derivative $(\mathbf{D_u}f)(x_0, y_0)$ exists for every unit vector $\mathbf{u} \in \mathbb{R}^2.$
+		\item $(\mathbf{D_u}f)(x_0, y_0) = (\nabla f)(x_0, y_0)\cdot\mathbf{u}$ for every unit vector $\mathbf{u} \in \mathbb{R}^2.$
+		\item $f$ is continuous at $(x_0, y_0).$
+	\end{enumerate}
+	It is not necessary that $f$ is differen		tiable at $(x_0, y_0).$\\
+	\textbf{Example:} Let $f:\mathbb{R}^2 \to \mathbb{R}$ be defined as
+	\[f(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{x^3y}{x^4 + y^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+	%
+	\item Let $D \subset \mathbb{R}^2.$ It is not necessary that $\partial D$ is of content zero or that it is ``one dimensional.''\\
+	\textbf{Example:} Let $D = (\mathbb{Q}\cap[0, 1])^2.$ Then, $\partial D = [0, 1]^2.$
+	%
+	\item Let $R = [a, b] \times[c, d]$ be a closed and bounded rectangle in $\mathbb{R}^2.$ Suppose that $f:R\to\mathbb{R}$ is a function such that the iterated integrals $\displaystyle\int_{a}^{b} \left(\int_{c}^{d} f(x, y) dy\right) dx $ and $\displaystyle\int_{c}^{d} \left(\int_{a}^{b} f(x, y) dx\right) dy $ both exist.\\~\\
+	It is not necessary that they are equal.\\
+	\textbf{Example:} Let $a = c = - 1$ and $b = d = 1$ and let $f:R \to \mathbb{R}$ be defined as
+	\[f(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{2xy(x^2 - y^2)}{(x^2 + y^2)^3} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+
+	%
+	\item Let $R = [a, b] \times[c, d]$ be a closed and bounded rectangle in $\mathbb{R}^2.$ Suppose that $f:R\to\mathbb{R}$ is a function such that the iterated integrals $\displaystyle\int_{a}^{b} \left(\int_{c}^{d} f(x, y) dy\right) dx $ and $\displaystyle\int_{c}^{d} \left(\int_{a}^{b} f(x, y) dx\right) dy $ both exist and are equal.\\~\\
+	 It is not necessary that $f$ is Riemann integrable on $R.$\\
+	\textbf{Example:} Let $a = c = - 1$ and $b = d = 1$ and let $f:R \to \mathbb{R}$ be defined as
+	\[f(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{2xy}{(x^2 + y^2)^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+	%
+%	\item Let $R = [a, b] \times[c, d]$ be a closed and bounded rectangle in $\mathbb{R}^2.$ Suppose that $f:R\to\mathbb{R}$ is a function such that the iterated integrals $\displaystyle\int_{a}^{b} \left(\int_{c}^{d} f(x, y) dy\right) dx $ and $\displaystyle\int_{c}^{d} \left(\int_{a}^{b} f(x, y) dx\right) dy $ both exist and are equal. \\~\\
+%	Moreover, suppose that $f$ is bounded on $R.$\\
+%	 It is not necessary that $f$ is Riemann integrable on $R.$\\
+%	\textbf{Example:} \\
+%	We have a slightly more involved example in this case.\\
+%	Let $Q = \mathbb{Q}\cap[0, 1]$ denote the rational numbers in $[0, 1],$ and $I = [0, 1] \times [0, 1]$ denote the unit square in $\mathbb{R}^2.$ For $x \in Q,$ write $x = p/q$ in lowest terms (that is, $0\le p \le q \neq 0$ such that $\gcd(p, q) = 1$), and define the set $S(x) \subset I$ as
+%	\[S(x) := \{(m/q, n/q) : n = 0, 1, \ldots, p,\;m = 0, 1, \ldots, p\}.\]
+%	We define $S \subset I$ by
+%	\[S = \bigcup_{x \in Q}S(x),\]
+%	and $f:I \to \mathbb{R}$ by
+%	\[f(x, y) := \left\{
+%	\begin{array}{c c}
+%		0 & (x, y) \in S\\
+%		1 & (x, y) \notin S	
+%	\end{array}
+%	\right.\]
+%	In this case, both the iterated integrals
+%	\[\int_{0}^{1}\left(\int_{0}^{1} f(x, y) d y\right) d x,\; \int_{0}^{1}\left(\int_{0}^{1} f(x, y) d x\right) d y\]
+%	exist and are equal to $1,$ but $f$ is not Riemann integrable on $I.$
+	%
+	\item \label{iterinte} Let $R = [a, b] \times[c, d]$ be a closed and bounded rectangle in $\mathbb{R}^2.$ Suppose that $f:R\to\mathbb{R}$ is a function such that $f$ is Riemann integrable on $R.$ It is not necessary that both the iterated integrals exist.\\
+	\textbf{Example:} Let $a = c = 0$ and $b = d = 1.$ Define $f:R\to\mathbb{R}$ as
+	\[f(x, y) := \left\{
+	\begin{array}{c l}
+		n^{-1} & \text{if }(x, y) \in \mathbb{Q}^2 \text{ and } x = m/n \text{ such that } (m, n) \text{ in simplest form} \\
+		0 & (x, y) \notin \mathbb{Q}^2	
+	\end{array}
+	\right.\]
+	(Note that $0/1$ is the simplest form for $0.$)\\~\\
+	Then, $f$ is integrable on $R.$ (May be tough to show but it's true.)\\
+	However, if you fix $x_0 \in \mathbb{Q}\cap[0, 1],$ then $f(x_0, y)$ is not Riemann integrable (as a function of $y$) on $[0, 1].$ It can be seen easily that it behaves like the Dirichlet function mentioned in point \ref{diric}.\\
+	Thus, the iterated integral $\displaystyle\int_{0}^{1} \left(\int_{0}^{1} f(x, y) dy \right) dx $ does not exist.\\
+	Note the other iterated integral, however, does exist.
+	\item Let $R = [a, b] \times[c, d]$ be a closed and bounded rectangle in $\mathbb{R}^2.$ Suppose $f:R\to\mathbb{R}$ is a function such that one of the iterated integrals exists. It is not necessary that the other does too.\\
+	\textbf{Example:} Example \ref{iterinte}.
 \end{enumerate}
 \end{document}

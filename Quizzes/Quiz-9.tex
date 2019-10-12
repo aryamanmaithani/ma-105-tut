@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 9: Solution}      % here
+\author{Aryaman Maithani}
+\date{9th October, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} \\
+Let $f, g : \mathbb{R}^2 \to \mathbb{R}$ be defined by
+\[f(x, y) := \sqrt{x^2 + y^2} \text{ and } g(x, y) := |xy| \text{ for } (x, y) \in \mathbb{R}^2.\]
+Determine which of the following statements is true. Justify your answer.
+\begin{enumerate}[label = (\alph*)] 
+ 	\item Both $f$ and $g$ are differentiable at $(0, 0).$
+ 	\item $f$ is differentiable at $(0, 0),$ but $g$ is not differentiable at $(0, 0).$
+ 	\item $g$ is differentiable at $(0, 0),$ but $f$ is not differentiable at $(0, 0).$
+ 	\item Neither $f$ nor $g$ is differentiable at $(0, 0).$
+ \end{enumerate} 
+ \hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} The correct alternative is (c). \hfill \textbf{[2]}\\ 
+Justification: \\
+Note that for $h \neq 0,$ one has
+\[\dfrac{f(0 + h, 0) - f(0, 0)}{h} = \dfrac{|h|}{h}.\]
+Hence, $f_x(0, 0)$ does not exist as $\displaystyle\lim_{h\to 0}\dfrac{|h|}{h}$ does not. \hfill \textbf{[1]}\\~\\
+%
+For $(h, k) \neq (0, 0)$ note that $|h| \le \sqrt{h^2 + k^2}$ and hence,
+\[\dfrac{g(0 + h, 0 + k) - g(0, 0) - 0\cdot h - 0\cdot k }{\sqrt{h^2 + k^2}} = \dfrac{|hk|}{\sqrt{h^2 + k^2}} \le |k|.\]
+Hence, we get that \[\lim_{(h, k)\to (0, 0)}\dfrac{g(0 + h, 0 + k) - g(0, 0) - 0\cdot h - 0\cdot k }{\sqrt{h^2 + k^2}} = 0.\]
+Thus, $g$ is differentiable at $(0, 0)$ with (total) derivative $(0, 0).$ \hfill \textbf{[2]}
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Simply calculating $f_x(x_0, y_0)$ for $(x_0, y_0) \neq (0, 0)$ and then concluding that $f_x(0, 0)$ does not exist by showing that $\displaystyle\lim_{(x_0, y_0)\to (0, 0)}f_x(x_0, y_0)$ does not exist is not correct as limit of derivative not existing does not imply non-existence of derivative of the limit. Hence, no marks for this justification has been given.\\
+	This had been mentioned in the last quiz as well.
+	\item Many have incorrectly tried to invoke the sufficient condition for differentiability. Note that $g_x(0, k)$ does not even exist for $k \neq 0$ and hence, $g_x$ isn't continuous at $(0, 0).$ Similar argument for $g_y$ as well.
+	\item Some have concluded the differentiability of $g$ by incorrect arguments such as the following:
+	\begin{enumerate}[nosep] 
+		\item Existence of all directional derivatives.
+		\item Existence of partial derivatives and continuity of $g.$
+		\item $(\mathbf{D_u}g)(0, 0) = (\nabla g)(0, 0)\cdot \mathbf{u}$ being true for all unit vectors $\mathbf{u}\in\mathbb{R}^2.$
+	\end{enumerate}
+	Note that the above are simply necessary conditions but not sufficient. Indeed, consider the function $h:\mathbb{R}^2 \to \mathbb{R}$ defined as
+	\[h(x, y) := \left\{
+	\begin{array}{c c}
+		\dfrac{x^3y}{x^4 + y^2} & (x, y) \neq (0, 0)\\
+		0 & (x, y) = (0, 0)	
+	\end{array}
+	\right.\]
+	One can verify that the above function satisfies all the condition listed earlier but is not differentiable at $(0, 0).$
+\end{enumerate}
+\end{document}

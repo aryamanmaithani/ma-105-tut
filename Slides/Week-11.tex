@@ -1,0 +1,190 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 11}  % change
+\author{Aryaman Maithani}
+\date[16-10-2019]{16th October, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 8}                            % change
+	(2) (i) We are to compute the following integral:
+	\[I = \int_{0}^{\pi} \left[\int_{x}^{\pi} \dfrac{\sin y}{y} dy \right] dx. \]
+	\uncover<2->{
+	(Note that the above is actually problematic as $y= 0$ is in our region. Thus, the question is really asking us to integrate the function $f$ which is $1$ when $y = 0$ and $\sin y/y$ otherwise. As the function has a ``removable'' discontinuity, we aren't bothered.)}\\
+	\uncover<3->{Now, note that we are integrating the function $f$ over the following domain: }
+	\uncover<4->{\[D := \{(x, y) \in \mathbb{R}^2 : 0 \le x \le \pi,\;x \le y \le \pi\}.\] }\\
+	\uncover<5->{By Fubini's theorem, we know that the integral $I$ equals $I'
+	 = \displaystyle\iint_D f(x, y) d(x, y).$ }
+\end{frame}
+\begin{frame}{Sheet 8}
+	Now, also note that $D$ can also be written as the following:
+	\uncover<2->{
+	\[D = \{(x, y) \in \mathbb{R}^2 : 0 \le y \le \pi,\; 0 \le x \le y\}.\]}
+	\uncover<3->{(It is easy to argue this by looking the region $D$ by drawing its graph and we shall stick with that for this course. Although, how \emph{would} one argue that this does indeed equal $D?$) }\\
+	\uncover<4->{Thus, using our friend Fubini again, we get that $I'$ equals the following integral: }\\
+	\uncover<5->{\[I'' = \int_{0}^{\pi} \left[\int_{0}^{y} \dfrac{\sin y}{y} dx \right] dy\] }
+	\uncover<6->{$I''$ is easy to solve now and we get that $I'' = 2.$ }\hfill
+	\uncover<7->{(How?) }\\
+	\uncover<8->{By our previous observations, we get that $I'' = I' = I$ and hence, $I = 2.$ }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(2) (ii) We are to compute the following integral:
+	\[I = \int_{0}^{1} \left[\int_{y}^{1} x^2e^{xy} dx \right] dy. \]
+	\uncover<2->{As before, we shall transform the integral by cleverly switching the order of integrals. }\\
+	\uncover<3->{We observe that the domain of integration in this case is the following: }
+	\uncover<4->{\[D := \{(x, y) \in \mathbb{R}^2 : 0 \le y \le 1,\;0 \le x \le 1\}.\] }
+	\uncover<5->{Like before, we note that $D$ can also be written as: }\\
+	\uncover<6->{\[D = \{(x, y) \in \mathbb{R}^2 : 0 \le x \le 1,\; 0 \le y \le x\}.\] }
+\end{frame}
+\begin{frame}{Sheet 8}
+	By Fubini, we will again get that the two integrals are equal and hence,\\
+	\uncover<2->{\[I = \int_{0}^{1} \left[\int_{0}^{x} x^2e^{xy} dy \right] dx.\] }\\
+	\uncover<3->{This is now easy to integrate and we get that: }\\
+	\uncover<4->{\[\implies I = \int_{0}^{1} x(e^{x^2} - 1) dx \] }
+	\uncover<5->{\[\implies I = \dfrac{1}{2}\int_{0}^{1} e^u du - \int_{0}^{1} x dx  \] }
+	\uncover<6->{\[\implies I = \dfrac{1}{2}(e - 2)\] }
+	\uncover<7->{(The answer given at the back is incorrect.) }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(2) (iii) We are to compute the following integral:
+	\[\int_{0}^{2}\left(\tan ^{-1} \pi x-\tan ^{-1} x\right) dx.\]
+	\uncover<2->{This is a single variable Riemann integral, which is not easy to compute directly. We convert it into a double integral and compute the double integral using Fubini, hoping that that'll be easier. }\uncover<3->{Now, note that: }\\
+	\uncover<4->{\[\int_{0}^{2}\left(\tan ^{-1} \pi x-\tan ^{-1} x\right) d x=\int_{0}^{2}\left(\int_{x}^{\pi x} \frac{1}{1+y^{2}} d y\right) d x\] }
+	\uncover<5->{This is a double integral over the region }\\
+	\uncover<6->{\[D := \{(x, y): 0 \leq x \leq 2, x \leq y \leq \pi x\}.\] }
+\end{frame}
+\begin{frame}{Sheet 8}
+	Now, note that this region $D$ is the union of two regions $D_1$ and $D_2$ where
+	\uncover<2->{\[D_{1}=\left\{(x, y): 0 \leq y \leq 2, \frac{y}{\pi} \leq x \leq y\right\}, \text{ and }\]}
+	\uncover<3->{\[D_{2}=\left\{(x, y): 2 \leq y \leq 2 \pi, \frac{y}{\pi} \leq x \leq 2\right\}.\] }
+	\uncover<4->{Note that $D_1 \cap D_2$ is of (two-dimensional) content zero. }\hfill\uncover<5->{(Verify!) }\\
+	\uncover<6->{Therefore, we get that }\\
+	\uncover<7->{\[\iint_{D} f = \iint_{D_1} f + \iint_{D_2} f,\] }\\
+	\uncover<8->{Where $f:D\to\mathbb{R}$ is defined as $f(x, y) := (1+y^2)^{-1}.$ }
+\end{frame}
+\begin{frame}{Sheet 8}
+	Thus, the required integral is given by
+	\begin{align*}
+		\uncover<2->{I&=\int_{0}^{2}\left(\int_{y / \pi}^{y} \frac{1}{1+y^{2}} d x\right) d y+\int_{2}^{2 \pi}\left(\int_{y / \pi}^{2} \frac{1}{1+y^{2}} d x\right) d y}\\~\\
+		\uncover<3->{ &= \left(1-\frac{1}{\pi}\right) \int_{0}^{2} \frac{y}{1+y^{2}} d y+\int_{2}^{2 \pi} \frac{2}{1+y^{2}} d y-\frac{1}{\pi} \int_{2}^{2 \pi} \frac{y}{1+y^{2}} d y }\\~\\
+		\uncover<4->{&=\frac{1}{2}\left(1-\frac{1}{\pi}\right)\left[\ln \left(1+y^{2}\right)\right]_{0}^{2}+2\left[\tan ^{-1} y\right]_{2}^{2 \pi}-\frac{1}{2 \pi}\left[\ln \left(1+y^{2}\right)\right]_{2}^{2 \pi} }\\~\\
+		\uncover<5->{&=\frac{\ln 5}{2}\left(1-\frac{1}{\pi}\right)+2\left[\tan ^{-1} 2 \pi-\tan ^{-1} 2\right]-\frac{1}{2 \pi} \ln \frac{1+4 \pi^{2}}{5} }
+	\end{align*}
+	\uncover<6->{Was this indeed easier? }\hfill\uncover<7->{I'm not sure. }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(4) We are to compute the following integral:
+	\[I = \iint_{D}(x-y)^{2} \sin ^{2}(x+y) d(x, y), \]
+	where $D$ is the square with vertices at $(\pi, 0),\;(2 \pi, \pi),\;(\pi, 2 \pi)$ and $(0, \pi).$\\
+	\uncover<2->{Let $u := x + y$ and $v := x - y,$}\uncover<3->{ that is, $x = \frac{1}{2}(u + v)$ and $y = \frac{1}{2}(u - v).$ }\\~\\
+	\uncover<4->{Define $\Phi:\mathbb{R}^2 \to \mathbb{R}^2$ as $\Phi(u,\;v) = \left(\frac{1}{2}(u + v), \frac{1}{2}(u - v)\right).$ }\\~\\
+	\uncover<5->{Then, $\Phi$ is one-one and if $\Phi = (\phi_1, \phi_2),$ then the partial derivatives of $\phi_1$ and $\phi_2$ exist and are continuous. }
+\end{frame}
+\begin{frame}{Sheet 8}
+	Now, we get that
+	\uncover<2->{\[J(\Phi)(u, v)=\operatorname{det}\left[\begin{array}{cc}{1/2} & {1/2} \\ {1/2} & {-1/2}\end{array}\right]= -1/2 \neq 0 \quad \text { for all }(u, v) \in \mathbb{R}^2.\] }
+	\uncover<3->{Now, we must see how our domain of integration changes under this transform. }\\
+	\uncover<4->{Note that if $E := [\pi, 3\pi] \times [-\pi, \pi],$ then $\Phi(E) = D.$ }\hfill
+	\uncover<5->{(How?) }\\
+	\uncover<6->{Since the integrand is continuous on $D,$ change of variable formula gives us }
+	\uncover<7->{\[I = \iint_{E} v^2\sin^2u |-1/2|d(u, v)\] }
+	\uncover<8->{\[\implies I = \frac{1}{2}\left(\int_{\pi}^{3\pi} \sin^2u du \right)\left(\int_{-\pi}^{\pi} v^2 dv \right)\] }
+	\uncover<9->{\[\implies I = \frac{1}{3}\pi^4\] }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(6) (i) Let $r > 0$ be given, we first compute the following integral:
+	\[I(r) := \iint_{D(r)} e^{-(x^2 + y^2)} d(x, y).\]
+	\uncover<2->{The nature of the integrand and $D(r)$ makes it very natural to consider the polar coordinates substitution. }\\
+	\uncover<3->{We define $\Phi:\mathbb{R}^2 \to \mathbb{R}^2$ as $\Phi(r, \theta) = (r\cos\theta, r\sin\theta).$ }\uncover<4->{If $\Phi = (\phi_1, \phi_2),$ then $\phi_1$ and $\phi_2$ have continuous partial derivatives in $\mathbb{R}^2$}\uncover<5->{ and we have that $J(\Phi)(r, \theta) = r \ge 0$ for all $(r, \theta) \in \mathbb{R}^2.$ }\\
+	\uncover<6->{Note that if we consider $E(r) := [0, r]\times[-\pi, \pi],$ then we get $\Phi(E(r)) = D(r).$ }\\
+\end{frame}
+\begin{frame}{Sheet 8}
+	\uncover<1->{Hence, our integral transforms to the following: }
+	\uncover<2->{\[I(r) = \iint_{E(r)} e^{-r^2} r d(r, \theta)\] }
+	\uncover<3->{\[ = \left(\int_{0}^{r} re^{-r^2} dr\right)\left(\int_{-\pi}^{\pi} 1 d\theta \right) \] }
+	\uncover<4->{\[ = \pi\left(1 - e^{r^2}\right).\] }
+	\uncover<5->{Now, we can easily calculate $\displaystyle\lim_{r\to \infty}I(r).$ }\\
+	\uncover<6->{It is simply $\pi.$ }
+	\begin{flushright}
+		\uncover<7->{(At this point, one stops being surprised by seeing a wild appearance of $\pi.$) }
+	\end{flushright}
+\end{frame}
+\begin{frame}{Sheet 8}
+	(6) (ii) There are two ways to proceed with this part.\\~\\
+	\uncover<2->{\textbf{Way 1.} Do the whole process like last time and change the limits of $\theta$ from $0$ to $\pi/2.$ }\\~\\
+	\uncover<3->{\textbf{Way 2.} Write $D(r)$ as the union of the four quarters of the circle. }\\
+	\uncover<4->{$D(r) = D_1(r) \cup D_2(r) \cup D_3(r) \cup D_4(r).$ }\\
+	\uncover<5->{Note that with this ``partitioning,'' we get that the intersection of any two sections is a set of (two-dimensional) content zero. }\\
+	\uncover<6->{Thus, the integral is simply the sum of integrals over these regions. }\\
+	\uncover<7->{Appropriate change of variables will give that all the four integrals are actually the same, giving us the answer as $\pi/4.$ }\\
+	\uncover<8->{(This is essentially arguing via ``symmetry''.) }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(6) (iii) Given $D(r)$ as defined for part (iii), we define two more regions:
+	\[D_1(r) := \left\{(x, y) \in \mathbb{R}^{2}: x^{2}+y^{2} \leq r^{2}\right\},\text{ and }\]
+	\[D_2(r) := \left\{(x, y) \in \mathbb{R}^{2}: x^{2}+y^{2} \leq 2r^{2}\right\}.\]
+	\uncover<2->{Observe that $D_1(r) \subset D(r) \subset D_2(r).$ }\\~\\
+	\uncover<3->{Now, note that $f(x, y) := \exp(-(x^2 + y^2)) > 0$ for all $(x, y) \in \mathbb{R}^2.$  }
+	\uncover<4->{Thus, we get that: }
+	\uncover<5->{\[\iint_{D_1(r)} f \le \iint_{D(r)} f \le \iint_{D_2(r)} f.\]}
+	\uncover<6->{(How? Note that this is \emph{not} one of the order properties seen in class.) }\\
+	\uncover<7->{Hence, we get that $\pi\left(1 - e^{r^2}\right) \le \displaystyle\iint_{D(r)} f \le \pi\left(1 - e^{-2r^2}\right).$ }\\
+	\uncover<8->{A simple use of Sandwich Theorem gives us our desired answer as $\pi.$ }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(6) (iv) Similar argument as in part (ii). Way two is easier.
+\end{frame}
+\begin{frame}{Sheet 8}
+	(8) First, observe that $\xi_1$ and $\xi_2$ are already given to us. Indeed, $\xi_1(x, y) = \sqrt{x^2 + y^2}$ and $\xi_2(x, y) = 1.$\\
+	\uncover<2->{Let us now find bounds for the other variables in the appropriate manner. }\\~\\
+	\uncover<3->{Note that $|x| \le \sqrt{x^2 + y^2} \le 1.$ }\\
+	\uncover<4->{Thus, $-1 \le x \le 1.$ Also, one can note that $x$ indeed does take these extreme values as the points $(1, 0, 1)$ and $(-1, 0, 1)$ belong to $D.$ }\\~\\
+	\uncover<5->{Now, given a fixed $x,$ we have that $y^2 \le 1 - x^2.$ }\\
+	\uncover<6->{Thus, $-\sqrt{1 - x^2} \le y \le \sqrt{1 - x^2}.$ }\\
+	\uncover<7->{Once again, it can be confirmed that $y$ does attain the extreme values. }\\~\\
+	\uncover<8->{To summarise, we get $a = -1,\;b=1,\;\phi_1(x) = -\sqrt{1 - x^2},\;\phi_2(x) = \sqrt{1 - x^2},\;\xi_1(x, y) = \sqrt{x^2 + y^2}$ and $\xi_2(x, y) = 1.$ }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(9) Note that- by Fubini- the integral can be written as
+	\[\iiint_{D} x d(x, y, z),\]
+	where $D := \{(x, y, z) \in \mathbb{R}^3 : 0 \le x \le \sqrt{2},\; 0 \le y \le \sqrt{2 - x^2},\;x^2 + y^2 \le z \le 2\}.$\\~\\
+	\uncover<2->{Now, observe that $D$ can also be written as: }
+	\uncover<3->{\[D = \left\{(x, y, z) \in \mathbb{R}^{3}: 0 \leq z \leq 2,\; 0 \leq y \leq \sqrt{z},\;0 \leq x \leq \sqrt{z-y^{2}}\right\}.\] }\\
+	\uncover<4->{Using Fubini's Theorem again, we get that the integral equals: }
+	\uncover<5->{\[\int_{0}^{2} \left(\int_{0}^{\sqrt{z}} \left(\int_{0}^{\sqrt{z - y^2}} x dx \right) dy\right) dz \] }\\
+\end{frame}
+\begin{frame}{Sheet 8}
+	\uncover<1->{\[= \frac{1}{2}\int_{0}^{2} \left(\int_{0}^{\sqrt{z}} \left(z - y^2\right) dy\right) dz \] }\\
+	\uncover<2->{\[= \frac{1}{2}\int_{0}^{2}\frac{2}{3}z^{3/2} dz\] }
+	\uncover<3->{\[= \frac{2^{7/2}}{15}.\] }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(10) (i) Given the nature of the integrand and the region of integration, it is natural to go for a cylindrical substitution.\\
+	\uncover<2->{Let $f:D \to \mathbb{R}$ be defined as $f(x, y, z) := z^{2} x^{2}+z^{2} y^{2}.$ }\\
+	\uncover<3->{Now, let $E := \left\{(r, \theta, z) \in \mathbb{R}^{3}: 0 \le r \le 1,\;-\pi \leq \theta \leq \pi,\; -1 \le z \le 1\right.\}.$ }\\
+	\uncover<4->{Thus, $(r, \theta, z) \in E \iff (r\cos\theta, r\sin\theta, z) \in D.$ }\\
+	\uncover<5->{As $f$ is continuous and $E$ has a volume, we get that the required integral of $f$ over $D$ equals}
+	\uncover<6->{\[\iiint_{E} f(r \cos \theta, r \sin \theta, z) r d(r, \theta, z)\] }
+	\uncover<7->{\[ = \left(\int_{-\pi}^{\pi} 1 d\theta\right)\left(\int_{0}^{1} r^3 dr\right)\left(\int_{-1}^{1} z^2 dz\right)\] }
+	\uncover<8->{\[ = \frac{\pi}{3}. \] }
+\end{frame}
+\begin{frame}{Sheet 8}
+	(10) (ii) Given the nature of the integrand and the region of integration, it is natural to go for a spherical substitution in this case.\\
+	\uncover<2->{Let $f:D \to \mathbb{R}$ be defined as $f(x, y, z) := \exp(x^2 + y^2 + x^2)^{3/2}.$ }\\
+	\uncover<3->{Now, let $E := \left\{(\rho, \varphi, \theta) \in \mathbb{R}^{3}: 0 \le \rho \le 1,\; 0 \le \varphi \le \pi,\; -\pi \leq \theta \leq \pi\right.\}.$ }\\
+	\uncover<4->{Thus, $(\rho, \varphi, \theta) \in E \iff (\rho \sin \varphi \cos \theta, \rho \sin \varphi \sin \theta, \rho \cos \varphi) \in D.$ }\\
+	\uncover<5->{As $f$ is continuous and $E$ has a volume, we get that the required integral of $f$ over $D$ equals}
+	\uncover<6->{\[\iiint_{E} f(\rho \sin \varphi \cos \theta, \rho \sin \varphi \sin \theta, \rho \cos \varphi) \rho^{2} \sin \varphi d(\rho, \varphi, \theta)\] }
+	\uncover<7->{\[=\iiint_{E} \exp(\rho^3) \rho^{2} \sin \varphi d(\rho, \varphi, \theta)=\left(\int_{0}^{\pi} \sin\varphi d\varphi \right)\left(\int_{-\pi}^{\pi} 1 d\theta\right)\left(\int_{0}^{1} \rho^2e^{\rho^3} d\rho \right)\] }
+	\uncover<8->{\[=\dfrac{4\pi}{3}(e - 1).\] }
+\end{frame}
+\end{document}

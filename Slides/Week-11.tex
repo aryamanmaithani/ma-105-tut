@@ -15,7 +15,11 @@
 \begin{frame}
 	\titlepage
 \end{frame}
-\begin{frame}{Sheet 8}                            % change
+\begin{frame}{Reminder}
+	Recall the following that I had said in the first lecture-\\
+	\uncover<2->{{\color[rgb]{1, 0, 0} Dishonesty in any form will not be tolerated.} }
+\end{frame}
+\begin{frame}{Sheet 8}                            
 	(2) (i) We are to compute the following integral:
 	\[I = \int_{0}^{\pi} \left[\int_{x}^{\pi} \dfrac{\sin y}{y} dy \right] dx. \]
 	\uncover<2->{
@@ -41,7 +45,7 @@
 	\[I = \int_{0}^{1} \left[\int_{y}^{1} x^2e^{xy} dx \right] dy. \]
 	\uncover<2->{As before, we shall transform the integral by cleverly switching the order of integrals. }\\
 	\uncover<3->{We observe that the domain of integration in this case is the following: }
-	\uncover<4->{\[D := \{(x, y) \in \mathbb{R}^2 : 0 \le y \le 1,\;0 \le x \le 1\}.\] }
+	\uncover<4->{\[D := \{(x, y) \in \mathbb{R}^2 : 0 \le y \le 1,\;y \le x \le 1\}.\] }
 	\uncover<5->{Like before, we note that $D$ can also be written as: }\\
 	\uncover<6->{\[D = \{(x, y) \in \mathbb{R}^2 : 0 \le x \le 1,\; 0 \le y \le x\}.\] }
 \end{frame}
@@ -111,7 +115,7 @@
 	\uncover<1->{Hence, our integral transforms to the following: }
 	\uncover<2->{\[I(r) = \iint_{E(r)} e^{-r^2} r d(r, \theta)\] }
 	\uncover<3->{\[ = \left(\int_{0}^{r} re^{-r^2} dr\right)\left(\int_{-\pi}^{\pi} 1 d\theta \right) \] }
-	\uncover<4->{\[ = \pi\left(1 - e^{r^2}\right).\] }
+	\uncover<4->{\[ = \pi\left(1 - e^{-r^2}\right).\] }
 	\uncover<5->{Now, we can easily calculate $\displaystyle\lim_{r\to \infty}I(r).$ }\\
 	\uncover<6->{It is simply $\pi.$ }
 	\begin{flushright}
@@ -137,7 +141,7 @@
 	\uncover<4->{Thus, we get that: }
 	\uncover<5->{\[\iint_{D_1(r)} f \le \iint_{D(r)} f \le \iint_{D_2(r)} f.\]}
 	\uncover<6->{(How? Note that this is \emph{not} one of the order properties seen in class.) }\\
-	\uncover<7->{Hence, we get that $\pi\left(1 - e^{r^2}\right) \le \displaystyle\iint_{D(r)} f \le \pi\left(1 - e^{-2r^2}\right).$ }\\
+	\uncover<7->{Hence, we get that $\pi\left(1 - e^{-r^2}\right) \le \displaystyle\iint_{D(r)} f \le \pi\left(1 - e^{-2r^2}\right).$ }\\
 	\uncover<8->{A simple use of Sandwich Theorem gives us our desired answer as $\pi.$ }
 \end{frame}
 \begin{frame}{Sheet 8}
@@ -179,7 +183,7 @@
 \end{frame}
 \begin{frame}{Sheet 8}
 	(10) (ii) Given the nature of the integrand and the region of integration, it is natural to go for a spherical substitution in this case.\\
-	\uncover<2->{Let $f:D \to \mathbb{R}$ be defined as $f(x, y, z) := \exp(x^2 + y^2 + x^2)^{3/2}.$ }\\
+	\uncover<2->{Let $f:D \to \mathbb{R}$ be defined as $f(x, y, z) := \exp(x^2 + y^2 + z^2)^{3/2}.$ }\\
 	\uncover<3->{Now, let $E := \left\{(\rho, \varphi, \theta) \in \mathbb{R}^{3}: 0 \le \rho \le 1,\; 0 \le \varphi \le \pi,\; -\pi \leq \theta \leq \pi\right.\}.$ }\\
 	\uncover<4->{Thus, $(\rho, \varphi, \theta) \in E \iff (\rho \sin \varphi \cos \theta, \rho \sin \varphi \sin \theta, \rho \cos \varphi) \in D.$ }\\
 	\uncover<5->{As $f$ is continuous and $E$ has a volume, we get that the required integral of $f$ over $D$ equals}

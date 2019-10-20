@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 10: Solution}      % here
+\author{Aryaman Maithani}
+\date{16th October, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} Compute the global maximum and minimum of the function $f:\mathbb{R}^2\to\mathbb{R}$ defined by $f(x, y) := xy$ subject to the constraint $g(x, y) = 3x^2 + 2y^2 - 1 = 0.$
+\hfill [5 marks]
+ 	
+\hrulefill
+
+\textbf{Answer.} Note that we wish to maximise/minimise the function $f$ on the set $D := \{(x, y) \in \mathbb{R}^2 : g(x, y) = 0\}.$ As $f$ is continuous on $\mathbb{R}^2,$ it is continuous on $D.$ Moreover, $D$ is nonempty, closed and bounded. Thus, $f$ does attain a global maximum and minimum on $D.$ \hfill \textbf{[1]}\\~\\
+%
+Using the method of Lagrange multipliers, we set up the equations $(\nabla f)(x, y) = \lambda(\nabla g)(x, y),\;g(x, y) = 0$ and solve for the reals $\lambda, x,$ and $y.$ \\
+Note that $(\nabla f)(x, y) = (y, x)$ and $(\nabla g)(x, y) = (6x, 4y).$\\
+Thus, we get the three equations:
+\begin{align*}
+	y &= 6\lambda x \\
+	x &= 4\lambda y \\
+	1 &= 3x^2 + 2y^2 
+\end{align*}
+\begin{flushright}
+	\textbf{[1]}
+\end{flushright}
+The first two equations give us $xy = 24\lambda^2xy.$ Now, note that $x = 0 \iff y = 0$ but $(0, 0) \notin D.$ Thus, $x$ and $y$ are both nonzero. Hence, $\lambda^2 = 1/24.$\\
+Plugging this in the first equation gives us $2y^2 = 3x^2.$ Substituting this in the third equation gives us $y^2 = 1/4$ and $x^2 = 1/6.$ Thence, we get the four points $(\pm 1/\sqrt{6}, \pm 1/\sqrt{4}).$ Computing the value of $f$ at these points gives either $1/\sqrt{24}$ or $-1/\sqrt{24}.$ \hfill \textbf{[1]}\\~\\
+Now, we must also check for the points satisfying $g = 0$ and $\nabla g = (0, 0).$  \\
+However, $(\nabla g)(x, y) = (0, 0) \implies (x, y) = (0, 0) \notin D.$ \hfill \textbf{[1]}\\~\\
+Hence, we conclude that the global maximum and global minimum attained by $f$ are $1/\sqrt{24}$ and $-1/\sqrt{24},$ respectively. \hfill \textbf{[1]}
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item It is necessary to mention \emph{why} the points obtained by the method of Lagrange are actually points of global extrema. (Since $D$ was nonempty. closed, and bounded.)\\
+	To see the importance, consider the same $f$ but another constraint given as $h(x, y) = x^2 - y = 0.$ The method of Lagrange gives only $(0, 0)$ as the point to consider but that is neither the global minimum nor the maximum.
+	\item Calculation mistakes have been penalised by a deduction of a quarter mark.
+	\item It is also necessary to check for the points where $\nabla g = (0, 0).$ In this case, we get that $\nabla g \neq (0, 0)$ for any point in $D$ but it must still be mentioned.
+	\item Some students have done this in alternate ways by considering basic inequalities or by trigonometric substitutions. If done correctly, full marks have been awarded.
+	\item Many have tried solving it by reducing $f$ to a function of one variable. However, most have made mistakes there by not considering critical points and boundary points.\\
+	Recall that global (and local) extrema can also occur at points where the function is not differentiable. Moreover, it is not even the case that the function of one variable you get is ``nice'' enough as there's a square root appearing and $x \mapsto \sqrt{x}$ is precisely a function such that it is not differentiable at its point of global minimum.
+\end{enumerate}
+
+\end{document}

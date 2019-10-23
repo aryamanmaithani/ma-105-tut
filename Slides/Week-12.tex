@@ -16,7 +16,7 @@
 	\titlepage
 \end{frame}
 \begin{frame}{Sheet 9}                            % change
-	(7) We know that the line integral of a continuous scalar field along a smooth is independent of the parameterisation. The question given indeed does satisfy these conditions. Hence, we may choose any parameterisation of our choice.\\
+	(7) We know that the line integral of a continuous vector field along a smooth curve is independent of the parameterisation. The question given indeed does satisfy these conditions. Hence, we may choose any parameterisation of our choice.\\
 	\uncover<2->{Let $c:[-1, 1] \to \mathbb{R}^2$ be defined as $c(t) := (t, t^2).$ }\\
 	\uncover<3->{Then, the required line is integral is given as }\\
 	\uncover<4->{\[\int_{-1}^{1} \mathbf{f}(c(t))\cdot c'(t) dt .\] }\\
@@ -58,7 +58,7 @@
 	\uncover<2->{\[s(t) := \int_{0}^{t} \|\mathbf{r}'(u)\| du. \] }\\
 	\uncover<3->{Note that $\mathbf{r}'(t) = -a\sin t \mathbf{i} + a\cos t\mathbf{j} + c\mathbf{k}$ }\uncover<4->{and thus, $\|\mathbf{r}'(t)\| = \sqrt{a^2 + c^2}.$ }\\
 	\uncover<5->{This gives us that $s(t) = \sqrt{a^2 + c^2}t.$ }\\
-	\uncover<6->{The above is clearly a strictly increasing increasing differentiable function. }\\
+	\uncover<6->{The above is clearly a strictly increasing differentiable function. }\\
 	\uncover<7->{Let $h:[0, l(\mathbf{r})] \to [0, 2\pi]$ be its inverse. }\\~\\
 \end{frame}
 \begin{frame}{Sheet 10}
@@ -71,12 +71,9 @@
 	(4) The only thing to check in this question is whether the question is actually correct.\\
 	\uncover<2->{It can be verified that the curve given indeed is smooth. }\\
 	\uncover<3->{Moreover, the end points given do actually lie on the path. }\\
-	\uncover<4->{Now, we simply get that $\displaystyle\int_C\nabla(x^2 - y^2)\cdot d\mathbf{r} = (2^2 - 8^2) - (0^2 - 0^2) = -60.$ }\\~\\
-	\uncover<5->{Note that we have used the following theorem: }\\
-	\uncover<6->{\begin{theorem}
-		Let $\mathbf{\gamma}:[\alpha, \beta]\to\mathbb{R}^2$ be a smooth path, and let $C := \mathbf{\gamma}([\alpha, \beta]).$ Let $f:C\to\mathbb{R}$ be a scalar field such that $\nabla f$ exists and is bounded. Then,
-		\[\int_C \nabla f\cdot d\mathbf{r} = f(\mathbf{\gamma}(\beta)) - f(\mathbf{\gamma}(\alpha)).\]
-	\end{theorem} }
+	\uncover<4->{Also, the scalar field $(x, y) \mapsto x^2 - y^2$ is a smooth scalar field defined on $\mathbb{R}^2.$ }\\~\\
+	\uncover<5->{Thus, we simply get that $\displaystyle\int_C\nabla(x^2 - y^2)\cdot d\mathbf{r} = (2^2 - 8^2) - (0^2 - 0^2) = -60,$ }\\~\\
+	\uncover<6->{by FTC for Line Integrals (Part II)}
 \end{frame}
 \begin{frame}{Sheet 10}
 	(5) Note that the square mentioned is the following:
@@ -115,7 +112,7 @@
 	\uncover<5->{We shall show that $\mathbf{F}$ is not a gradient of a scalar field on $S$ by showing that the third condition is not true. }\\
 \end{frame}
 \begin{frame}{Sheet 10}
-	\uncover<1->{Indeed, consider the path $\mathbf{\gamma}:[-\pi, \pi]\to\mathbb{R}^2$ given as $(\cos t, \sin t).$ }\uncover<2->{Then, $\mathbf{\gamma}$ is indeed a closed path which lies in $S.$ }\\
+	\uncover<1->{Indeed, consider the path $\mathbf{\gamma}:[-\pi, \pi]\to\mathbb{R}^2$ given as $\gamma(t) := (\cos t, \sin t).$ }\uncover<2->{Then, $\mathbf{\gamma}$ is indeed a closed path which lies in $S.$ }\\
 	\uncover<2->{Now, we compute $\displaystyle\oint_\gamma \mathbf{F}\cdot d\mathbf{s}.$ }
 	\begin{align*}
 		\uncover<3->{\oint_\gamma \mathbf{F}\cdot d\mathbf{s} &= \int_{-\pi}^{\pi} \sin^2t + \cos^2 t dt  }\\

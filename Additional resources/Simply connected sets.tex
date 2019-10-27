@@ -1,0 +1,37 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ Simply connected sets}  % change
+\author{Aryaman Maithani}
+\date[27-10-2019]{27th October, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Simply connected sets}
+	Let $m \in \mathbb{N}$ and $D \subset \mathbb{R}^m.$\\
+	We know that a curve in $D$ is simply a $\mathcal{C}^1$ function $c:[a, b]\to D$ where $a,\;b\in\mathbb{R}$ with $a < b.$\\
+	For the purpose of this discussion, we shall assume $a = 0$ and $b = 1.$\\
+	We say that $c$ can be \emph{continuously} shrunk to a point $d \in D$ if there is a continuous function $H:[0, 1]\times[0, 1]\to D$ such that
+	\begin{enumerate} 
+		\item $H(0, t) = c(t)$ for every $t \in [0, 1],$
+		\item $H(1, t) = d$ for every $t \in [0, 1],$ and
+		\item $H(s, 1) = H(s, 0)$ for every $s \in [0, 1].$
+	\end{enumerate}
+	This map $H$ is called a homotopy in $D$ between the curve $c$ and the constant curve $d.$\\
+	The domain $D$ is said to be simply-connected if $D$ is path-connected and if for every simply closed curve $c$ in $D,$ we have a homotopy $H$ between $c$ and \emph{some} $d \in D.$
+\end{frame}
+\begin{frame}{Alternate definition}
+	The previous definition can also be written in a slightly more concise (but equivalent) way.\\
+	Let $D$ and $c$ have the same meaning as before. Moreover, let $S^1 := \{(x, y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}$ and $U^2 := \{(x, y) \in \mathbb{R}^2 : x^2 + y^2 \le 1\}.$\\~\\
+	%
+	We say that $D$ is simply-connected if $D$ is path-connected and any loop in $D$ defined by $f:S^1 \to D$ can be contracted to a point: there exists a continuous map $F:U^2 \to D$ such that $F$ restricted to $S^1$ is $f.$
+\end{frame}
+\end{document}

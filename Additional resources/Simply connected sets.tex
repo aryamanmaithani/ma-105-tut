@@ -2,7 +2,7 @@
 \mode<presentation>{}
 \usepackage[utf8]{inputenc}
 \newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
-
+\usepackage{ulem}
 
 \title{MA 105 : Calculus\\ Simply connected sets}  % change
 \author{Aryaman Maithani}
@@ -26,12 +26,15 @@
 		\item $H(s, 1) = H(s, 0)$ for every $s \in [0, 1].$
 	\end{enumerate}
 	This map $H$ is called a homotopy in $D$ between the curve $c$ and the constant curve $d.$\\
-	The domain $D$ is said to be simply-connected if $D$ is path-connected and if for every simply closed curve $c$ in $D,$ we have a homotopy $H$ between $c$ and \emph{some} $d \in D.$
+	The domain $D$ is said to be simply-connected if for every simply closed curve $c$ in $D,$ we have a homotopy $H$ between $c$ and \emph{some} $d \in D.$
 \end{frame}
 \begin{frame}{Alternate definition}
 	The previous definition can also be written in a slightly more concise (but equivalent) way.\\
 	Let $D$ and $c$ have the same meaning as before. Moreover, let $S^1 := \{(x, y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}$ and $U^2 := \{(x, y) \in \mathbb{R}^2 : x^2 + y^2 \le 1\}.$\\~\\
 	%
-	We say that $D$ is simply-connected if $D$ is path-connected and any loop in $D$ defined by $f:S^1 \to D$ can be contracted to a point: there exists a continuous map $F:U^2 \to D$ such that $F$ restricted to $S^1$ is $f.$
+	We say that $D$ is simply-connected if any loop in $D$ defined by $f:S^1 \to D$ can be contracted to a point: there exists a continuous map $F:U^2 \to D$ such that $F$ restricted to $S^1$ is $f.$
+\end{frame}
+\begin{frame}{Remark}
+	Usually, we also require $D$ to be path-connected as part of our definition but for the purpose of this course, we do not demand that.
 \end{frame}
 \end{document}

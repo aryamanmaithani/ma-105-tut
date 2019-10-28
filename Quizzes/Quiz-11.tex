@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 2: Solution}      % here
+\author{Aryaman Maithani}
+\date{4th September, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} Using the substitutions $u = y - x$ and $v = x + y,$ express the integral $\displaystyle\iint_D\exp\left(\dfrac{y-x}{y+x}\right)d(x, y),$ where $D$ is the triangular region with vertices $(0,0),\;(1,0)$ and $(0,1)$ in the following form:
+\[\int_{a}^{b} \int_{c(v)}^{d(v)} f(u,v) du dv. \] 
+% question here
+\hfill [5 marks]
+
+\hrulefill
+
+\textbf{Answer.}\\
+The given substitution can be rearranged to give $y = \frac{1}{2}(u + v)$ and $x = \frac{1}{2}(v - u).$\\
+Let $\Phi:\Omega\to\mathbb{R}^2$ be defined as $\Phi(u, v) := \left(\frac{1}{2}(v - u),\;\frac{1}{2}(v + u)\right),$ where $\Omega = \mathbb{R}^2.$\\
+Note that $\Phi$ is a one-to-one transformation. Moreover, if we write $\Phi = (\phi_1,\;\phi_2),$ then $\phi_1$ and $\phi_2$ have continuous partial derivatives in $\Omega.$\\
+Also,
+\[J(\Phi)\left(u_{0}, v_{0}\right) =\operatorname{det}\left[\begin{array}{ll}{\frac{\partial x}{\partial u}\left(u_{0}, v_{0}\right)} & {\frac{\partial x}{\partial v}\left(u_{0}, v_{0}\right)} \\ {\frac{\partial y}{\partial u}\left(u_{0}, v_{0}\right)} & {\frac{\partial y}{\partial v}\left(u_{0}, v_{0}\right)}\end{array}\right]\]
+\[ = \operatorname{det}\left[\begin{array}{ll}{-1/2} & {1/2} \\ {1/2} & {1/2}\end{array}\right] = -1/2 \neq 0\]
+Let $E := \{(u, v) \in \Omega : 0 \le v \le 1,\; -v \le u \le v\}.$\\
+Then, $\Phi(E) = D.$ (A linear transformation with nonzero Jacobian as above sends vertices of a polygon to the vertices. Alternately, one can show that if $(u, v) \in E,$ then $\Phi(u, v) \in D$ and if $(x, y) \in D,$ then there exists $(u, v) \in E$ such that $\Phi(u, v) = (x, y).$ )\\~\\
+Thus, the given integral is the same as 
+\[\iint_E e^{u/v}|J(\Phi)(u, v)|d(u, v) = \iint_Ee^{u/v}\left|-\frac{1}{2}\right|d(u, v).\]
+Using Fubini's theorem, we can write it in the desired form as -
+\[\int_{0}^{1} \int_{-v}^{v} \frac{1}{2}e^{u/v} du dv. \]
+That is, $a = 0,\;b = 1,\;c(v) = -v,$ and $d(v) = v$ where $c$ and $d$ are defined on $[0, 1].$ Moreover, $f(u, v) = \frac{1}{2}e^{u/v}$ for $(u, v) \in E.$
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Broad marking scheme - 2 marks for correct Jacobian, 2 marks for correct $E,$ and 1 mark for correct final form using Fubini.
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Note that $dx, dy, du, dv$ are not real numbers. It makes no sense to write $dy = \frac{1}{2}(du + dv)$ or any other such algebraic expression.
+	\item It also makes not much sense to write $d\left(\frac{v-u}{2},\;\frac{u+v}{2}\right).$
+	\item Marks have not been deducted for lack of mentioning Fubini's theorem this time but that must be kept in mind from next time onwards.
+	\item Some have written the Jacobian in the opposite manner. Make note of what is to be differentiated with respect to what.
+	\item Remember that the Jacobian is the determinant itself, not the matrix.
+	\item When writing the integral as an integral over $E,$ the modulus of the Jacobian must be multiplied, not the Jacobian itself.
+\end{enumerate}
+
+\end{document}

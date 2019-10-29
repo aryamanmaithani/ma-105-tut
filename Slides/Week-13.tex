@@ -1,0 +1,147 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ D1 - T5, Tutorial 13}  % change
+\author{Aryaman Maithani}
+\date[30-10-2019]{30th October, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+\begin{frame}{Sheet 11}                            % change
+	(2) \[\oint_{\partial R}y^2dx + xdy.\]
+	\uncover<2->{In each part, we shall keep our boundary \emph{positively oriented.} }\\
+	\uncover<3->{For this question, this would mean that we are always traversing the path in an anti-clockwise direction. }\\
+	\uncover<4->{Observe that the vector field $(y^2, x)$ defined on $\mathbb{R}^2$ is smooth. }\\
+	\uncover<5->{Each given region $R$ is indeed a subset of $\mathbb{R}^2.$ }\\
+	\uncover<6->{Also, in each case, $\partial R$ consists of a single piecewise smooth curve. }\\
+\end{frame}
+	
+\begin{frame}{Sheet 11}
+	\uncover<1->{Thus, by Green's Theorem, we get that: }
+	\uncover<2->{\[\oint_{\partial R}y^2dx + xdy = \iint_R\left(\frac{\partial}{\partial x}x - \frac{\partial}{\partial y}y^2\right)d(x, y)\] }
+	\uncover<3->{\[\oint_{\partial R}y^2dx + xdy = \iint_R\left(1-2y\right)d(x, y)\] }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(i) Our region here is simply $R = \{(x, y) \in \mathbb{R}^2 : 0 \le x \le 2,\;0\le y \le 2\}.$\\
+	\uncover<2->{Our friend Fubini can easily solve this for us now. }\uncover<3->{The desired integral is simply- }\\
+	\uncover<3->{\[\int_{0}^{2} \int_{0}^{2} (1 - 2y) dy dx \] }
+	\uncover<4->{\[=\int_{0}^{2} (2 - 4) dx \] }
+	\uncover<5->{\[=-4\] }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(ii) \uncover<2->{ Once again, this is quite straightforward by Fubini. The integral is simply:}
+	\begin{align*}
+		\uncover<3->{\int_{-1}^{1} \int_{-1}^{1} (1 - 2y) dy dx }
+		\uncover<4->{= \int_{-1}^{1} (2) dx}
+		\uncover<5->{=4 }
+	\end{align*}
+	\uncover<6->{(iii) }\uncover<7->{Our region now is }\uncover<8->{$R = \{(x, y) \in \mathbb{R}^2 : -2 \le x \le 2,\;-\sqrt{4-x^2} \le y \le \sqrt{4-x^2}\}.$ }\\
+	\uncover<9->{This being an elementary allows our old friend Fubini to help us again.}
+	\uncover<10->{The given integral can simply be written as: }
+	\begin{align*}
+		\uncover<11->{\int_{-2}^{2} \int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}} (1 - 2y) dy dx}
+		\uncover<12->{&= \int_{-2}^{2} 2(\sqrt{4-x^2}) dx }\\
+		\uncover<13->{&= 4\pi}
+	\end{align*}
+\end{frame}
+\begin{frame}{Sheet 11}
+	(3) Let the equation of the curve $C$ be given by $r = \rho(t)$ and $\theta = \theta(t)$ for $t \in [a, b].$ Let $D$ be the closed region enclosed by this curve.\\
+	\uncover<2->{Then, $\operatorname{Area}(D)$ is $\displaystyle\iint_D1_Dd(x, y),$ by definition. }\\
+	\uncover<3->{By Green's theorem, we know that $\displaystyle\iint_D1_Dd(x, y) = \frac{1}{2} \oint_{\partial D} x d y-y d x.$  }
+	\uncover<4->{In our case, we have $\partial D = C.$ }\\
+	\uncover<5->{Note: We are assuming that $C$ is {\color[rgb]{1, 0, 0} positively oriented.} }
+\end{frame}
+	
+\begin{frame}{Sheet 11}
+	\uncover<1->{Consider the parameterisation of $C$ given by $(x(\theta),\;y(\theta)),$ where $x(\theta) := \rho(t)\cos(\theta(t)) \cos \theta$ and $y(\theta):=\rho(t)\sin(\theta(t))$ for $t \in[a, b].$ }\\~\\
+	\uncover<2->{Note that we have $x'(t) = \rho'(t)\cos(\theta(t)) - \rho(t)\sin(\theta(t))\theta'(t)$ and $y'(t) = \rho'(t)\sin(\theta(t)) + \rho(t)\cos(\theta(t))\theta'(t).$ }\\
+	\uncover<3->{Thus, $x(t)y'(t) - y(t)x'(t) = (\rho(t))^2\theta'(t).$ }\\~\\
+	\uncover<4->{Hence, the area is given by $\displaystyle\frac{1}{2} \oint_{\partial D} (x(\theta)y'(\theta) - y(\theta)x'(\theta))d\theta$} \uncover<5->{$=\displaystyle\dfrac{1}{2}\int_{a}^{b} (\rho(t))^2\theta'(t) dt .$ }\\
+	\uncover<6->{$ = \displaystyle\oint_Cr^2d\theta.$ }\\~\\
+	\uncover<7->{Note that $C$ was indeed positively oriented. }\hfill\uncover<8->{(How?) }
+\end{frame}
+\begin{frame}{Sheet 11}
+	Using the formula derived makes the questions very simple now as we are given everything explicitly.\\
+	\uncover<2->{(i) The area is given by:}
+	\uncover<3->{\[\frac{1}{2}\int_{0}^{2\pi} a^2(1-\cos\theta)^2 d\theta \] }
+	\uncover<4->{\[ = \frac{3}{2}\pi a^2\] }
+	\uncover<5->{(ii) The area is given by: }
+	\uncover<6->{\[\frac{1}{2}\int_{-\pi/4}^{\pi/4} a^{2} \cos 2 \theta d\theta \] }
+	\uncover<7->{\[=\frac{1}{2}a^2\] }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(4) (i) \uncover<2->{We shall use the derived formula to write the area as:}
+	\uncover<3->{$\displaystyle\frac{1}{2}\int_{0}^{\pi/2} a^2(1 - \cos\theta)^2 d\theta$}\uncover<4->{$ = a^2(\frac{3\pi}{8}-1).$ }\\~\\
+	\uncover<5->{(iii) }\uncover<6->{Similarly as before, we get the area to simply be: }\\
+	\uncover<7->{$\displaystyle\frac{1}{2}\int_{0}^{\pi/2} (1-2\cos\theta)^2 d\theta$ }\uncover<8->{$ = \frac{3\pi}{4}-2.$ }\\
+	\uncover<9->{Note that in both the above cases, the curve was actually the union of the polar curve given and some part of the axes. However, $\theta$ is constant along the axes and hence, we get the correct answer. }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(ii) The required area is
+	\[\frac{1}{2} \oint_{C} x d y-y d x\]
+	\uncover<2->{Where $C$ is the line segment $[0,2\pi]\times\{0\}$ traversed from left to right along with the cycloid traversed in the ``opposite direction.'' }\\
+	\uncover<3->{However, the integrand is zero on the $x$-axis as $y = 0$ and is constant. }\\
+	\uncover<4->{Thus, the required area is: }\\
+	\uncover<5->{$\displaystyle-\frac{a^2}{2}\int_{0}^{2\pi} [(t - \sin t)(\sin t) - (1 - \cos t)(1 - \cos t)] dt $ }\uncover<6->{ $ = 3\pi a^2. $ }\\
+	\uncover<7->{(The answer given at the back is wrong.) }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(5) \[\oint_C xe^{-y^2}dx + \left[-x^2ye^{-y^2} + \frac{1}{x^2 + y^2}\right]dy.\]
+	\uncover<2->{Observe that the above can be re-written as }
+	\uncover<3->{\[\left(\oint_C xe^{-y^2}dx + -x^2ye^{-y^2}dy\right) + \oint_C \frac{1}{x^2 + y^2}dy.\] }
+	\uncover<4->{Note that the first integral can be written as: }
+	\uncover<5->{\[\frac{1}{2}\oint_C \nabla(x^2e^{-y^2})\cdot d\mathbf{r}\] }
+	\vspace{1.5cm}
+\end{frame}
+\begin{frame}{Sheet 11}
+	Now, we turn to the second integral.
+	\uncover<2->{We need to integrate $\frac{1}{x^2 + y^2}$ around the square with boundaries given by $|x| = a$ and $|y| = a$ in the counter-clockwise direction. }\\
+	\uncover<3->{It is clear that the integral along the ``top'' and ``bottom'' curves will be zero as $y$ is constant there.  }\\
+	\uncover<4->{Moreover, the integral along the ``right'' curve will be equal in magnitude but opposite in sign to the integral along the ``left'' curve. }\\
+	\uncover<5->{Thus, the second integral along $C$ is zero and so is the first as it's the integral of a gradient field along a closed loop. }\\
+	\uncover<6->{Using the famous identity $0 + 0 = 0$ gives us the answer to be $0.$ }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(10) (i) \[\oint_C \frac{xdy - ydx }{x^2 + y^2}.\]\\
+	\uncover<2->{Consider the open set $S := \mathbb{R}^2 \setminus \{0, 0\}.$ }\\
+	\uncover<3->{Define the scalar fields $P := \frac{x}{x^2 + y^2}$ and $Q := -\frac{y}{x^2 + y^2}$ on $S.$ }\\
+	\uncover<4->{It can be seen that they are smooth and moreover, $P_y = Q_x$ on $S.$ }\\
+	\uncover<5->{Now, let us consider the following two scenarios: }\\
+	\uncover<6->{(a) $C$ does not enclose the origin. }
+	\uncover<6->{(b) $C$ encloses the origin. }\\
+	\uncover<7->{Let $D$ denote the closed and bounded subset of $\mathbb{R}^2$ enclosed by $C.$ }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(a) $C$ does not enclose the origin. 
+	\uncover<2->{In this case, $(P, Q)$ is defined everywhere on $D$ and hence, we simply get that the integral is $0.$ }\\~\\
+	\uncover<3->{(b) $C$ encloses the origin. }\\
+	\uncover<4->{As $C$ does not pass through the origin, there exists $\epsilon > 0$ such that the disc of radius $\epsilon$ centered at $(0, 0)$ lies completely inside $D.$ Let this disc be $D_\epsilon.$ }\hfill\uncover<5->{(How?) }\\
+	\uncover<6->{Now, the field $(P, Q)$ is defined everywhere on the region outside $D_\epsilon$ and within $D.$ }
+\end{frame}
+\begin{frame}{Sheet 11}
+	Thus, using the so-called deformation principle gives us that
+	\uncover<2->{ \[\oint_C Pdx + Qdy = \oint_{\partial D_\epsilon}Pdx + Qdy,\]}
+	\uncover<3->{where the boundary $\partial D_{\epsilon}$ is oriented positively.}\\
+	\uncover<4->{The integral on the left can be easily calculated using the parameterisation $(\epsilon\cos\theta,\epsilon\sin\theta)$ for $\theta \in [-\pi, \pi].$ }\\
+	\uncover<5->{The answer comes out to be $-2\pi.$ }\\
+	\uncover<6->{This completes the question. }
+\end{frame}
+\begin{frame}{Sheet 11}
+	(10) (ii) \uncover<2->{Once again, note that $\displaystyle\frac{\partial}{\partial y}\frac{x^2y}{(x^2 + y^2)^2} = \frac{x^2(x^2 - 3y^2)}{(x^2 + y^2)^3} = \frac{\partial}{\partial x}\left(-\frac{x^3}{(x^2 + y^2)^2}\right).$ }\\~\\
+	\uncover<3->{Thus, the same argument as before shows that we can integrate the integrand over any other curve containing the origin that lies inside the curve given, along the same direction. }\\
+	\uncover<4->{We can simply choose the curve to be the unit circle centered at origin. }\\
+	\uncover<5->{Hence, we need to compute the following: }
+	\begin{align*}
+		\uncover<6->{\int_{0}^{2\pi} [(\cos\theta)^2(\sin\theta)(-\sin\theta) - (\cos\theta)^3(\cos\theta)] d\theta  }\uncover<7->{= -\pi. }
+	\end{align*}
+	\uncover<8->{(The answer given at the back is wrong.) }	
+\end{frame}
+\end{document}

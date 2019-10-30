@@ -48,7 +48,7 @@
 	\uncover<10->{The given integral can simply be written as: }
 	\begin{align*}
 		\uncover<11->{\int_{-2}^{2} \int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}} (1 - 2y) dy dx}
-		\uncover<12->{&= \int_{-2}^{2} 2(\sqrt{4-x^2}) dx }\\
+		\uncover<12->{&= \int_{-2}^{2} \int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}} (1) dy dx}\\
 		\uncover<13->{&= 4\pi}
 	\end{align*}
 \end{frame}
@@ -61,12 +61,12 @@
 \end{frame}
 	
 \begin{frame}{Sheet 11}
-	\uncover<1->{Consider the parameterisation of $C$ given by $(x(\theta),\;y(\theta)),$ where $x(\theta) := \rho(t)\cos(\theta(t)) \cos \theta$ and $y(\theta):=\rho(t)\sin(\theta(t))$ for $t \in[a, b].$ }\\~\\
+	\uncover<1->{Consider the parameterisation of $C$ given by $(x(t),\;y(t)),$ where $x(t) := \rho(t)\cos(\theta(t))$ and $y(t):=\rho(t)\sin(\theta(t))$ for $t \in[a, b].$ }\\~\\
 	\uncover<2->{Note that we have $x'(t) = \rho'(t)\cos(\theta(t)) - \rho(t)\sin(\theta(t))\theta'(t)$ and $y'(t) = \rho'(t)\sin(\theta(t)) + \rho(t)\cos(\theta(t))\theta'(t).$ }\\
 	\uncover<3->{Thus, $x(t)y'(t) - y(t)x'(t) = (\rho(t))^2\theta'(t).$ }\\~\\
 	\uncover<4->{Hence, the area is given by $\displaystyle\frac{1}{2} \oint_{\partial D} (x(\theta)y'(\theta) - y(\theta)x'(\theta))d\theta$} \uncover<5->{$=\displaystyle\dfrac{1}{2}\int_{a}^{b} (\rho(t))^2\theta'(t) dt .$ }\\
-	\uncover<6->{$ = \displaystyle\oint_Cr^2d\theta.$ }\\~\\
-	\uncover<7->{Note that $C$ was indeed positively oriented. }\hfill\uncover<8->{(How?) }
+	\uncover<6->{$ = \frac{1}{2}\displaystyle\oint_Cr^2d\theta.$ }\\~\\
+	\uncover<7->{Was $C$ indeed positively oriented? }
 \end{frame}
 \begin{frame}{Sheet 11}
 	Using the formula derived makes the questions very simple now as we are given everything explicitly.\\
@@ -112,7 +112,7 @@
 \begin{frame}{Sheet 11}
 	(10) (i) \[\oint_C \frac{xdy - ydx }{x^2 + y^2}.\]\\
 	\uncover<2->{Consider the open set $S := \mathbb{R}^2 \setminus \{0, 0\}.$ }\\
-	\uncover<3->{Define the scalar fields $P := \frac{x}{x^2 + y^2}$ and $Q := -\frac{y}{x^2 + y^2}$ on $S.$ }\\
+	\uncover<3->{Define the scalar fields $Q(x, y) := \frac{x}{x^2 + y^2}$ and $P(x, y) := -\frac{y}{x^2 + y^2}$ for $(x, y) \in S.$ }\\
 	\uncover<4->{It can be seen that they are smooth and moreover, $P_y = Q_x$ on $S.$ }\\
 	\uncover<5->{Now, let us consider the following two scenarios: }\\
 	\uncover<6->{(a) $C$ does not enclose the origin. }

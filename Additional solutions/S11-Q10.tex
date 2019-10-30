@@ -1,0 +1,29 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ Sheet 10 Question 11}  % change
+\author{Aryaman Maithani}
+\date[29-10-2019]{29th October, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}{Sheet 10 Question 11}                            % change
+	$\mathbf{F}(x, y, z) = f(r)\mathbf{r} = f(r)x \mathbf{i} + f(r)y \mathbf{j} + f(r)z \mathbf{k}.$\\
+	As $r = (x^2 + y^2 + z^2)^{1/2},$ we get that
+	\[\frac{\partial r}{\partial x} = \frac{x}{r},\;\frac{\partial r}{\partial y} = \frac{y}{r},\;\frac{\partial r}{\partial z} = \frac{z}{r}.\]
+	If $\mathbf{F}$ is to be $\nabla\varphi$ for some scalar field $\varphi,$ then we must have $\varphi_x = f(r)x,$ $\varphi_y = f(r)y,$ $\varphi_z = f(r)z;$ that is, 
+	\[\varphi_x = xf(x) = \frac{x}{r}rf(r) = \frac{\partial r}{\partial x}rf(r),\] 
+	\[\varphi_y = yf(y) = \frac{y}{r}rf(r) = \frac{\partial r}{\partial y}rf(r),\] 
+	\[\varphi_z = zf(z) = \frac{z}{r}rf(r) = \frac{\partial r}{\partial z}rf(r).\]
+	Conversely, if $\varphi$ satisfies the above properties, then $\nabla \varphi = \mathbf{F}.$\\
+\end{frame}
+\begin{frame}{Sheet 10 Question 11} 
+	Now, it can be seen that if we define $\varphi(x, y, z) := \displaystyle\int_{0}^{r} tf(t) dt,$ then $\varphi$ satisfies the above properties. Note that we use the fact that $t \mapsto tf(t)$ is a continuous function and hence, $\varphi$ is differentiable, by (modified) FTC (part I).\\~\\
+	One possible problem however, is that $r$ is not differentiable at $(0, 0, 0)$ and thus, that must be resolved. I leave this to the reader.
+\end{frame}
+\end{document}

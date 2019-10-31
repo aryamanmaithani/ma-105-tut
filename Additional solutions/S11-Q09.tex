@@ -1,0 +1,41 @@
+\documentclass[handout, aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 105 : Calculus\\ Sheet 11 Question 9}  % change
+\author{Aryaman Maithani}
+\date[31-10-2019]{31st October, 2019}               % change
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+\begin{frame}{Sheet 11 Question 9}                            % change
+	(9) Let us first prove these so-called Green's identities as we can't recall something that we haven't seen before.\\
+	All of these proofs are actually quite simple. We shall continuously be using the normal form of Green's theorem, that is,
+	\[\int_{\partial R}\mathbf{F}\cdot\mathbf{\hat{n}}ds = \iint_R(\nabla\cdot\mathbf{F})d(x, y).\]
+	Also, I shall point that the notation $\dfrac{\partial w}{\partial \mathbf{n}}$ stands for $(\nabla w)\cdot\mathbf{\hat{n}}.$\\~\\
+	(i)	Use the above normal form for $\mathbf{F} = \nabla w.$\\
+	(ii) Use the above normal form for $\mathbf{F} = \frac{1}{2}\nabla (w^2)$ and use the identities (2)(i) and (3)(i) from Sheet 9.\\
+	(iii) Simply consider the normal form for $\mathbf{F} = v\nabla w - w\nabla v$ and use the product identities as before.
+\end{frame}
+\begin{frame}{Sheet 11 Question 9} 
+	(a) We quite simply get $\nabla^2 w = 0$ and hence the desired integral is zero by part (i).\\~\\
+	(b) Define $\mathbf{H} = \mathbf{F} - \mathbf{G}.$ Then, $\nabla\times\mathbf{H}=\mathbf{0}.$ Since $D$ is simply connected, there exists a scalar field $\varphi$ on $D$ such that $\nabla \varphi = \mathbf{H}.$ \hfill (Why is $D$ simply connected?)\\
+	Observe that $\nabla\cdot\mathbf{H} = 0$ implies that $\nabla^2\varphi = 0.$\\
+	Lastly, $\mathbf{H}\cdot\mathbf{N} = 0$ gives us that $(\nabla\varphi)\cdot\mathbf{N} = 0$ on the boundary $C.$ Now using the second identity with $w = \varphi$ gives us that:
+	\[\iint_D [(\nabla \varphi)\cdot(\nabla \varphi)]d(x, y) = 0,\]
+	or 
+	\[\iint_D \|\mathbf{H}\|^2d(x, y) = 0.\]
+\end{frame}
+\begin{frame}{Sheet 11 Question 9} 
+	Now, note that $H$ is a smooth vector field. In particular, it is continuous and hence, so is $\|\mathbf{H}\|^2.$ If the integral of a non-negative \textbf{continuous} function is zero, then we know that the function itself must be identically $0,$ that is, it must be $0$ everywhere in the region.\\
+	Thus, we get that $\|\mathbf{H}\|^2 = 0$ on $D$ which is equivalent to saying that $\mathbf{H} = \mathbf{0}$ on $D,$ which in turn is the same as:
+	\[\mathbf{F} = \mathbf{G} \quad \text{on } D.\]
+	\vspace{1 cm}
+	
+	Note that the hypothesis of $\|\mathbf{H}\|^2$ being continuous is essential to conclude that it must be $0$ everywhere.
+\end{frame}
+\end{document}

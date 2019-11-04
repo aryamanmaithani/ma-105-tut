@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+
+\setlength\parindent{0pt}
+
+\usepackage{xcolor}
+\definecolor{mybgcolor}{RGB}{46, 51, 63} %46, 51, 63
+
+\usepackage{pagecolor}
+\pagecolor{mybgcolor}
+\color{white}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\title{Short Quiz 12: Solution}      % here
+\author{Aryaman Maithani}
+\date{30th October, 2019}  		 % here
+
+\begin{document}
+\maketitle
+
+\hrulefill
+
+\textbf{Question.} State whether the following statement is true or false. Justify your answer.\\ 
+The vector field $F(x, y) = (-y, x)$ on $\mathbb{R}^2$ is a gradient field.
+% question here
+\hfill [5 marks]
+\begin{flushright}
+	[2 marks for correct alternative (T/F); 3 marks for correct justification]\\~\\
+\end{flushright}
+
+\hrulefill
+
+\textbf{Answer.} F \hfill \textbf{[2]}\\  % Fill T/F
+Justification: \\
+The cross-derivative test states that any smooth vector field $\mathbf{F} = (P, Q)$ defined on an open subset of $\mathbb{R}^2$ that is a gradient field must satisfy $P_y = Q_x.$ \hfill \textbf{[1]}\\~\\
+%
+In this case, we have $P(x, y) = -y$ and $Q(x, y) = x$ and we verify that the above does not hold for the given vector field:
+\[P_y = \frac{\partial (-y)}{\partial y} = -1 \neq 1 = \frac{\partial (x)}{\partial x} = Q_x.\]
+Thus, $\mathbf{F}$ is not a gradient field. \hfill \textbf{[2]}\\
+One notes that it was indeed the case that $\mathbf{F}$ was a smooth vector field defined on an open subset of $\mathbb{R}^2.$
+
+
+\hrulefill
+
+\vspace{0.2 cm}
+
+Points to be noted -
+\begin{enumerate} 
+	\item Alternately, one could show that the integral of the vector field over the unit circle centered at origin is not zero and by the equivalence between path independence and gradient fields, $\mathbf{F}$ is not a gradient field.
+	\item Note that we don't require any notion of simple-connectedness in this question.
+	\item Some have calculated the ``curl'' which is not correct as the given vector field is not three-dimensional. No marks have been deducted this time.
+	\item Marks haven't been deducted for failure to mention ``smooth vector field'' either. However, keep this in mind.
+	\item As usual, it doesn't make sense to write $\frac{\partial F}{\partial x}$ or to talk about the gradient of a vector field.
+\end{enumerate}
+
+\end{document}

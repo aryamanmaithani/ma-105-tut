@@ -1,0 +1,13 @@
+
+\begin{frame}{Courses in future} 
+	Do not think that the set of first year courses is a good representative for what is to follow.\\
+	\uncover<2->{You must learn to sort of ``be at war'' with your courses. }\\
+	\uncover<3->{The courses of first year will be quite simple relatively and still easy to learn based on your 10+2 knowledge. }\\
+	\uncover<4->{However, this will not be the case in the later years. }\uncover<5->{Courses will get tougher and require sincere efforts from your side to keep up. }
+\end{frame}
+\begin{frame}{Happiness} 
+	\uncover<2->{With courses becoming tougher, it's also quite likely that you'll find life more stressful. }\\
+	\uncover<3->{I wish I could tell you some sure-shot mantras so that you'd be happy. }\\
+	\uncover<4->{Sadly, that is not the case. }\\
+	\uncover<5->{One thing I would like to say is that  }\\
+\end{frame}

@@ -10,4 +10,5 @@
 	\uncover<3->{I wish I could tell you some sure-shot mantras so that you'd be happy. }\\
 	\uncover<4->{Sadly, that is not the case. }\\
 	\uncover<5->{One thing I would like to say is that  }\\
+	% epsteindidntkillhimself
 \end{frame}

@@ -3,10 +3,11 @@
 \usepackage[utf8]{inputenc}
 \newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
 \usepackage{ulem}
+\usepackage{parskip}
 
 \title{MA 105 : Calculus\\ Simply connected sets}  % change
 \author{Aryaman Maithani}
-\date[27-10-2019]{27th October, 2019}               % change
+\date{\today}               % change
 \institute[IITB]{IIT Bombay}
 \usetheme{Warsaw}
 \usecolortheme{beetle}
@@ -17,16 +18,25 @@
 \end{frame}
 \begin{frame}{Simply connected sets}
 	Let $m \in \mathbb{N}$ and $D \subset \mathbb{R}^m.$\\
-	We know that a curve in $D$ is simply a $\mathcal{C}^1$ function $c:[a, b]\to D$ where $a,\;b\in\mathbb{R}$ with $a < b.$\\
+	A \emph{loop} in $D$ is simply a continuous function $c:[a, b]\to D$ where $a,\;b\in\mathbb{R}$ with $a < b$ such that $c(a) = c(b).$\\
 	For the purpose of this discussion, we shall assume $a = 0$ and $b = 1.$\\
-	We say that $c$ can be \emph{continuously} shrunk to a point $d \in D$ if there is a continuous function $H:[0, 1]\times[0, 1]\to D$ such that
+	We say that $c$ can be \emph{continuously} shrunk \emph{in $D$} to a point $d \in D$ if there is a continuous function $H:[0, 1]\times[0, 1]\to D$ such that
 	\begin{enumerate} 
-		\item $H(0, t) = c(t)$ for every $t \in [0, 1],$
-		\item $H(1, t) = d$ for every $t \in [0, 1],$ and
-		\item $H(s, 1) = H(s, 0)$ for every $s \in [0, 1].$
+		\item $H(s, 0) = c(s)$ for every $s \in [0, 1],$
+		\item $H(s, 1) = d$ for every $s \in [0, 1],$ and
+		\item $H(0, t) = H(1, t)$ for every $t \in [0, 1].$
 	\end{enumerate}
 	This map $H$ is called a homotopy in $D$ between the curve $c$ and the constant curve $d.$\\
 	The domain $D$ is said to be simply-connected if for every simply closed curve $c$ in $D,$ we have a homotopy $H$ between $c$ and \emph{some} $d \in D.$
+\end{frame}
+\begin{frame}{Intuitive interpretation}
+	The definition is just how one would formally write what it means to ``continuously shrink'' a loop.
+
+	In $(s, t),$ the $t$ can be thought of as time. The first point is saying that at time $t = 0,$ the curve $H(-, t) = H(-, 0)$ is simply the original loop $c.$ Similarly, the second point is saying that at time $t = 1,$ it becomes the constant loop $d.$
+
+	The third point is ensuring that during the deformation, at each point of time, we still do have a \emph{loop}.
+
+	Demanding $H$ to be continuous ensures that the shrinking is a ``continuous process.'' Note that the codomain of $H$ being $D$ ensures that the shrinking happens completely within $D.$
 \end{frame}
 \begin{frame}{Alternate definition}
 	The previous definition can also be written in a slightly more concise (but equivalent) way.\\

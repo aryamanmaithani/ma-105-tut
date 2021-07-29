@@ -52,7 +52,7 @@ The name of this document is so because I define every concept in terms of topol
 		\end{enumerate}
 	\end{defn}
 	That last property is known as the \emph{Triangle inequality.}
-	Thus, the modulus function is a function that is \emph{a} metric on $\mathbb{R}.$\\
+	Thus, the modulus of difference function is a function that is \emph{a} metric on $\mathbb{R}.$ (That is, the function $d : \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ defined as $d(x, y) \vcentcolon= |x - y|.$) \\
 	However, it is \emph{not} the only metric that could be defined on $\mathbb{R}.$ For example, one could define $d(x, y) := \dfrac{|x-y|}{1 + |x-y|}$ for $x, y \in \mathbb{R}.$ It is an exercise for the reader to check that this actually is a metric. The first two conditions are easy to verify.\\~\\
 	Another thing to observe is that we assume \emph{nothing} about the set $X.$ All we care about is defining a distance on it. Thus, one could very well take $X := \{\text{apple}, \pi, \text{apple pie}\}$ and define a metric $d:X \times X \to Y$ as:
 	\[d(x, y) := \left\{\begin{array}{c r}
@@ -76,8 +76,8 @@ The name of this document is so because I define every concept in terms of topol
 	\begin{defn}
 		Given a set $X$ with an associated metric $d,$ we say that $(X, d)$ is a metric space.
 	\end{defn}
-	By abuse of notation, we often say that $X$ is a metric space and omit the mention of $d$ if it is clear what $d$ is.\\
-	The modulus function defined on $\mathbb{R}$ is called the \emph{standard metric} on $\mathbb{R}$ and whenever we say ``$\mathbb{R}$ with the standard (usual) metric,'' we shall refer to the metric space $(\mathbb{R}, x \mapsto |x|).$ Similarly, the Euclidean distance is the standard (usual) metric on $\mathbb{R}^n.$\\
+	By abuse of notation, we often say that ``$X$ is a metric space'' and omit the mention of $d$ if it is clear what $d$ is.\\
+	The modulus function defined on $\mathbb{R}$ is called the \emph{standard metric} on $\mathbb{R}$ and whenever we say ``$\mathbb{R}$ with the standard (usual) metric,'' we shall refer to the metric space $(\mathbb{R}, (x, y) \mapsto |x - y|).$ Similarly, the Euclidean distance is the standard (usual) metric on $\mathbb{R}^n.$\\
 	One can observe that if $(X, d)$ is a metric space and $Y \subset X,$ then $Y$ can naturally be regarded as a metric space by restricting the domain of $d$ to $Y \times Y.$ It can easily be verified that this new function is indeed a metric on $Y.$\footnote{Note that we say ``new'' function as it is a function with a different domain.} We then say that $Y$ is a metric subspace of $X.$
 	%
 	\section{Open sets}
